@@ -1,0 +1,3141 @@
+{
+  "metadata": {
+    "command": "python experiments/ch06_rewards.py",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "book_run": true,
+    "commit": "f94d7a6",
+    "date": "2026-10-22T14:01:49+00:00"
+  },
+  "ppo_config": {
+    "total_steps": 500000,
+    "n_envs": 8,
+    "n_steps": 256,
+    "epochs": 10,
+    "minibatch_size": 256,
+    "gamma": 0.995,
+    "lam": 0.95,
+    "clip_epsilon": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.0,
+    "value_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "hidden_sizes": [
+      64,
+      64
+    ],
+    "initial_log_std": 0.0,
+    "normalize_observations": true,
+    "normalize_advantages": true,
+    "seed": 0
+  },
+  "eval_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019
+  ],
+  "directives": {
+    "conserve": 0.15,
+    "attack": 0.85
+  },
+  "shortcut_accounting": {
+    "agentic": {
+      "expert_lap": {
+        "return_mean": 27.99892453659055,
+        "discounted_return_mean": 10.004790135506196,
+        "end_reasons": {
+          "lap": 20
+        },
+        "reward_terms": {
+          "edge": -2.211415724618202,
+          "lap": 16.072133333333404,
+          "line_follow": 0.3434475160956903,
+          "progress": 9.789520852070316,
+          "slow": -0.033335755815796626,
+          "target_speed": 4.038574315525141
+        }
+      },
+      "shortcut": {
+        "return_mean": 2.2562629271470653,
+        "discounted_return_mean": 2.920330901219184,
+        "end_reasons": {
+          "stall": 10,
+          "stuck": 10
+        },
+        "reward_terms": {
+          "edge": -1.3277785544929033,
+          "end_stall": -0.5,
+          "end_stuck": -0.5,
+          "line_follow": 0.18084184024706576,
+          "progress": 5.111013454236199,
+          "slow": -0.7729306007333607,
+          "stuck": -2.0463,
+          "target_speed": 2.111416787890065
+        }
+      }
+    },
+    "sparse": {
+      "expert_lap": {
+        "return_mean": 12.0,
+        "discounted_return_mean": 2.772143817956711,
+        "end_reasons": {
+          "lap": 20
+        },
+        "reward_terms": {
+          "lap": 12.0
+        }
+      },
+      "shortcut": {
+        "return_mean": 0.0,
+        "discounted_return_mean": 0.0,
+        "end_reasons": {
+          "stall": 10,
+          "stuck": 10
+        },
+        "reward_terms": {}
+      }
+    },
+    "no_target_speed": {
+      "expert_lap": {
+        "return_mean": 23.99368597688121,
+        "discounted_return_mean": 7.915041092984131,
+        "end_reasons": {
+          "lap": 20
+        },
+        "reward_terms": {
+          "edge": -2.211415724618202,
+          "lap": 16.072133333333404,
+          "line_follow": 0.3434475160956903,
+          "progress": 9.789520852070316
+        }
+      },
+      "shortcut": {
+        "return_mean": 0.9177767399903601,
+        "discounted_return_mean": 1.7536650694919342,
+        "end_reasons": {
+          "stall": 10,
+          "stuck": 10
+        },
+        "reward_terms": {
+          "edge": -1.3277785544929033,
+          "end_stall": -0.5,
+          "end_stuck": -0.5,
+          "line_follow": 0.18084184024706576,
+          "progress": 5.111013454236199,
+          "stuck": -2.0463
+        }
+      }
+    },
+    "with_directive": {
+      "expert_lap": {
+        "return_mean": 27.92188504135789,
+        "discounted_return_mean": 9.949363609212806,
+        "end_reasons": {
+          "lap": 20
+        },
+        "reward_terms": {
+          "edge": -2.211415724618202,
+          "lap": 16.072133333333404,
+          "line_follow": 0.3434475160956903,
+          "progress": 9.789520852070316,
+          "slow": -0.019270360405334735,
+          "target_speed": 3.947469424882012
+        }
+      },
+      "shortcut": {
+        "return_mean": 2.2209672232931923,
+        "discounted_return_mean": 2.882658766334898,
+        "end_reasons": {
+          "stall": 10,
+          "stuck": 10
+        },
+        "reward_terms": {
+          "edge": -1.3277785544929033,
+          "end_stall": -0.5,
+          "end_stuck": -0.5,
+          "line_follow": 0.18084184024706576,
+          "progress": 5.111013454236199,
+          "slow": -0.7641015711689394,
+          "stuck": -2.0463,
+          "target_speed": 2.0672920544717717
+        }
+      }
+    },
+    "race04": {
+      "expert_lap": {
+        "return_mean": 27.022437137400818,
+        "discounted_return_mean": 9.429895414702305,
+        "end_reasons": {
+          "lap": 20
+        },
+        "reward_terms": {
+          "edge": -0.0435,
+          "lap": 16.072133333333404,
+          "line_follow": 0.6868950321913806,
+          "progress": 9.789520852070316,
+          "speed": 1.2538629198057076,
+          "time": -0.7364749999999952
+        }
+      },
+      "shortcut": {
+        "return_mean": 4.631642710624001,
+        "discounted_return_mean": 3.53977052793147,
+        "end_reasons": {
+          "stuck": 20
+        },
+        "reward_terms": {
+          "edge": -0.025499999999999995,
+          "end_stuck": -1.0,
+          "line_follow": 0.3616836804941315,
+          "progress": 5.110977784383518,
+          "speed": 0.6563812457463519,
+          "time": -0.4719000000000004
+        }
+      }
+    },
+    "survival_bias": {
+      "expert_lap": {
+        "return_mean": 14.729500000000076,
+        "discounted_return_mean": 7.69778528962555,
+        "end_reasons": {
+          "lap": 20
+        },
+        "reward_terms": {
+          "alive": 14.729500000000076
+        }
+      },
+      "shortcut": {
+        "return_mean": 10.348500000000026,
+        "discounted_return_mean": 6.447514539935783,
+        "end_reasons": {
+          "stall": 10,
+          "stuck": 10
+        },
+        "reward_terms": {
+          "alive": 11.348500000000028,
+          "end_stall": -0.5,
+          "end_stuck": -0.5
+        }
+      }
+    },
+    "race04_aggressive": {
+      "expert_lap": {
+        "return_mean": 26.33400920086895,
+        "discounted_return_mean": 7.9732040577399514,
+        "end_reasons": {
+          "lap": 15,
+          "time_limit": 5
+        },
+        "reward_terms": {
+          "lap": 10.868533333333266,
+          "line_follow": 0.7844866628730508,
+          "progress": 14.007850809115379,
+          "speed": 1.822788395547232,
+          "time": -1.1496499999999865
+        }
+      },
+      "shortcut": {
+        "return_mean": 4.568289423582872,
+        "discounted_return_mean": 3.543648564767527,
+        "end_reasons": {
+          "stuck": 20
+        },
+        "reward_terms": {
+          "end_stuck": -1.0,
+          "line_follow": 0.30079795047679714,
+          "progress": 5.078664292312402,
+          "speed": 0.6680521807936723,
+          "time": -0.47922499999999957
+        }
+      }
+    }
+  },
+  "variants": {
+    "agentic": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "progress_encoding": "linear",
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 152.6,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910808794763998,
+            "lap_fraction_std": 0.0006528123492136736,
+            "lap_fraction_min": 0.9902797950688413,
+            "completed_laps": 20,
+            "lap_time_mean": 16.516999999999733,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.3533901276213,
+            "mean_brake": 0.0003908452283622337,
+            "return_mean": 28.85852244219665,
+            "discounted_return_mean": 15.127526559843579,
+            "reward_terms": {
+              "edge": -0.019958349445256002,
+              "lap": 17.797733333333372,
+              "line_follow": 0.24713114164262104,
+              "progress": 9.796262708542255,
+              "slow": -0.019013458064468167,
+              "target_speed": 1.0563670661881326
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911127523331219,
+            "lap_fraction_std": 0.000710347717354897,
+            "lap_fraction_min": 0.9900863392679816,
+            "completed_laps": 20,
+            "lap_time_mean": 16.515999999999735,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.381060801794966,
+            "mean_brake": 0.0004729924996850146,
+            "return_mean": 28.851288985148983,
+            "discounted_return_mean": 15.123972643710914
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910406984473891,
+            "lap_fraction_std": 0.0006852825714370309,
+            "lap_fraction_min": 0.9900185616316799,
+            "completed_laps": 20,
+            "lap_time_mean": 16.511999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.31039553862005,
+            "mean_brake": 0.0007875881898080919,
+            "return_mean": 28.85806945542252,
+            "discounted_return_mean": 15.131088466084183
+          },
+          "conserve_minus_attack_s": 0.004000000000001336
+        },
+        {
+          "seed": 1,
+          "train_seconds": 159.3,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909676468643113,
+            "lap_fraction_std": 0.0007262233901195303,
+            "lap_fraction_min": 0.990132981758854,
+            "completed_laps": 20,
+            "lap_time_mean": 16.694999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.966522220391305,
+            "mean_brake": 0.04756417418537312,
+            "return_mean": 28.897650301494913,
+            "discounted_return_mean": 15.076281642715491,
+            "reward_terms": {
+              "edge": -0.12858385061972363,
+              "lap": 17.774000000000036,
+              "line_follow": 0.3200740895728972,
+              "progress": 9.795143469499138,
+              "slow": -0.01899566830243004,
+              "target_speed": 1.1560122613449924
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911314487250473,
+            "lap_fraction_std": 0.0007432378401346087,
+            "lap_fraction_min": 0.9900795989869412,
+            "completed_laps": 20,
+            "lap_time_mean": 16.799999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.775371704337907,
+            "mean_brake": 0.054497618199352595,
+            "return_mean": 28.910457360066783,
+            "discounted_return_mean": 15.036807768848245
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908765846823103,
+            "lap_fraction_std": 0.0006728064788965888,
+            "lap_fraction_min": 0.9900750973302627,
+            "completed_laps": 20,
+            "lap_time_mean": 16.556999999999736,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.217837069958364,
+            "mean_brake": 0.033636306251221916,
+            "return_mean": 28.896545943460232,
+            "discounted_return_mean": 15.143065686815827
+          },
+          "conserve_minus_attack_s": 0.24299999999999855
+        },
+        {
+          "seed": 2,
+          "train_seconds": 149.6,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908380097808582,
+            "lap_fraction_std": 0.0007293662682945406,
+            "lap_fraction_min": 0.990015216555998,
+            "completed_laps": 20,
+            "lap_time_mean": 16.768999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.827261747930255,
+            "mean_brake": 0.03254103282963418,
+            "return_mean": 28.95758429494706,
+            "discounted_return_mean": 15.079045225716815,
+            "reward_terms": {
+              "edge": -0.01134873471473755,
+              "lap": 17.764133333333366,
+              "line_follow": 0.34430084508392705,
+              "progress": 9.793862081720832,
+              "slow": -0.018987537828141752,
+              "target_speed": 1.0856243073518148
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910291225548284,
+            "lap_fraction_std": 0.0007309016196192012,
+            "lap_fraction_min": 0.9900901800095188,
+            "completed_laps": 20,
+            "lap_time_mean": 16.75399999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.815437411586156,
+            "mean_brake": 0.0323306531362277,
+            "return_mean": 28.97378698373539,
+            "discounted_return_mean": 15.095785576715784
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908976859438695,
+            "lap_fraction_std": 0.0006943478658296407,
+            "lap_fraction_min": 0.9900605371802612,
+            "completed_laps": 20,
+            "lap_time_mean": 16.81399999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.845015470798195,
+            "mean_brake": 0.037299573975655864,
+            "return_mean": 28.90366953487149,
+            "discounted_return_mean": 15.019687854269796
+          },
+          "conserve_minus_attack_s": -0.05999999999999872
+        },
+        {
+          "seed": 3,
+          "train_seconds": 147.1,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990993088895401,
+            "lap_fraction_std": 0.0007934748677073615,
+            "lap_fraction_min": 0.9900212327016394,
+            "completed_laps": 20,
+            "lap_time_mean": 16.488999999999738,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.52291106278501,
+            "mean_brake": 0.009636185040112695,
+            "return_mean": 28.7927927279713,
+            "discounted_return_mean": 15.11245108872636,
+            "reward_terms": {
+              "edge": -0.1223173337370755,
+              "lap": 17.801466666666702,
+              "line_follow": 0.3012422443530377,
+              "progress": 9.795394949298167,
+              "slow": -0.019013668984999798,
+              "target_speed": 1.0360198703754642
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908225689654764,
+            "lap_fraction_std": 0.0007763810669958524,
+            "lap_fraction_min": 0.9900212327016394,
+            "completed_laps": 20,
+            "lap_time_mean": 16.533999999999736,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.40640189213019,
+            "mean_brake": 0.007794705477007856,
+            "return_mean": 28.84091671332846,
+            "discounted_return_mean": 15.12859858709967
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908755770241573,
+            "lap_fraction_std": 0.0007176349798509157,
+            "lap_fraction_min": 0.9900864285426384,
+            "completed_laps": 20,
+            "lap_time_mean": 16.405999999999743,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.760955936420572,
+            "mean_brake": 0.011908443076713317,
+            "return_mean": 28.58630164394798,
+            "discounted_return_mean": 15.019837659664969
+          },
+          "conserve_minus_attack_s": 0.127999999999993
+        },
+        {
+          "seed": 4,
+          "train_seconds": 140.3,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911658939398779,
+            "lap_fraction_std": 0.0007798919484465917,
+            "lap_fraction_min": 0.9900094352182115,
+            "completed_laps": 20,
+            "lap_time_mean": 16.42399999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.73746050626057,
+            "mean_brake": 0.03615483142114561,
+            "return_mean": 28.664798533636525,
+            "discounted_return_mean": 15.06676939867487,
+            "reward_terms": {
+              "edge": -0.23053905891720436,
+              "lap": 17.81013333333337,
+              "line_follow": 0.2873569332435292,
+              "progress": 9.79710302746627,
+              "slow": -0.01904242872110978,
+              "target_speed": 1.019786727231666
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9912253146016947,
+            "lap_fraction_std": 0.0007013430466991653,
+            "lap_fraction_min": 0.990117870950844,
+            "completed_laps": 20,
+            "lap_time_mean": 16.48299999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.6016132882131,
+            "mean_brake": 0.036867970950942505,
+            "return_mean": 28.691163644697404,
+            "discounted_return_mean": 15.058175731693414
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909951901053315,
+            "lap_fraction_std": 0.0007656910577179418,
+            "lap_fraction_min": 0.9900327140011703,
+            "completed_laps": 20,
+            "lap_time_mean": 16.34899999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.9411165268334,
+            "mean_brake": 0.03850103972304953,
+            "return_mean": 28.636680072147545,
+            "discounted_return_mean": 15.07620066067884
+          },
+          "conserve_minus_attack_s": 0.13400000000000034
+        }
+      ]
+    },
+    "sparse": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "progress_encoding": "linear",
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.0,
+          "target_speed_per_sec": 0.0,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.0,
+          "slow_per_sec": 0.0,
+          "edge_per_sec": 0.0,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.0,
+          "alive_per_sec": 0.0,
+          "off_track": 0.0,
+          "stuck": 0.0,
+          "wrong_way": 0.0,
+          "stall": 0.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 0.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 75.0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.03786931181953482,
+            "lap_fraction_std": 0.08295198491891718,
+            "lap_fraction_min": 0.0,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 7,
+              "stall": 13
+            },
+            "mean_speed": 1.646658029030268,
+            "mean_brake": 0.4774343504566268,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0,
+            "reward_terms": {}
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.005192910095632258,
+            "lap_fraction_std": 0.0027780516487457044,
+            "lap_fraction_min": 0.0,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "stall": 16,
+              "off_track": 4
+            },
+            "mean_speed": 0.10064259856377863,
+            "mean_brake": 0.7240885841349761,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.12433130523556277,
+            "lap_fraction_std": 0.10122380106143404,
+            "lap_fraction_min": 0.0,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 16,
+              "stall": 4
+            },
+            "mean_speed": 12.7616773706485,
+            "mean_brake": 0.016445136543318677,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "conserve_minus_attack_s": null
+        },
+        {
+          "seed": 1,
+          "train_seconds": 74.7,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.013161465676868832,
+            "lap_fraction_std": 0.007655924037616469,
+            "lap_fraction_min": 0.003864485874176763,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 9,
+              "stall": 11
+            },
+            "mean_speed": 4.211465738215955,
+            "mean_brake": 0.3000558473808338,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0,
+            "reward_terms": {}
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.010896342464956538,
+            "lap_fraction_std": 0.010115911768193667,
+            "lap_fraction_min": 0.003864485874176763,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "stall": 17,
+              "off_track": 3
+            },
+            "mean_speed": 1.869561764366365,
+            "mean_brake": 0.39030479948511165,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.01486693611088003,
+            "lap_fraction_std": 0.004175651966397702,
+            "lap_fraction_min": 0.004161181492148226,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 16,
+              "stall": 4
+            },
+            "mean_speed": 7.8152565734043105,
+            "mean_brake": 0.10188635732564641,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "conserve_minus_attack_s": null
+        },
+        {
+          "seed": 2,
+          "train_seconds": 72.8,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.03183319095795968,
+            "lap_fraction_std": 0.03964344505706675,
+            "lap_fraction_min": 0.0,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "stall": 20
+            },
+            "mean_speed": 1.6728431058882276,
+            "mean_brake": 0.3784219675098779,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0,
+            "reward_terms": {}
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.016247599840166386,
+            "lap_fraction_std": 0.020384387012108457,
+            "lap_fraction_min": 0.0,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "stall": 20
+            },
+            "mean_speed": 1.4097623202778506,
+            "mean_brake": 0.47046450726475364,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.08281025058367522,
+            "lap_fraction_std": 0.08376440968292173,
+            "lap_fraction_min": 0.0,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "stall": 19,
+              "off_track": 1
+            },
+            "mean_speed": 2.355209408056639,
+            "mean_brake": 0.26297396904752224,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "conserve_minus_attack_s": null
+        },
+        {
+          "seed": 3,
+          "train_seconds": 73.5,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.03747288639905867,
+            "lap_fraction_std": 0.036565192883829506,
+            "lap_fraction_min": 0.004048582995951343,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "stall": 14,
+              "stuck": 5,
+              "off_track": 1
+            },
+            "mean_speed": 1.909113366436446,
+            "mean_brake": 0.6186428554763044,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0,
+            "reward_terms": {}
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.04365060328457084,
+            "lap_fraction_std": 0.05080194716526553,
+            "lap_fraction_min": 0.004048582995951343,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "stall": 13,
+              "stuck": 6,
+              "off_track": 1
+            },
+            "mean_speed": 2.0832618067629314,
+            "mean_brake": 0.6691599778859036,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.041688712193738785,
+            "lap_fraction_std": 0.03373831471652845,
+            "lap_fraction_min": 0.006072874493927127,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "stall": 11,
+              "stuck": 7,
+              "off_track": 2
+            },
+            "mean_speed": 2.234753279836963,
+            "mean_brake": 0.5204150232946749,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "conserve_minus_attack_s": null
+        },
+        {
+          "seed": 4,
+          "train_seconds": 70.8,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.08305630737864804,
+            "lap_fraction_std": 0.06264265040281072,
+            "lap_fraction_min": 0.014257786322148688,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 19,
+              "stall": 1
+            },
+            "mean_speed": 14.221457914690134,
+            "mean_brake": 0.05146410830829571,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0,
+            "reward_terms": {}
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.08786027460737227,
+            "lap_fraction_std": 0.060431958202308705,
+            "lap_fraction_min": 0.014257786322148688,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 19,
+              "stall": 1
+            },
+            "mean_speed": 15.161694306467425,
+            "mean_brake": 0.04806795007510074,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.03592137924225702,
+            "lap_fraction_std": 0.012066558530260223,
+            "lap_fraction_min": 0.0,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 19,
+              "stall": 1
+            },
+            "mean_speed": 10.077172213247941,
+            "mean_brake": 0.07636617289999034,
+            "return_mean": 0.0,
+            "discounted_return_mean": 0.0
+          },
+          "conserve_minus_attack_s": null
+        }
+      ]
+    },
+    "no_target_speed": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "progress_encoding": "linear",
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.0,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.0,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 73.0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909753928820125,
+            "lap_fraction_std": 0.0007168523262058907,
+            "lap_fraction_min": 0.9901547126171879,
+            "completed_laps": 20,
+            "lap_time_mean": 16.155999999999743,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 31.16789283330767,
+            "mean_brake": 0.051980349765807454,
+            "return_mean": 27.690083592132872,
+            "discounted_return_mean": 14.467095021504388,
+            "reward_terms": {
+              "edge": -0.17364571702304601,
+              "lap": 17.8458666666667,
+              "line_follow": 0.22264260807401923,
+              "progress": 9.795220034415197
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908547758727329,
+            "lap_fraction_std": 0.0007428092228397851,
+            "lap_fraction_min": 0.990014204747011,
+            "completed_laps": 20,
+            "lap_time_mean": 16.18199999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 31.096429959683526,
+            "mean_brake": 0.05112279234667072,
+            "return_mean": 27.74848115178503,
+            "discounted_return_mean": 14.488034599673849
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909820559608938,
+            "lap_fraction_std": 0.0007130984063056312,
+            "lap_fraction_min": 0.99003821399238,
+            "completed_laps": 20,
+            "lap_time_mean": 16.116999999999745,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 31.352374393059307,
+            "mean_brake": 0.05345073920718226,
+            "return_mean": 27.48187778134146,
+            "discounted_return_mean": 14.345591786237767
+          },
+          "conserve_minus_attack_s": 0.06499999999999417
+        },
+        {
+          "seed": 1,
+          "train_seconds": 79.7,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909181672245762,
+            "lap_fraction_std": 0.0006916768885401679,
+            "lap_fraction_min": 0.9901309886730649,
+            "completed_laps": 20,
+            "lap_time_mean": 16.42399999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.89708026347123,
+            "mean_brake": 0.03835150376538381,
+            "return_mean": 27.547913056282898,
+            "discounted_return_mean": 14.242098087820503,
+            "reward_terms": {
+              "edge": -0.2907474931815821,
+              "lap": 17.81013333333337,
+              "line_follow": 0.23387282432443404,
+              "progress": 9.794654391806683
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990908201304012,
+            "lap_fraction_std": 0.0006998601939645273,
+            "lap_fraction_min": 0.9900462619436688,
+            "completed_laps": 20,
+            "lap_time_mean": 16.43499999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.901189258527165,
+            "mean_brake": 0.04182529048271087,
+            "return_mean": 27.494201978115786,
+            "discounted_return_mean": 14.20526264589363
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908460455057961,
+            "lap_fraction_std": 0.0006932059630593634,
+            "lap_fraction_min": 0.9900996869050323,
+            "completed_laps": 20,
+            "lap_time_mean": 16.41699999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.842607403378103,
+            "mean_brake": 0.03585988454363524,
+            "return_mean": 27.709216814308355,
+            "discounted_return_mean": 14.348045341421013
+          },
+          "conserve_minus_attack_s": 0.018000000000000682
+        },
+        {
+          "seed": 2,
+          "train_seconds": 73.1,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9912132737494554,
+            "lap_fraction_std": 0.0006886722626376258,
+            "lap_fraction_min": 0.9900103563174112,
+            "completed_laps": 20,
+            "lap_time_mean": 16.472999999999736,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.67967116670472,
+            "mean_brake": 0.007916404527569499,
+            "return_mean": 27.53676322499237,
+            "discounted_return_mean": 14.209043333930714,
+            "reward_terms": {
+              "edge": -0.2963662721123147,
+              "lap": 17.803600000000035,
+              "line_follow": 0.23195814755557986,
+              "progress": 9.79757134954907
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910759472928893,
+            "lap_fraction_std": 0.0007018641479649417,
+            "lap_fraction_min": 0.9901119111444174,
+            "completed_laps": 20,
+            "lap_time_mean": 16.462999999999738,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.699977215584635,
+            "mean_brake": 0.013572012603358172,
+            "return_mean": 27.51005299481608,
+            "discounted_return_mean": 14.197848289965837
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910749968694601,
+            "lap_fraction_std": 0.0006928825591751887,
+            "lap_fraction_min": 0.9900428566115785,
+            "completed_laps": 20,
+            "lap_time_mean": 16.536999999999736,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.497204782789254,
+            "mean_brake": 0.0,
+            "return_mean": 27.622882712927115,
+            "discounted_return_mean": 14.240869929126424
+          },
+          "conserve_minus_attack_s": -0.07399999999999807
+        },
+        {
+          "seed": 3,
+          "train_seconds": 81.4,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909014464887566,
+            "lap_fraction_std": 0.0007056100190466834,
+            "lap_fraction_min": 0.9900351675746564,
+            "completed_laps": 20,
+            "lap_time_mean": 16.27999999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 31.000867395012403,
+            "mean_brake": 0.04549938738590262,
+            "return_mean": 27.72257478602645,
+            "discounted_return_mean": 14.41475724380182,
+            "reward_terms": {
+              "edge": -0.15941359288365275,
+              "lap": 17.829333333333366,
+              "line_follow": 0.2581659285969217,
+              "progress": 9.794489116979815
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910409133546765,
+            "lap_fraction_std": 0.0007315772327708574,
+            "lap_fraction_min": 0.9900482622278781,
+            "completed_laps": 20,
+            "lap_time_mean": 16.286999999999743,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.96406844254715,
+            "mean_brake": 0.04801106458739471,
+            "return_mean": 27.757309657875993,
+            "discounted_return_mean": 14.435005985352536
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909869599172628,
+            "lap_fraction_std": 0.0007632008289450242,
+            "lap_fraction_min": 0.9900014638650223,
+            "completed_laps": 20,
+            "lap_time_mean": 16.30199999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 31.02321582779092,
+            "mean_brake": 0.03970582111896071,
+            "return_mean": 27.646481885525027,
+            "discounted_return_mean": 14.35504803901613
+          },
+          "conserve_minus_attack_s": -0.014999999999997016
+        },
+        {
+          "seed": 4,
+          "train_seconds": 76.6,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911562211550171,
+            "lap_fraction_std": 0.0007384190552974742,
+            "lap_fraction_min": 0.9900284158082183,
+            "completed_laps": 20,
+            "lap_time_mean": 16.236999999999743,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 31.07677269220857,
+            "mean_brake": 0.04265864235128207,
+            "return_mean": 27.625271348890344,
+            "discounted_return_mean": 14.392452223004582,
+            "reward_terms": {
+              "edge": -0.30268939818091234,
+              "lap": 17.8350666666667,
+              "line_follow": 0.2958866628361092,
+              "progress": 9.797007417568446
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910487631446696,
+            "lap_fraction_std": 0.0007390009087246316,
+            "lap_fraction_min": 0.9900284158082183,
+            "completed_laps": 20,
+            "lap_time_mean": 16.227999999999742,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 31.072968623203003,
+            "mean_brake": 0.04325852387412158,
+            "return_mean": 27.60738578439856,
+            "discounted_return_mean": 14.388872875332797
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910304334959058,
+            "lap_fraction_std": 0.0007850654206418488,
+            "lap_fraction_min": 0.9901265506408135,
+            "completed_laps": 20,
+            "lap_time_mean": 16.29799999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.95946972533872,
+            "mean_brake": 0.039281944939138044,
+            "return_mean": 27.774945221550347,
+            "discounted_return_mean": 14.445422314492077
+          },
+          "conserve_minus_attack_s": -0.06999999999999673
+        }
+      ]
+    },
+    "with_directive": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "progress_encoding": "linear",
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": true
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 74.6,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910693810471345,
+            "lap_fraction_std": 0.0007173985991664908,
+            "lap_fraction_min": 0.9902209015613005,
+            "completed_laps": 20,
+            "lap_time_mean": 16.193999999999743,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.88434703509987,
+            "mean_brake": 0.06279975622041675,
+            "return_mean": 28.590907461549097,
+            "discounted_return_mean": 15.122316493468968,
+            "reward_terms": {
+              "edge": -0.13893320209642535,
+              "lap": 17.840800000000034,
+              "line_follow": 0.2710595536360092,
+              "progress": 9.796149053202765,
+              "slow": -0.017648422297090124,
+              "target_speed": 0.8394804791038071
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910927806662929,
+            "lap_fraction_std": 0.000715477262358256,
+            "lap_fraction_min": 0.9900342678273446,
+            "completed_laps": 20,
+            "lap_time_mean": 16.22899999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.808814294478037,
+            "mean_brake": 0.06116667005020162,
+            "return_mean": 28.39792677921796,
+            "discounted_return_mean": 14.990434682830465
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910185828456107,
+            "lap_fraction_std": 0.0007364626936813451,
+            "lap_fraction_min": 0.9900588666503478,
+            "completed_laps": 20,
+            "lap_time_mean": 16.17799999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.97691323773044,
+            "mean_brake": 0.06429035743415966,
+            "return_mean": 29.075350301257583,
+            "discounted_return_mean": 15.424752851339344
+          },
+          "conserve_minus_attack_s": 0.05099999999999838
+        },
+        {
+          "seed": 1,
+          "train_seconds": 74.9,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909740826060005,
+            "lap_fraction_std": 0.0007417271166111297,
+            "lap_fraction_min": 0.990016466753459,
+            "completed_laps": 20,
+            "lap_time_mean": 16.276999999999738,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.720238264908858,
+            "mean_brake": 0.0006193434575855192,
+            "return_mean": 28.646328371687936,
+            "discounted_return_mean": 15.11853664570501,
+            "reward_terms": {
+              "edge": -0.05461725200747954,
+              "lap": 17.829733333333365,
+              "line_follow": 0.25498422055930975,
+              "progress": 9.795207083092757,
+              "slow": -0.017613164292972355,
+              "target_speed": 0.8386341510029494
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911956109715583,
+            "lap_fraction_std": 0.0006923475186543123,
+            "lap_fraction_min": 0.990016466753459,
+            "completed_laps": 20,
+            "lap_time_mean": 16.302999999999738,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.67471594447747,
+            "mean_brake": 0.0006173780487804878,
+            "return_mean": 28.46665392133549,
+            "discounted_return_mean": 14.991549511730742
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907800491098613,
+            "lap_fraction_std": 0.0006752785993063411,
+            "lap_fraction_min": 0.9900971485812486,
+            "completed_laps": 20,
+            "lap_time_mean": 16.314999999999745,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.683191309271272,
+            "mean_brake": 0.000710755321898374,
+            "return_mean": 29.18074112711843,
+            "discounted_return_mean": 15.416915101650932
+          },
+          "conserve_minus_attack_s": -0.01200000000000756
+        },
+        {
+          "seed": 2,
+          "train_seconds": 75.1,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908562180463543,
+            "lap_fraction_std": 0.0007329944369016134,
+            "lap_fraction_min": 0.9900082438405077,
+            "completed_laps": 20,
+            "lap_time_mean": 16.647999999999733,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.236120524590312,
+            "mean_brake": 0.05042037151524577,
+            "return_mean": 28.59499723116563,
+            "discounted_return_mean": 14.9294194344528,
+            "reward_terms": {
+              "edge": -0.24534253389636626,
+              "lap": 17.78026666666671,
+              "line_follow": 0.3135490133511481,
+              "progress": 9.794042059920354,
+              "slow": -0.017526829010084784,
+              "target_speed": 0.9700088541338804
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910210344341983,
+            "lap_fraction_std": 0.0007516011064681297,
+            "lap_fraction_min": 0.990074617259563,
+            "completed_laps": 20,
+            "lap_time_mean": 16.611999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.326347323302645,
+            "mean_brake": 0.05052088448787243,
+            "return_mean": 28.377874718276693,
+            "discounted_return_mean": 14.811179162920983
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911522963606675,
+            "lap_fraction_std": 0.0007191169752362414,
+            "lap_fraction_min": 0.9900082438405077,
+            "completed_laps": 20,
+            "lap_time_mean": 16.75099999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.999038476911103,
+            "mean_brake": 0.0458759761737653,
+            "return_mean": 29.174041278716583,
+            "discounted_return_mean": 15.232205868973969
+          },
+          "conserve_minus_attack_s": -0.13899999999999935
+        },
+        {
+          "seed": 3,
+          "train_seconds": 80.0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908570002916728,
+            "lap_fraction_std": 0.0006757153936823135,
+            "lap_fraction_min": 0.9900222937902772,
+            "completed_laps": 20,
+            "lap_time_mean": 16.179999999999747,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.073083413191455,
+            "mean_brake": 0.06782225308121985,
+            "return_mean": 28.962612094524296,
+            "discounted_return_mean": 15.387053972570971,
+            "reward_terms": {
+              "edge": -0.012562540428212917,
+              "lap": 17.8426666666667,
+              "line_follow": 0.351624743042381,
+              "progress": 9.794049791964019,
+              "slow": -0.017579436443913847,
+              "target_speed": 1.0044128697233266
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908513607462502,
+            "lap_fraction_std": 0.0006719723451338686,
+            "lap_fraction_min": 0.9901192729017639,
+            "completed_laps": 20,
+            "lap_time_mean": 16.197999999999745,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.046975154813595,
+            "mean_brake": 0.06928812566519903,
+            "return_mean": 28.756023554871177,
+            "discounted_return_mean": 15.253797406565468
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.99092403944515,
+            "lap_fraction_std": 0.0007458682015896897,
+            "lap_fraction_min": 0.9900085888506707,
+            "completed_laps": 20,
+            "lap_time_mean": 16.243999999999744,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.002555623359804,
+            "mean_brake": 0.05997667053790916,
+            "return_mean": 29.495610522940115,
+            "discounted_return_mean": 15.676210877887538
+          },
+          "conserve_minus_attack_s": -0.045999999999999375
+        },
+        {
+          "seed": 4,
+          "train_seconds": 73.9,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908810930450811,
+            "lap_fraction_std": 0.0006820364509542168,
+            "lap_fraction_min": 0.990194744118323,
+            "completed_laps": 20,
+            "lap_time_mean": 16.24799999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.378204059874605,
+            "mean_brake": 0.06084827148322044,
+            "return_mean": 28.660328289466765,
+            "discounted_return_mean": 15.155148828296708,
+            "reward_terms": {
+              "edge": -0.22965634772286184,
+              "lap": 17.833600000000036,
+              "line_follow": 0.3138768567355251,
+              "progress": 9.794287934931615,
+              "slow": -0.017619538166844417,
+              "target_speed": 0.9658393836892927
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908759476654396,
+            "lap_fraction_std": 0.0006886016087917317,
+            "lap_fraction_min": 0.9901599934770403,
+            "completed_laps": 20,
+            "lap_time_mean": 16.26799999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.30706593906577,
+            "mean_brake": 0.06230890144391519,
+            "return_mean": 28.513062793457635,
+            "discounted_return_mean": 15.056544098831967
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.991150081897491,
+            "lap_fraction_std": 0.0007442908841869539,
+            "lap_fraction_min": 0.9900636503376962,
+            "completed_laps": 20,
+            "lap_time_mean": 16.20799999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.623527445955666,
+            "mean_brake": 0.056324460869711365,
+            "return_mean": 29.03426143452583,
+            "discounted_return_mean": 15.391285483248144
+          },
+          "conserve_minus_attack_s": 0.060000000000002274
+        }
+      ]
+    },
+    "race04": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "progress_encoding": "linear",
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.0,
+          "speed_per_sec": 0.15,
+          "line_follow_per_sec": 0.1,
+          "slow_per_sec": 0.0,
+          "edge_per_sec": 0.5,
+          "edge_ramp": false,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0005,
+          "stuck_per_sec": 0.0,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 0.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 3.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 2.5,
+          "wrong_way_arm_metres": null,
+          "stall_seconds": null,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 73.4,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907958644869147,
+            "lap_fraction_std": 0.0007708388621565028,
+            "lap_fraction_min": 0.9900122887061884,
+            "completed_laps": 20,
+            "lap_time_mean": 16.510999999999733,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.826607348692686,
+            "mean_brake": 0.0007028581736434707,
+            "return_mean": 28.972844667606857,
+            "discounted_return_mean": 15.11823900463655,
+            "reward_terms": {
+              "lap": 17.798533333333367,
+              "line_follow": 0.453896219701746,
+              "progress": 9.79344549980512,
+              "speed": 1.339744614766616,
+              "time": -0.41277500000000034
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909288622334345,
+            "lap_fraction_std": 0.0007532783711225098,
+            "lap_fraction_min": 0.9900473009949684,
+            "completed_laps": 20,
+            "lap_time_mean": 16.549999999999738,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.842629404236142,
+            "mean_brake": 0.000409564859327879,
+            "return_mean": 28.947580925724804,
+            "discounted_return_mean": 15.073585850538143
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911088058271614,
+            "lap_fraction_std": 0.0006956540573106947,
+            "lap_fraction_min": 0.9901068905501366,
+            "completed_laps": 20,
+            "lap_time_mean": 16.509999999999735,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.67807832588902,
+            "mean_brake": 0.0018586743972924178,
+            "return_mean": 29.029739800021083,
+            "discounted_return_mean": 15.17355483838907
+          },
+          "conserve_minus_attack_s": 0.0400000000000027
+        },
+        {
+          "seed": 1,
+          "train_seconds": 77.9,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9680447825741801,
+            "lap_fraction_std": 0.09948374954017183,
+            "lap_fraction_min": 0.5344129554655866,
+            "completed_laps": 19,
+            "lap_time_mean": 16.575789473683944,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_speed": 30.05628345251762,
+            "mean_brake": 0.001092217961440281,
+            "return_mean": 27.953451139211364,
+            "discounted_return_mean": 14.641381667818113,
+            "reward_terms": {
+              "edge": -0.009000000000000001,
+              "end_off_track": -0.05,
+              "lap": 16.900400000000033,
+              "line_follow": 0.6191755799691584,
+              "progress": 9.56873591354223,
+              "speed": 1.3299896456999345,
+              "time": -0.4058500000000002
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9648684445731617,
+            "lap_fraction_std": 0.11315102066863185,
+            "lap_fraction_min": 0.47165991902834015,
+            "completed_laps": 19,
+            "lap_time_mean": 16.575789473683944,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_speed": 30.005141663736357,
+            "mean_brake": 0.0022280747582624247,
+            "return_mean": 27.927482962081655,
+            "discounted_return_mean": 14.626850212737645
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9588720280307326,
+            "lap_fraction_std": 0.10593025636370736,
+            "lap_fraction_min": 0.5344129554655866,
+            "completed_laps": 18,
+            "lap_time_mean": 16.63444444444418,
+            "end_reasons": {
+              "lap": 18,
+              "off_track": 2
+            },
+            "mean_speed": 29.903770013729826,
+            "mean_brake": 0.0025775714419841735,
+            "return_mean": 26.84277901924266,
+            "discounted_return_mean": 14.101338446950246
+          },
+          "conserve_minus_attack_s": -0.05865497076023729
+        },
+        {
+          "seed": 2,
+          "train_seconds": 82.8,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990887769782748,
+            "lap_fraction_std": 0.0007349374942615021,
+            "lap_fraction_min": 0.9900529077716467,
+            "completed_laps": 20,
+            "lap_time_mean": 17.322999999999716,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.138515898895,
+            "mean_brake": 0.05219837919892637,
+            "return_mean": 28.82490377653742,
+            "discounted_return_mean": 14.698054486240707,
+            "reward_terms": {
+              "edge": -0.10700000000000001,
+              "lap": 17.6902666666667,
+              "line_follow": 0.5071888482178974,
+              "progress": 9.794353930631436,
+              "speed": 1.3731693310213708,
+              "time": -0.43307500000000027
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906871716052981,
+            "lap_fraction_std": 0.0006413195220546533,
+            "lap_fraction_min": 0.9900529077716467,
+            "completed_laps": 20,
+            "lap_time_mean": 17.267999999999724,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.274770440491,
+            "mean_brake": 0.051043660672932686,
+            "return_mean": 28.790024983536874,
+            "discounted_return_mean": 14.707352787542112
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908314589507741,
+            "lap_fraction_std": 0.0006425184087020468,
+            "lap_fraction_min": 0.9900128448212598,
+            "completed_laps": 20,
+            "lap_time_mean": 17.25199999999972,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.08759037507728,
+            "mean_brake": 0.05307744376296417,
+            "return_mean": 28.975020511675257,
+            "discounted_return_mean": 14.803899075146433
+          },
+          "conserve_minus_attack_s": 0.016000000000005343
+        },
+        {
+          "seed": 3,
+          "train_seconds": 96.8,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9913119422515722,
+            "lap_fraction_std": 0.0007381450338118212,
+            "lap_fraction_min": 0.9900274317535904,
+            "completed_laps": 20,
+            "lap_time_mean": 16.542999999999733,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.814079924385435,
+            "mean_brake": 0.03010516796532754,
+            "return_mean": 29.18462000661595,
+            "discounted_return_mean": 15.267163098289515,
+            "reward_terms": {
+              "lap": 17.7942666666667,
+              "line_follow": 0.663771520984265,
+              "progress": 9.798546630767603,
+              "speed": 1.3416101881973785,
+              "time": -0.41357500000000025
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909781456447975,
+            "lap_fraction_std": 0.0008075066176766134,
+            "lap_fraction_min": 0.9900274317535904,
+            "completed_laps": 20,
+            "lap_time_mean": 16.655999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.453017609688942,
+            "mean_brake": 0.03436139920652544,
+            "return_mean": 29.19119794643663,
+            "discounted_return_mean": 15.225024057242766
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9912209913540092,
+            "lap_fraction_std": 0.0007681869210267147,
+            "lap_fraction_min": 0.9900065804278207,
+            "completed_laps": 20,
+            "lap_time_mean": 16.316999999999744,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.560156398672945,
+            "mean_brake": 0.02579490914464836,
+            "return_mean": 29.148524208696386,
+            "discounted_return_mean": 15.332493694920675
+          },
+          "conserve_minus_attack_s": 0.338999999999988
+        },
+        {
+          "seed": 4,
+          "train_seconds": 94.6,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9825286033530123,
+            "lap_fraction_std": 0.03686744538715368,
+            "lap_fraction_min": 0.8218623481781394,
+            "completed_laps": 19,
+            "lap_time_mean": 16.81684210526289,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_speed": 29.949014865945326,
+            "mean_brake": 0.037592768992819756,
+            "return_mean": 28.02237740697614,
+            "discounted_return_mean": 14.59634210813535,
+            "reward_terms": {
+              "edge": -0.012,
+              "end_off_track": -0.05,
+              "lap": 16.869866666666702,
+              "line_follow": 0.5591971010167758,
+              "progress": 9.71172839313405,
+              "speed": 1.3607352461586208,
+              "time": -0.41715000000000035
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9760122411441395,
+            "lap_fraction_std": 0.045549751672831554,
+            "lap_fraction_min": 0.8218623481781394,
+            "completed_laps": 18,
+            "lap_time_mean": 16.821111111110838,
+            "end_reasons": {
+              "lap": 18,
+              "off_track": 2
+            },
+            "mean_speed": 29.854549841242164,
+            "mean_brake": 0.04126970171582591,
+            "return_mean": 27.013749912671265,
+            "discounted_return_mean": 14.157452119364484
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9495177098645133,
+            "lap_fraction_std": 0.09952964948073054,
+            "lap_fraction_min": 0.6171594992022335,
+            "completed_laps": 16,
+            "lap_time_mean": 16.74499999999973,
+            "end_reasons": {
+              "lap": 16,
+              "off_track": 4
+            },
+            "mean_speed": 30.0745427630789,
+            "mean_brake": 0.04345244038241841,
+            "return_mean": 24.758940980540295,
+            "discounted_return_mean": 13.17526920005472
+          },
+          "conserve_minus_attack_s": 0.07611111111110702
+        }
+      ]
+    },
+    "survival_bias": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "progress_encoding": "linear",
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.0,
+          "target_speed_per_sec": 0.0,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.0,
+          "slow_per_sec": 0.0,
+          "edge_per_sec": 0.0,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.0,
+          "alive_per_sec": 0.5,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 0.0,
+          "fast_lap_bonus": 0.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 71.4,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8138641433642914,
+            "lap_fraction_std": 0.027570506311777536,
+            "lap_fraction_min": 0.7388663967611327,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.686134283591374,
+            "mean_brake": 0.015859170850987238,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591,
+            "reward_terms": {
+              "alive": 30.000000000000295
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8349728174841996,
+            "lap_fraction_std": 0.008624458181996517,
+            "lap_fraction_min": 0.8140879303618493,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.867942639946833,
+            "mean_brake": 0.011488070928181212,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7886062169846662,
+            "lap_fraction_std": 0.020298640060942102,
+            "lap_fraction_min": 0.7388663967611327,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.4443423435436245,
+            "mean_brake": 0.04550400022851924,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591
+          },
+          "conserve_minus_attack_s": null
+        },
+        {
+          "seed": 1,
+          "train_seconds": 72.0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7499355466475139,
+            "lap_fraction_std": 0.008543053124359075,
+            "lap_fraction_min": 0.7265160185977388,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.217083487467857,
+            "mean_brake": 0.16896460866741836,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591,
+            "reward_terms": {
+              "alive": 30.000000000000295
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7548095155913006,
+            "lap_fraction_std": 0.007365002669591229,
+            "lap_fraction_min": 0.7413976305392113,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.2702777857277585,
+            "mean_brake": 0.1948614816969881,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7415458330145835,
+            "lap_fraction_std": 0.007934706944436631,
+            "lap_fraction_min": 0.7265160185977388,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.0984761263453064,
+            "mean_brake": 0.10113254865693551,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591
+          },
+          "conserve_minus_attack_s": null
+        },
+        {
+          "seed": 2,
+          "train_seconds": 72.1,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9761626257750107,
+            "lap_fraction_std": 0.04026136905524376,
+            "lap_fraction_min": 0.8421052631578945,
+            "completed_laps": 15,
+            "lap_time_mean": 58.44000000000355,
+            "end_reasons": {
+              "lap": 15,
+              "time_limit": 5
+            },
+            "mean_speed": 8.219701022353473,
+            "mean_brake": 0.022884629806853275,
+            "return_mean": 29.415000000000283,
+            "discounted_return_mean": 9.475552702220098,
+            "reward_terms": {
+              "alive": 29.415000000000283
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9901487716940393,
+            "lap_fraction_std": 6.811681604844782e-05,
+            "lap_fraction_min": 0.990007488231104,
+            "completed_laps": 20,
+            "lap_time_mean": 58.06200000000348,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 8.45268738866447,
+            "mean_brake": 0.00023435179929731133,
+            "return_mean": 29.031000000000272,
+            "discounted_return_mean": 9.455367440749551
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.863109946643158,
+            "lap_fraction_std": 0.01868419304394414,
+            "lap_fraction_min": 0.8319838056680162,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 7.096407018350597,
+            "mean_brake": 0.1839547582194209,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591
+          },
+          "conserve_minus_attack_s": null
+        },
+        {
+          "seed": 3,
+          "train_seconds": 74.5,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.6811244709563837,
+            "lap_fraction_std": 0.026496781339856296,
+            "lap_fraction_min": 0.6516545877241128,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 5.597658512987642,
+            "mean_brake": 0.22280113665449122,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591,
+            "reward_terms": {
+              "alive": 30.000000000000295
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.6593131769571722,
+            "lap_fraction_std": 0.01124086929915433,
+            "lap_fraction_min": 0.637651821862348,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 5.417365875978058,
+            "mean_brake": 0.24452007234500095,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7417062188804655,
+            "lap_fraction_std": 0.013387472199904977,
+            "lap_fraction_min": 0.7208823548008962,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.098790775332108,
+            "mean_brake": 0.14453036639094352,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591
+          },
+          "conserve_minus_attack_s": null
+        },
+        {
+          "seed": 4,
+          "train_seconds": 72.4,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7682560200497842,
+            "lap_fraction_std": 0.018929567957745898,
+            "lap_fraction_min": 0.7285403100957137,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.323744633590133,
+            "mean_brake": 0.09779796428419649,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591,
+            "reward_terms": {
+              "alive": 30.000000000000295
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.776888235871769,
+            "lap_fraction_std": 0.011129369049948828,
+            "lap_fraction_min": 0.7590517189598471,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.399110120776739,
+            "mean_brake": 0.11712243879400193,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7505273910595566,
+            "lap_fraction_std": 0.016244541095079543,
+            "lap_fraction_min": 0.7285403100957137,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "time_limit": 20
+            },
+            "mean_speed": 6.163639173981404,
+            "mean_brake": 0.05466470290347934,
+            "return_mean": 30.000000000000295,
+            "discounted_return_mean": 9.505861778899591
+          },
+          "conserve_minus_attack_s": null
+        }
+      ]
+    },
+    "race04_aggressive": {
+      "env_config": {
+        "track": {
+          "kind": "random",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "random_min_corner_radius": null,
+          "random_harmonics": [
+            1,
+            3
+          ],
+          "random_harmonic_freq": [
+            2,
+            5
+          ],
+          "random_harmonic_amp": [
+            0.12,
+            0.3
+          ],
+          "random_radial_jitter": 0.06
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "progress_encoding": "linear",
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.0,
+          "speed_per_sec": 0.15,
+          "line_follow_per_sec": 0.1,
+          "slow_per_sec": 0.0,
+          "edge_per_sec": 0.5,
+          "edge_ramp": false,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0005,
+          "stuck_per_sec": 0.0,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 0.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 3.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 2.5,
+          "wrong_way_arm_metres": null,
+          "stall_seconds": null,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 75.5,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9032671976624806,
+            "lap_fraction_std": 0.20168087698439802,
+            "lap_fraction_min": 0.3776397515527941,
+            "completed_laps": 16,
+            "lap_time_mean": 21.338749999999635,
+            "end_reasons": {
+              "lap": 16,
+              "off_track": 4
+            },
+            "mean_speed": 34.037011311050975,
+            "mean_brake": 0.045192750929591345,
+            "return_mean": 29.094142309933847,
+            "discounted_return_mean": 13.994326829691726,
+            "reward_terms": {
+              "edge": -0.03899999999999999,
+              "end_off_track": -0.2,
+              "lap": 13.723866666666705,
+              "line_follow": 0.873277830264005,
+              "progress": 13.419923161437229,
+              "speed": 1.807024651565904,
+              "time": -0.4909499999999992
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8632631122374181,
+            "lap_fraction_std": 0.22069263986578555,
+            "lap_fraction_min": 0.3776397515527941,
+            "completed_laps": 13,
+            "lap_time_mean": 20.586153846153497,
+            "end_reasons": {
+              "lap": 13,
+              "off_track": 7
+            },
+            "mean_speed": 34.24061698237567,
+            "mean_brake": 0.0465961545426208,
+            "return_mean": 25.661366469138073,
+            "discounted_return_mean": 12.926575124281175
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9258698950649045,
+            "lap_fraction_std": 0.1652518744387147,
+            "lap_fraction_min": 0.4116433989810796,
+            "completed_laps": 17,
+            "lap_time_mean": 22.001176470587883,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 3
+            },
+            "mean_speed": 33.83515727981255,
+            "mean_brake": 0.04212876825101987,
+            "return_mean": 30.36394501609617,
+            "discounted_return_mean": 14.219561348856022
+          },
+          "conserve_minus_attack_s": -1.4150226244343855
+        },
+        {
+          "seed": 1,
+          "train_seconds": 74.1,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9282621649325249,
+            "lap_fraction_std": 0.1579336444884057,
+            "lap_fraction_min": 0.46832298136645933,
+            "completed_laps": 17,
+            "lap_time_mean": 21.063529411764343,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 3
+            },
+            "mean_speed": 34.789177119688574,
+            "mean_brake": 0.01643676126297388,
+            "return_mean": 30.431769180569194,
+            "discounted_return_mean": 14.591275124881744,
+            "reward_terms": {
+              "edge": -0.0205,
+              "end_off_track": -0.15,
+              "lap": 14.612800000000039,
+              "line_follow": 0.859990176128439,
+              "progress": 13.757994843397858,
+              "speed": 1.8690091610428516,
+              "time": -0.4975249999999993
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9283683939768634,
+            "lap_fraction_std": 0.15783070796921053,
+            "lap_fraction_min": 0.4683229813664596,
+            "completed_laps": 17,
+            "lap_time_mean": 21.04588235294082,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 3
+            },
+            "mean_speed": 34.78024598624101,
+            "mean_brake": 0.015246722314300003,
+            "return_mean": 30.459693265389905,
+            "discounted_return_mean": 14.621546843656088
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9282988368431833,
+            "lap_fraction_std": 0.15791773107867782,
+            "lap_fraction_min": 0.46832298136645933,
+            "completed_laps": 17,
+            "lap_time_mean": 21.05411764705846,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 3
+            },
+            "mean_speed": 34.94576817642081,
+            "mean_brake": 0.016842182235226825,
+            "return_mean": 30.406838901608744,
+            "discounted_return_mean": 14.581596883691233
+          },
+          "conserve_minus_attack_s": -0.008235294117643122
+        },
+        {
+          "seed": 2,
+          "train_seconds": 72.3,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7319118923929259,
+            "lap_fraction_std": 0.25732590453844134,
+            "lap_fraction_min": 0.3448875898001846,
+            "completed_laps": 9,
+            "lap_time_mean": 19.351111111110786,
+            "end_reasons": {
+              "lap": 9,
+              "off_track": 11
+            },
+            "mean_speed": 34.28939486837608,
+            "mean_brake": 0.042090947143735416,
+            "return_mean": 19.500354747219298,
+            "discounted_return_mean": 10.616073890283106,
+            "reward_terms": {
+              "edge": -0.096,
+              "end_off_track": -0.55,
+              "lap": 7.838933333333353,
+              "line_follow": 0.5636307813884959,
+              "progress": 10.667544275389279,
+              "speed": 1.4634963571081687,
+              "time": -0.3872499999999998
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7452383047724911,
+            "lap_fraction_std": 0.26348323744326774,
+            "lap_fraction_min": 0.34469226156473,
+            "completed_laps": 10,
+            "lap_time_mean": 19.61399999999967,
+            "end_reasons": {
+              "lap": 10,
+              "off_track": 10
+            },
+            "mean_speed": 34.267662575291695,
+            "mean_brake": 0.040599451175317526,
+            "return_mean": 20.626791029292516,
+            "discounted_return_mean": 11.012574253322702
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7480228749424954,
+            "lap_fraction_std": 0.24132501323334846,
+            "lap_fraction_min": 0.3602909617066585,
+            "completed_laps": 9,
+            "lap_time_mean": 19.34666666666634,
+            "end_reasons": {
+              "lap": 9,
+              "off_track": 11
+            },
+            "mean_speed": 34.33572078944803,
+            "mean_brake": 0.04401369405502972,
+            "return_mean": 19.786171490439155,
+            "discounted_return_mean": 10.771132942839763
+          },
+          "conserve_minus_attack_s": 0.26733333333332965
+        },
+        {
+          "seed": 3,
+          "train_seconds": 74.0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8603294416979057,
+            "lap_fraction_std": 0.21929052690937884,
+            "lap_fraction_min": 0.331060207682243,
+            "completed_laps": 14,
+            "lap_time_mean": 20.33571428571394,
+            "end_reasons": {
+              "lap": 14,
+              "off_track": 6
+            },
+            "mean_speed": 34.47626378368795,
+            "mean_brake": 0.033588920740857744,
+            "return_mean": 26.504241349633226,
+            "discounted_return_mean": 13.298183971737705,
+            "reward_terms": {
+              "edge": -0.0635,
+              "end_off_track": -0.3,
+              "lap": 12.10200000000003,
+              "line_follow": 0.8402961884003048,
+              "progress": 12.663486303940463,
+              "speed": 1.7193338572924226,
+              "time": -0.4573749999999997
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8721111672984205,
+            "lap_fraction_std": 0.21551384623237638,
+            "lap_fraction_min": 0.3652173913043469,
+            "completed_laps": 15,
+            "lap_time_mean": 20.686666666666312,
+            "end_reasons": {
+              "lap": 15,
+              "off_track": 5
+            },
+            "mean_speed": 34.651683181156,
+            "mean_brake": 0.03364068647834835,
+            "return_mean": 27.662144951913138,
+            "discounted_return_mean": 13.64764486666021
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9294976924522562,
+            "lap_fraction_std": 0.1569912742484481,
+            "lap_fraction_min": 0.3682461963907742,
+            "completed_laps": 17,
+            "lap_time_mean": 20.779999999999646,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 3
+            },
+            "mean_speed": 34.66447509387304,
+            "mean_brake": 0.02667963365164151,
+            "return_mean": 30.512405382844282,
+            "discounted_return_mean": 14.766233508302756
+          },
+          "conserve_minus_attack_s": -0.09333333333333371
+        },
+        {
+          "seed": 4,
+          "train_seconds": 75.6,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8718611801814916,
+            "lap_fraction_std": 0.20741023997827696,
+            "lap_fraction_min": 0.4757763975155283,
+            "completed_laps": 15,
+            "lap_time_mean": 21.541333333332958,
+            "end_reasons": {
+              "lap": 15,
+              "off_track": 5
+            },
+            "mean_speed": 34.54411583298738,
+            "mean_brake": 0.016467079636728645,
+            "return_mean": 27.37341897878259,
+            "discounted_return_mean": 13.192667693538269,
+            "reward_terms": {
+              "edge": -0.037500000000000006,
+              "end_off_track": -0.25,
+              "lap": 12.845866666666703,
+              "line_follow": 0.5743926255786274,
+              "progress": 12.930513318818665,
+              "speed": 1.7903213677185843,
+              "time": -0.48017499999999924
+            }
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8719910645021297,
+            "lap_fraction_std": 0.2072870267584461,
+            "lap_fraction_min": 0.47599052502236616,
+            "completed_laps": 15,
+            "lap_time_mean": 21.494666666666298,
+            "end_reasons": {
+              "lap": 15,
+              "off_track": 5
+            },
+            "mean_speed": 34.535564975582716,
+            "mean_brake": 0.016275887834443274,
+            "return_mean": 27.39546513393372,
+            "discounted_return_mean": 13.216552109152028
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7457661679596543,
+            "lap_fraction_std": 0.25212702217897365,
+            "lap_fraction_min": 0.37763975155279433,
+            "completed_laps": 10,
+            "lap_time_mean": 19.875999999999667,
+            "end_reasons": {
+              "lap": 10,
+              "off_track": 10
+            },
+            "mean_speed": 34.10925897582029,
+            "mean_brake": 0.022333554107514246,
+            "return_mean": 20.555373133643236,
+            "discounted_return_mean": 10.901305741196046
+          },
+          "conserve_minus_attack_s": 1.6186666666666305
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "command": "python experiments/ch02_sb3_baseline.py --circuit technical --seeds 0 1 2 --steps 500000",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "commit": "9c46d75",
+    "date": "2026-10-18T22:24:41+00:00"
+  },
+  "circuit": "technical",
+  "stable_baselines3": "2.9.0",
+  "steps": 500000,
+  "runs": [
+    {
+      "seed": 0,
+      "train_seconds": 82.1,
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.9909548551799375,
+        "lap_fraction_std": 0.0007170259193152696,
+        "lap_fraction_min": 0.9900349987244762,
+        "completed_laps": 10,
+        "lap_time_mean": 16.115999999999747,
+        "end_reasons": {
+          "lap": 10
+        },
+        "mean_speed": 30.332843325428097,
+        "mean_brake": 0.001775670602292168,
+        "return_mean": 28.896059258324527
+      }
+    },
+    {
+      "seed": 1,
+      "train_seconds": 76.7,
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.9169281797943043,
+        "lap_fraction_std": 0.22197328406403127,
+        "lap_fraction_min": 0.25101214574898806,
+        "completed_laps": 9,
+        "lap_time_mean": 16.337777777777518,
+        "end_reasons": {
+          "lap": 9,
+          "off_track": 1
+        },
+        "mean_speed": 29.99345474398275,
+        "mean_brake": 0.04544292768153482,
+        "return_mean": 25.919321216169447
+      }
+    },
+    {
+      "seed": 2,
+      "train_seconds": 82.4,
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.9910758773730922,
+        "lap_fraction_std": 0.0007802653242485926,
+        "lap_fraction_min": 0.9900194391990758,
+        "completed_laps": 10,
+        "lap_time_mean": 16.28599999999974,
+        "end_reasons": {
+          "lap": 10
+        },
+        "mean_speed": 30.668228066217676,
+        "mean_brake": 0.0007221865185737272,
+        "return_mean": 28.842310215660042
+      }
+    }
+  ]
+}

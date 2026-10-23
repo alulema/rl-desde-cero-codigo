@@ -1,0 +1,1350 @@
+{
+  "metadata": {
+    "command": "python experiments/ch02_ppo.py --circuit easy",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "book_run": true,
+    "commit": "f94d7a6",
+    "date": "2026-10-22T14:01:49+00:00"
+  },
+  "circuit": "easy",
+  "env_config": {
+    "track": {
+      "kind": "fixed",
+      "half_length": 120.0,
+      "half_height": 60.0,
+      "corner_radius": 40.0,
+      "technical_straight": 200.0,
+      "technical_hairpin_radius": 15.0,
+      "width": 12.0,
+      "random_seeds": [
+        0
+      ],
+      "random_min_corner_radius": 30.0,
+      "random_harmonics": [
+        1,
+        2
+      ],
+      "random_harmonic_freq": [
+        2,
+        3
+      ],
+      "random_harmonic_amp": [
+        0.08,
+        0.16
+      ],
+      "random_radial_jitter": 0.035
+    },
+    "car": {
+      "mass": 1200.0,
+      "linear_drag": 0.2,
+      "engine_force": 12000.0,
+      "brake_force": 18000.0,
+      "coast_force": 2500.0,
+      "max_speed": 55.0,
+      "max_reverse_speed": 12.0,
+      "turn_rate_deg": 130.0,
+      "high_speed_turn_factor": 0.35,
+      "steer_fade_in_speed": 0.4,
+      "min_steer_authority": 0.25,
+      "lateral_grip": 7.0,
+      "grip_model": "rotate",
+      "grip_redirect": 0.85
+    },
+    "obs": {
+      "n_rays": 9,
+      "ray_fov_deg": 150.0,
+      "ray_length": 70.0,
+      "ray_format": "distance",
+      "speeds": true,
+      "heading_error": true,
+      "lateral_offset": true,
+      "progress": true,
+      "progress_encoding": "linear",
+      "curvature_windows": [
+        [
+          0.0,
+          22.0
+        ],
+        [
+          18.0,
+          45.0
+        ],
+        [
+          40.0,
+          75.0
+        ]
+      ],
+      "directive": true,
+      "previous_steer": false,
+      "stack": 1,
+      "zero_fill_from": null
+    },
+    "reward": {
+      "progress_per_metre": 0.02,
+      "target_speed_per_sec": 0.25,
+      "speed_per_sec": 0.0,
+      "line_follow_per_sec": 0.05,
+      "slow_per_sec": 0.15,
+      "edge_per_sec": 0.6,
+      "edge_ramp": true,
+      "edge_safe_frac": 0.55,
+      "time_per_step": 0.0,
+      "stuck_per_sec": 0.3,
+      "alive_per_sec": 0.0,
+      "off_track": 1.0,
+      "stuck": 1.0,
+      "wrong_way": 1.0,
+      "stall": 1.0,
+      "lap_bonus": 12.0,
+      "fast_lap_bonus": 8.0,
+      "straight_speed_frac": 0.42,
+      "corner_speed_frac": 0.12,
+      "directive_scales_target": false
+    },
+    "termination": {
+      "off_track_margin": 2.0,
+      "stuck_speed": 0.5,
+      "stuck_seconds": 8.0,
+      "wrong_way_speed": 7.5,
+      "wrong_way_seconds": 4.5,
+      "wrong_way_arm_metres": 15.0,
+      "stall_seconds": 5.0,
+      "stall_min_metres": 8.0,
+      "stall_grace_seconds": 1.2,
+      "lap_fraction": 0.99,
+      "time_limit_seconds": 60.0
+    },
+    "spawn": {
+      "clean": false,
+      "heading_noise_deg": 10.0,
+      "lateral_noise": 2.0,
+      "launch_speed": 8.0,
+      "clean_speed": 14.0
+    },
+    "physics_dt": 0.02,
+    "decision_period": 5,
+    "aggression": null
+  },
+  "ppo_config": {
+    "total_steps": 500000,
+    "n_envs": 8,
+    "n_steps": 256,
+    "epochs": 10,
+    "minibatch_size": 256,
+    "gamma": 0.995,
+    "lam": 0.95,
+    "clip_epsilon": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.0,
+    "value_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "hidden_sizes": [
+      64,
+      64
+    ],
+    "initial_log_std": 0.0,
+    "normalize_observations": true,
+    "normalize_advantages": true,
+    "seed": 0
+  },
+  "eval_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "runs": [
+    {
+      "seed": 0,
+      "train_seconds": 147.8,
+      "steps_to_all_laps": 47104,
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.990807216133269,
+        "lap_fraction_std": 0.00018847644751912774,
+        "lap_fraction_min": 0.9905878087464924,
+        "completed_laps": 10,
+        "lap_time_mean": 16.983999999999725,
+        "end_reasons": {
+          "lap": 10
+        },
+        "mean_speed": 37.92721523595912,
+        "mean_brake": 0.0,
+        "return_mean": 31.496488695407066,
+        "discounted_return_mean": 16.396701529598307
+      },
+      "eval_episodes": [
+        {
+          "seed": 1000,
+          "end_reason": "lap",
+          "lap_fraction": 0.9913445916256549,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.934495129131335,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.819215504167711,
+          "episode_return": 31.4057530430908,
+          "discounted_return": 16.308282427117017,
+          "reward_terms": {
+            "progress": 12.913403877525539,
+            "target_speed": 0.3710250131210635,
+            "slow": -0.013813551594093008,
+            "line_follow": 0.39913770403825394,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1001,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382526,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.907890162884904,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8609791243996691,
+          "episode_return": 31.721234237670416,
+          "discounted_return": 16.594664621394703,
+          "reward_terms": {
+            "progress": 12.906093842995926,
+            "target_speed": 0.7134887659388219,
+            "slow": -0.02740231580311918,
+            "line_follow": 0.39305394453875214,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1002,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907076352460719,
+          "completed_lap": true,
+          "duration": 16.959999999999727,
+          "lap_time": 16.959999999999727,
+          "mean_speed": 37.940340243599785,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.7577573551193756,
+          "episode_return": 31.205089089743215,
+          "discounted_return": 16.153092379329934,
+          "reward_terms": {
+            "progress": 12.905106787844003,
+            "target_speed": 0.1539199997438756,
+            "line_follow": 0.4073956354886327,
+            "lap": 17.738666666666703
+          }
+        },
+        {
+          "seed": 1003,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382452,
+          "completed_lap": true,
+          "duration": 16.959999999999727,
+          "lap_time": 16.959999999999727,
+          "mean_speed": 37.94981988554055,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.7064104583552655,
+          "episode_return": 31.773224590972788,
+          "discounted_return": 16.64120277118834,
+          "reward_terms": {
+            "progress": 12.90609384299592,
+            "target_speed": 0.722987491903256,
+            "line_follow": 0.40547658940690867,
+            "lap": 17.738666666666703
+          }
+        },
+        {
+          "seed": 1004,
+          "end_reason": "lap",
+          "lap_fraction": 0.990783410138254,
+          "completed_lap": true,
+          "duration": 16.999999999999726,
+          "lap_time": 16.999999999999726,
+          "mean_speed": 37.92861891281387,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8208969461567261,
+          "episode_return": 31.40033058463806,
+          "discounted_return": 16.29856005155202,
+          "reward_terms": {
+            "progress": 12.906093842995919,
+            "target_speed": 0.3596032322748718,
+            "slow": -0.002092739278313284,
+            "line_follow": 0.4033929153122125,
+            "lap": 17.73333333333337
+          }
+        },
+        {
+          "seed": 1005,
+          "end_reason": "lap",
+          "lap_fraction": 0.9905878087464924,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.91039627340968,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8342381176045712,
+          "episode_return": 31.64767948946291,
+          "discounted_return": 16.535493270932758,
+          "reward_terms": {
+            "progress": 12.903545909823034,
+            "target_speed": 0.6417759138134154,
+            "slow": -0.027499774956690138,
+            "line_follow": 0.39385744078311274,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1006,
+          "end_reason": "lap",
+          "lap_fraction": 0.990739708034386,
+          "completed_lap": true,
+          "duration": 16.999999999999726,
+          "lap_time": 16.999999999999726,
+          "mean_speed": 37.92060144686913,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.7916549757561263,
+          "episode_return": 31.302264409582985,
+          "discounted_return": 16.236255050007948,
+          "reward_terms": {
+            "progress": 12.905524572812508,
+            "target_speed": 0.30227512260761946,
+            "slow": -0.027404653579770538,
+            "line_follow": 0.396279050471758,
+            "edge": -0.007743016062498424,
+            "lap": 17.73333333333337
+          }
+        },
+        {
+          "seed": 1007,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382498,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.928337254396695,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.7474502100883161,
+          "episode_return": 31.253865189829433,
+          "discounted_return": 16.191024420942846,
+          "reward_terms": {
+            "progress": 12.906093842995931,
+            "target_speed": 0.21273464201012282,
+            "slow": -0.009397509697807265,
+            "line_follow": 0.4084342145211508,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1008,
+          "end_reason": "lap",
+          "lap_fraction": 0.990775366988831,
+          "completed_lap": true,
+          "duration": 16.999999999999726,
+          "lap_time": 16.999999999999726,
+          "mean_speed": 37.92011546588925,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8485498207895195,
+          "episode_return": 31.862384333400236,
+          "discounted_return": 16.712548045688308,
+          "reward_terms": {
+            "progress": 12.905989071720896,
+            "target_speed": 0.8340738404910532,
+            "slow": -0.013376770728915216,
+            "line_follow": 0.402364858583832,
+            "lap": 17.73333333333337
+          }
+        },
+        {
+          "seed": 1009,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382534,
+          "completed_lap": true,
+          "duration": 16.999999999999726,
+          "lap_time": 16.999999999999726,
+          "mean_speed": 37.93153758505601,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8083177702172714,
+          "episode_return": 31.393061985679847,
+          "discounted_return": 16.29589225782916,
+          "reward_terms": {
+            "progress": 12.906093842995922,
+            "target_speed": 0.35806669205535613,
+            "slow": -0.0015414200952836392,
+            "line_follow": 0.39771422445952087,
+            "edge": -0.0006046870690376653,
+            "lap": 17.73333333333337
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "train_seconds": 156.9,
+      "steps_to_all_laps": 36864,
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.9861921253462272,
+        "lap_fraction_std": 0.013831977756295074,
+        "lap_fraction_min": 0.94470046082949,
+        "completed_laps": 9,
+        "lap_time_mean": 17.091111111110838,
+        "end_reasons": {
+          "lap": 9,
+          "off_track": 1
+        },
+        "mean_speed": 37.863410360909306,
+        "mean_brake": 0.002991033903054077,
+        "return_mean": 29.481236209847935,
+        "discounted_return_mean": 15.476131638309045
+      },
+      "eval_episodes": [
+        {
+          "seed": 1000,
+          "end_reason": "lap",
+          "lap_fraction": 0.990776942575578,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 37.935529963787936,
+          "mean_throttle": 0.9952098863166675,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8008574653874364,
+          "episode_return": 31.41177433287203,
+          "discounted_return": 16.26972907483859,
+          "reward_terms": {
+            "progress": 12.906009595551083,
+            "target_speed": 0.36986859526753674,
+            "slow": -0.01390001824033105,
+            "line_follow": 0.4191294936270386,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1001,
+          "end_reason": "lap",
+          "lap_fraction": 0.9908697395620883,
+          "completed_lap": true,
+          "duration": 17.079999999999725,
+          "lap_time": 17.079999999999725,
+          "mean_speed": 37.909618944376625,
+          "mean_throttle": 0.9976216805608649,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8745084285997508,
+          "episode_return": 31.680883358684717,
+          "discounted_return": 16.537915211652315,
+          "reward_terms": {
+            "progress": 12.907218383065983,
+            "target_speed": 0.7135038125428808,
+            "slow": -0.02740231580311918,
+            "line_follow": 0.402298451212075,
+            "edge": -0.037401638999808265,
+            "lap": 17.722666666666704
+          }
+        },
+        {
+          "seed": 1002,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907076352460719,
+          "completed_lap": true,
+          "duration": 16.999999999999726,
+          "lap_time": 16.999999999999726,
+          "mean_speed": 37.89619270798781,
+          "mean_throttle": 0.9991850593510796,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8324288660112549,
+          "episode_return": 31.218803285371678,
+          "discounted_return": 16.140764963043026,
+          "reward_terms": {
+            "progress": 12.905106787844,
+            "target_speed": 0.15058725996119163,
+            "line_follow": 0.4297759042331152,
+            "lap": 17.73333333333337
+          }
+        },
+        {
+          "seed": 1003,
+          "end_reason": "off_track",
+          "lap_fraction": 0.94470046082949,
+          "completed_lap": false,
+          "duration": 16.519999999999737,
+          "lap_time": null,
+          "mean_speed": 37.50069947415514,
+          "mean_throttle": 0.9485446580921311,
+          "mean_brake": 0.024096385542168676,
+          "mean_abs_steer": 0.7683710564286953,
+          "episode_return": 12.027959138493015,
+          "discounted_return": 8.143822116857871,
+          "reward_terms": {
+            "progress": 12.313005813257126,
+            "target_speed": 0.7173717248232493,
+            "line_follow": 0.3719336232723729,
+            "edge": -0.37435202285973307,
+            "end_off_track": -1.0
+          }
+        },
+        {
+          "seed": 1004,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382522,
+          "completed_lap": true,
+          "duration": 17.199999999999722,
+          "lap_time": 17.199999999999722,
+          "mean_speed": 37.94554781315936,
+          "mean_throttle": 0.9844585275927256,
+          "mean_brake": 0.005813953488372093,
+          "mean_abs_steer": 0.7688242074232116,
+          "episode_return": 31.148218909778265,
+          "discounted_return": 16.094370409540087,
+          "reward_terms": {
+            "progress": 12.90609384299592,
+            "target_speed": 0.35605400965689926,
+            "slow": -0.0021024918983726768,
+            "line_follow": 0.38350583319325116,
+            "edge": -0.20199895083614017,
+            "lap": 17.706666666666706
+          }
+        },
+        {
+          "seed": 1005,
+          "end_reason": "lap",
+          "lap_fraction": 0.9905878087464937,
+          "completed_lap": true,
+          "duration": 17.079999999999725,
+          "lap_time": 17.079999999999725,
+          "mean_speed": 37.86104499253658,
+          "mean_throttle": 0.9953109918282046,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.7998037793570094,
+          "episode_return": 31.641576134648858,
+          "discounted_return": 16.485758550029043,
+          "reward_terms": {
+            "progress": 12.90354590982304,
+            "target_speed": 0.6417776665807639,
+            "slow": -0.027492873467305844,
+            "line_follow": 0.4010787650456547,
+            "lap": 17.722666666666704
+          }
+        },
+        {
+          "seed": 1006,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907397080343858,
+          "completed_lap": true,
+          "duration": 17.21999999999972,
+          "lap_time": 17.21999999999972,
+          "mean_speed": 37.82572202032307,
+          "mean_throttle": 0.9908824387313313,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8452448082624833,
+          "episode_return": 31.18708176777744,
+          "discounted_return": 16.04747247037125,
+          "reward_terms": {
+            "progress": 12.905524572812507,
+            "target_speed": 0.3022928359957095,
+            "slow": -0.027404653579770538,
+            "line_follow": 0.39103609343407514,
+            "edge": -0.08836708088511883,
+            "lap": 17.704000000000036
+          }
+        },
+        {
+          "seed": 1007,
+          "end_reason": "lap",
+          "lap_fraction": 0.9913364717323971,
+          "completed_lap": true,
+          "duration": 17.059999999999725,
+          "lap_time": 17.059999999999725,
+          "mean_speed": 37.94187479448271,
+          "mean_throttle": 0.998905138662684,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.755002662060205,
+          "episode_return": 31.258714624815624,
+          "discounted_return": 16.145100581601127,
+          "reward_terms": {
+            "progress": 12.913298106573599,
+            "target_speed": 0.21233732831958843,
+            "slow": -0.009397509697807265,
+            "line_follow": 0.41714336628687276,
+            "lap": 17.72533333333337
+          }
+        },
+        {
+          "seed": 1008,
+          "end_reason": "lap",
+          "lap_fraction": 0.990594142259854,
+          "completed_lap": true,
+          "duration": 17.059999999999725,
+          "lap_time": 17.059999999999725,
+          "mean_speed": 37.90660463382097,
+          "mean_throttle": 0.9952274937378732,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.7912991266937284,
+          "episode_return": 31.85373760870512,
+          "discounted_return": 16.663403985586807,
+          "reward_terms": {
+            "progress": 12.903628411121517,
+            "target_speed": 0.8339842262343341,
+            "slow": -0.013380960578088682,
+            "line_follow": 0.4041725985939894,
+            "lap": 17.72533333333337
+          }
+        },
+        {
+          "seed": 1009,
+          "end_reason": "lap",
+          "lap_fraction": 0.990824934337662,
+          "completed_lap": true,
+          "duration": 17.099999999999724,
+          "lap_time": 17.099999999999724,
+          "mean_speed": 37.91126826446286,
+          "mean_throttle": 0.997423795928732,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8703898195373384,
+          "episode_return": 31.3836129373326,
+          "discounted_return": 16.23297901957033,
+          "reward_terms": {
+            "progress": 12.906634743468057,
+            "target_speed": 0.35389546147098866,
+            "slow": -0.0015710052359199267,
+            "line_follow": 0.4052086515933755,
+            "edge": -0.0005549139639343043,
+            "lap": 17.720000000000034
+          }
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "train_seconds": 151.7,
+      "steps_to_all_laps": 43008,
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.9908486480914698,
+        "lap_fraction_std": 0.0002265538933221851,
+        "lap_fraction_min": 0.9905878087464928,
+        "completed_laps": 10,
+        "lap_time_mean": 16.939999999999728,
+        "end_reasons": {
+          "lap": 10
+        },
+        "mean_speed": 37.87339876798508,
+        "mean_brake": 0.0,
+        "return_mean": 31.55929589309891,
+        "discounted_return_mean": 16.457597126069327
+      },
+      "eval_episodes": [
+        {
+          "seed": 1000,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907769425755792,
+          "completed_lap": true,
+          "duration": 16.89999999999973,
+          "lap_time": 16.89999999999973,
+          "mean_speed": 37.87623227578803,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.6503951392803319,
+          "episode_return": 31.481620924912225,
+          "discounted_return": 16.409433327825717,
+          "reward_terms": {
+            "progress": 12.906009595551078,
+            "target_speed": 0.3731544910520707,
+            "slow": -0.013790522256756076,
+            "line_follow": 0.4695806938991257,
+            "lap": 17.746666666666705
+          }
+        },
+        {
+          "seed": 1001,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382526,
+          "completed_lap": true,
+          "duration": 16.919999999999728,
+          "lap_time": 16.919999999999728,
+          "mean_speed": 37.86570815969838,
+          "mean_throttle": 0.9989663008381339,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.6306010920554399,
+          "episode_return": 31.78700136702889,
+          "discounted_return": 16.64496009753985,
+          "reward_terms": {
+            "progress": 12.906093842995926,
+            "target_speed": 0.7135036409449169,
+            "slow": -0.028472025513093913,
+            "line_follow": 0.4518759086011043,
+            "lap": 17.744000000000035
+          }
+        },
+        {
+          "seed": 1002,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907076352460727,
+          "completed_lap": true,
+          "duration": 16.83999999999973,
+          "lap_time": 16.83999999999973,
+          "mean_speed": 37.888615681067925,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.5279090437575205,
+          "episode_return": 31.28025074836659,
+          "discounted_return": 16.256041549494967,
+          "reward_terms": {
+            "progress": 12.905106787843994,
+            "target_speed": 0.1562220507415418,
+            "line_follow": 0.4642552431143522,
+            "lap": 17.7546666666667
+          }
+        },
+        {
+          "seed": 1003,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382464,
+          "completed_lap": true,
+          "duration": 16.959999999999727,
+          "lap_time": 16.959999999999727,
+          "mean_speed": 37.76928041740832,
+          "mean_throttle": 0.9962645386948304,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.5674280898097683,
+          "episode_return": 31.8510333770374,
+          "discounted_return": 16.684717689661287,
+          "reward_terms": {
+            "progress": 12.90609384299593,
+            "target_speed": 0.748668414529522,
+            "line_follow": 0.4576044528452447,
+            "lap": 17.738666666666703
+          }
+        },
+        {
+          "seed": 1004,
+          "end_reason": "lap",
+          "lap_fraction": 0.9911001392381604,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.87640713346053,
+          "mean_throttle": 0.9859421908855438,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.4801119345075944,
+          "episode_return": 31.450742124822256,
+          "discounted_return": 16.350037195923704,
+          "reward_terms": {
+            "progress": 12.9102196039285,
+            "target_speed": 0.3616873161816314,
+            "slow": -0.0020709898166587906,
+            "line_follow": 0.4624408191210902,
+            "edge": -0.017534624592341532,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1005,
+          "end_reason": "lap",
+          "lap_fraction": 0.9905878087464928,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 37.83293004945119,
+          "mean_throttle": 0.984453438405405,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.6123577666125799,
+          "episode_return": 31.650015402884133,
+          "discounted_return": 16.523030220714354,
+          "reward_terms": {
+            "progress": 12.903545909823041,
+            "target_speed": 0.6412036713640958,
+            "slow": -0.027344204148812445,
+            "line_follow": 0.4445472807634164,
+            "edge": -0.042603921584311956,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1006,
+          "end_reason": "lap",
+          "lap_fraction": 0.990800018843466,
+          "completed_lap": true,
+          "duration": 16.89999999999973,
+          "lap_time": 16.89999999999973,
+          "mean_speed": 37.85952403735551,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.6198772553508803,
+          "episode_return": 31.38944100477113,
+          "discounted_return": 16.345911612734636,
+          "reward_terms": {
+            "progress": 12.90631019049016,
+            "target_speed": 0.30202667422331775,
+            "slow": -0.0273989112014441,
+            "line_follow": 0.46183638459239035,
+            "lap": 17.746666666666705
+          }
+        },
+        {
+          "seed": 1007,
+          "end_reason": "lap",
+          "lap_fraction": 0.9914232131726551,
+          "completed_lap": true,
+          "duration": 16.939999999999728,
+          "lap_time": 16.939999999999728,
+          "mean_speed": 37.92581351300412,
+          "mean_throttle": 0.9995324941242443,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.5061855078620069,
+          "episode_return": 31.323092453524367,
+          "discounted_return": 16.249146203719235,
+          "reward_terms": {
+            "progress": 12.914428013631568,
+            "target_speed": 0.21273761901730956,
+            "slow": -0.00937959128814742,
+            "line_follow": 0.46397307883026945,
+            "lap": 17.74133333333337
+          }
+        },
+        {
+          "seed": 1008,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907404926775183,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.907185134654455,
+          "mean_throttle": 0.9881882326567875,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.6508669680970557,
+          "episode_return": 31.918685669465145,
+          "discounted_return": 16.759025656361832,
+          "reward_terms": {
+            "progress": 12.90553479369212,
+            "target_speed": 0.8333926916540471,
+            "slow": -0.013445054539704682,
+            "line_follow": 0.46138753019170387,
+            "edge": -0.004184291533058656,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1009,
+          "end_reason": "lap",
+          "lap_fraction": 0.990783410138254,
+          "completed_lap": true,
+          "duration": 16.959999999999727,
+          "lap_time": 16.959999999999727,
+          "mean_speed": 37.93229127796237,
+          "mean_throttle": 0.9954101913115557,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.46042548987795323,
+          "episode_return": 31.46107585817692,
+          "discounted_return": 16.353667706717673,
+          "reward_terms": {
+            "progress": 12.906093842995919,
+            "target_speed": 0.3604721218263003,
+            "slow": -0.00146332270603267,
+            "line_follow": 0.46672979266857106,
+            "edge": -0.009423243274540263,
+            "lap": 17.738666666666703
+          }
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "train_seconds": 147.6,
+      "steps_to_all_laps": 36864,
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.990976991812175,
+        "lap_fraction_std": 0.00023914971600117848,
+        "lap_fraction_min": 0.9905878087464928,
+        "completed_laps": 10,
+        "lap_time_mean": 17.005999999999727,
+        "end_reasons": {
+          "lap": 10
+        },
+        "mean_speed": 37.90738277868853,
+        "mean_brake": 0.0,
+        "return_mean": 31.529562835313754,
+        "discounted_return_mean": 16.40473471047141
+      },
+      "eval_episodes": [
+        {
+          "seed": 1000,
+          "end_reason": "lap",
+          "lap_fraction": 0.9912374973291396,
+          "completed_lap": true,
+          "duration": 16.999999999999726,
+          "lap_time": 16.999999999999726,
+          "mean_speed": 37.91949937936214,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8496385636136813,
+          "episode_return": 31.44571249778355,
+          "discounted_return": 16.33053701906278,
+          "reward_terms": {
+            "progress": 12.91200885109824,
+            "target_speed": 0.3693342103668284,
+            "slow": -0.013814353660398418,
+            "line_follow": 0.4448504566455121,
+            "lap": 17.73333333333337
+          }
+        },
+        {
+          "seed": 1001,
+          "end_reason": "lap",
+          "lap_fraction": 0.9911295885580378,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 37.942970488797336,
+          "mean_throttle": 0.9978860191434448,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.9111024723415486,
+          "episode_return": 31.75710606815741,
+          "discounted_return": 16.575905590378103,
+          "reward_terms": {
+            "progress": 12.910603215202256,
+            "target_speed": 0.7132437011591354,
+            "slow": -0.02739895878988013,
+            "line_follow": 0.42999144391919364,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1002,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907076352460725,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.91768273710221,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8265499253921649,
+          "episode_return": 31.23625936717379,
+          "discounted_return": 16.167380284388962,
+          "reward_terms": {
+            "progress": 12.905106787844005,
+            "target_speed": 0.15333529956550945,
+            "line_follow": 0.4418172797642393,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1003,
+          "end_reason": "lap",
+          "lap_fraction": 0.991124330256119,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.92191275225093,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8230016886311419,
+          "episode_return": 31.78576123669905,
+          "discounted_return": 16.650453722042727,
+          "reward_terms": {
+            "progress": 12.910534719770016,
+            "target_speed": 0.7208425007276188,
+            "line_follow": 0.4351861677174623,
+            "edge": -0.01680215151608422,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1004,
+          "end_reason": "lap",
+          "lap_fraction": 0.990830728164948,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.91950025870559,
+          "mean_throttle": 0.9992863059043884,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8374874566846034,
+          "episode_return": 31.448017147008947,
+          "discounted_return": 16.33376592896182,
+          "reward_terms": {
+            "progress": 12.90671021473442,
+            "target_speed": 0.3612549372826585,
+            "slow": -0.0020733350685557934,
+            "line_follow": 0.4461253300603887,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1005,
+          "end_reason": "lap",
+          "lap_fraction": 0.9905878087464928,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.89572425728969,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8644408409209813,
+          "episode_return": 31.681276925539542,
+          "discounted_return": 16.563089318118962,
+          "reward_terms": {
+            "progress": 12.903545909823036,
+            "target_speed": 0.6413762322236508,
+            "slow": -0.027390022431340103,
+            "line_follow": 0.42774480592416003,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1006,
+          "end_reason": "lap",
+          "lap_fraction": 0.9913579719193667,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 37.96842404219564,
+          "mean_throttle": 0.9998567508675201,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8147420491914303,
+          "episode_return": 31.353067884048574,
+          "discounted_return": 16.234184836024816,
+          "reward_terms": {
+            "progress": 12.913578171245458,
+            "target_speed": 0.3023333756147834,
+            "slow": -0.027404653579770538,
+            "line_follow": 0.4338943241013986,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1007,
+          "end_reason": "lap",
+          "lap_fraction": 0.9911267519143347,
+          "completed_lap": true,
+          "duration": 17.099999999999724,
+          "lap_time": 17.099999999999724,
+          "mean_speed": 37.76337266913067,
+          "mean_throttle": 0.9907528113203439,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8197764466293374,
+          "episode_return": 31.24005916543034,
+          "discounted_return": 16.14859939327308,
+          "reward_terms": {
+            "progress": 12.910566264654413,
+            "target_speed": 0.21263981225282655,
+            "slow": -0.009397509697807265,
+            "line_follow": 0.44185292194106257,
+            "edge": -0.03560232372019052,
+            "lap": 17.720000000000034
+          }
+        },
+        {
+          "seed": 1008,
+          "end_reason": "lap",
+          "lap_fraction": 0.9908841958489862,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 37.902069915461276,
+          "mean_throttle": 0.9769759140690865,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.9013215584451693,
+          "episode_return": 31.899196545592513,
+          "discounted_return": 16.70568703220416,
+          "reward_terms": {
+            "progress": 12.907406692835286,
+            "target_speed": 0.8335038018234006,
+            "slow": -0.013476023694509082,
+            "line_follow": 0.44109540796163177,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1009,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382531,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.922671286589846,
+          "mean_throttle": 0.9972039320889641,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.8126968654201311,
+          "episode_return": 31.449171515703814,
+          "discounted_return": 16.337743980258676,
+          "reward_terms": {
+            "progress": 12.906093842995931,
+            "target_speed": 0.3609577277514785,
+            "slow": -0.0014964456082932438,
+            "line_follow": 0.44834849647095604,
+            "edge": -0.0007321059062936028,
+            "lap": 17.736000000000036
+          }
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "train_seconds": 153.6,
+      "steps_to_all_laps": 45056,
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.9908213467563056,
+        "lap_fraction_std": 0.00017027347248221416,
+        "lap_fraction_min": 0.9905878087464931,
+        "completed_laps": 10,
+        "lap_time_mean": 17.011999999999727,
+        "end_reasons": {
+          "lap": 10
+        },
+        "mean_speed": 37.98203665483318,
+        "mean_brake": 0.0,
+        "return_mean": 31.49845487697103,
+        "discounted_return_mean": 16.36544447602567
+      },
+      "eval_episodes": [
+        {
+          "seed": 1000,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907769425755771,
+          "completed_lap": true,
+          "duration": 16.999999999999726,
+          "lap_time": 16.999999999999726,
+          "mean_speed": 37.94578063185596,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.6490360594409353,
+          "episode_return": 31.39962955567838,
+          "discounted_return": 16.297815176788685,
+          "reward_terms": {
+            "progress": 12.90600959555107,
+            "target_speed": 0.3682115815170284,
+            "slow": -0.013888717751340927,
+            "line_follow": 0.4059637630282511,
+            "lap": 17.73333333333337
+          }
+        },
+        {
+          "seed": 1001,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382534,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 37.989132945785364,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.6111081601038837,
+          "episode_return": 31.723728365446224,
+          "discounted_return": 16.55302714969362,
+          "reward_terms": {
+            "progress": 12.906093842995924,
+            "target_speed": 0.7130771168179867,
+            "slow": -0.02740231580311918,
+            "line_follow": 0.4012930547687277,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1002,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907076352460734,
+          "completed_lap": true,
+          "duration": 16.979999999999727,
+          "lap_time": 16.979999999999727,
+          "mean_speed": 37.94871920189716,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.5557469888152007,
+          "episode_return": 31.209376105155858,
+          "discounted_return": 16.14580790689347,
+          "reward_terms": {
+            "progress": 12.905106787844,
+            "target_speed": 0.152002356213104,
+            "line_follow": 0.41626696109871864,
+            "lap": 17.736000000000036
+          }
+        },
+        {
+          "seed": 1003,
+          "end_reason": "lap",
+          "lap_fraction": 0.9907834101382446,
+          "completed_lap": true,
+          "duration": 16.999999999999726,
+          "lap_time": 16.999999999999726,
+          "mean_speed": 37.94758854171801,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.6275243451051852,
+          "episode_return": 31.764865278762045,
+          "discounted_return": 16.625978284686866,
+          "reward_terms": {
+            "progress": 12.906093842995926,
+            "target_speed": 0.7175033182511104,
+            "line_follow": 0.40793478418163953,
+            "lap": 17.73333333333337
+          }
+        },
+        {
+          "seed": 1004,
+          "end_reason": "lap",
+          "lap_fraction": 0.9908519707840906,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 38.00639838961864,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.5941509990707824,
+          "episode_return": 31.404276447367785,
+          "discounted_return": 16.258957063966463,
+          "reward_terms": {
+            "progress": 12.906986924289006,
+            "target_speed": 0.3582037935053363,
+            "slow": -0.0020773014833372757,
+            "line_follow": 0.41049636439007753,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1005,
+          "end_reason": "lap",
+          "lap_fraction": 0.9905878087464931,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 37.98296437816399,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.669236312691144,
+          "episode_return": 31.64646159445007,
+          "discounted_return": 16.49431470623496,
+          "reward_terms": {
+            "progress": 12.90354590982304,
+            "target_speed": 0.6419090505258601,
+            "slow": -0.027493611453198133,
+            "line_follow": 0.3978335788876653,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1006,
+          "end_reason": "lap",
+          "lap_fraction": 0.9909723955613028,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 37.997973643871084,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.5803489228873923,
+          "episode_return": 31.321139610678173,
+          "discounted_return": 16.2079917554936,
+          "reward_terms": {
+            "progress": 12.908555595564561,
+            "target_speed": 0.3022614007020164,
+            "slow": -0.027404653579770538,
+            "line_follow": 0.40706060132466454,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1007,
+          "end_reason": "lap",
+          "lap_fraction": 0.9911507462147441,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 38.00117377294082,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.5741001608950352,
+          "episode_return": 31.259703495912827,
+          "discounted_return": 16.148794907878003,
+          "reward_terms": {
+            "progress": 12.910878818023413,
+            "target_speed": 0.2120314030496538,
+            "slow": -0.009397509697807265,
+            "line_follow": 0.4155241178708662,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1008,
+          "end_reason": "lap",
+          "lap_fraction": 0.9905941422598542,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 37.99577198470532,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.6691400560370663,
+          "episode_return": 31.85030430294951,
+          "discounted_return": 16.66329023191725,
+          "reward_terms": {
+            "progress": 12.903628411121518,
+            "target_speed": 0.8343209023950766,
+            "slow": -0.013291317425900211,
+            "line_follow": 0.3949796401921126,
+            "lap": 17.730666666666703
+          }
+        },
+        {
+          "seed": 1009,
+          "end_reason": "lap",
+          "lap_fraction": 0.9910050058984238,
+          "completed_lap": true,
+          "duration": 17.019999999999726,
+          "lap_time": 17.019999999999726,
+          "mean_speed": 38.00486305777543,
+          "mean_throttle": 1.0,
+          "mean_brake": 0.0,
+          "mean_abs_steer": 0.5999864870246653,
+          "episode_return": 31.405064013309484,
+          "discounted_return": 16.25846757670378,
+          "reward_terms": {
+            "progress": 12.908980382724673,
+            "target_speed": 0.35633461279811207,
+            "slow": -0.001517407954112595,
+            "line_follow": 0.41059975907410884,
+            "lap": 17.730666666666703
+          }
+        }
+      ]
+    }
+  ],
+  "expert": {
+    "episodes": 10,
+    "lap_fraction_mean": 0.9906540341443371,
+    "lap_fraction_std": 0.00022965167218151928,
+    "lap_fraction_min": 0.9900004640279814,
+    "completed_laps": 10,
+    "lap_time_mean": 34.467999999999805,
+    "end_reasons": {
+      "lap": 10
+    },
+    "mean_speed": 18.286850332873726,
+    "mean_brake": 0.0645731078843242,
+    "return_mean": 32.9504446649293,
+    "discounted_return_mean": 11.045326132787716
+  }
+}

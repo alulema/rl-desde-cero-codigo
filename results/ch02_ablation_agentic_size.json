@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "command": "python experiments/ch02_ablations.py --seeds 0 1 2",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "commit": "9c46d75",
+    "date": "2026-10-18T22:48:34+00:00"
+  },
+  "variant": "agentic_size",
+  "env_config": {
+    "track": {
+      "kind": "fixed",
+      "half_length": 350,
+      "half_height": 200,
+      "corner_radius": 120,
+      "technical_straight": 200.0,
+      "technical_hairpin_radius": 15.0,
+      "width": 12.0,
+      "random_seeds": [
+        0
+      ],
+      "random_min_corner_radius": 30.0,
+      "random_harmonics": [
+        1,
+        2
+      ],
+      "random_harmonic_freq": [
+        2,
+        3
+      ],
+      "random_harmonic_amp": [
+        0.08,
+        0.16
+      ],
+      "random_radial_jitter": 0.035
+    },
+    "car": {
+      "mass": 1200.0,
+      "linear_drag": 0.2,
+      "engine_force": 12000.0,
+      "brake_force": 18000.0,
+      "coast_force": 2500.0,
+      "max_speed": 55.0,
+      "max_reverse_speed": 12.0,
+      "turn_rate_deg": 130.0,
+      "high_speed_turn_factor": 0.35,
+      "steer_fade_in_speed": 0.4,
+      "min_steer_authority": 0.25,
+      "lateral_grip": 7.0,
+      "grip_model": "rotate",
+      "grip_redirect": 0.85
+    },
+    "obs": {
+      "n_rays": 9,
+      "ray_fov_deg": 150.0,
+      "ray_length": 70.0,
+      "ray_format": "distance",
+      "speeds": true,
+      "heading_error": true,
+      "lateral_offset": true,
+      "progress": true,
+      "curvature_windows": [
+        [
+          0.0,
+          22.0
+        ],
+        [
+          18.0,
+          45.0
+        ],
+        [
+          40.0,
+          75.0
+        ]
+      ],
+      "directive": true,
+      "previous_steer": false
+    },
+    "reward": {
+      "progress_per_metre": 0.02,
+      "target_speed_per_sec": 0.25,
+      "speed_per_sec": 0.0,
+      "line_follow_per_sec": 0.05,
+      "slow_per_sec": 0.15,
+      "edge_per_sec": 0.6,
+      "edge_ramp": true,
+      "edge_safe_frac": 0.55,
+      "time_per_step": 0.0,
+      "stuck_per_sec": 0.3,
+      "alive_per_sec": 0.0,
+      "off_track": 1.0,
+      "stuck": 1.0,
+      "wrong_way": 1.0,
+      "stall": 1.0,
+      "lap_bonus": 12.0,
+      "fast_lap_bonus": 8.0,
+      "straight_speed_frac": 0.42,
+      "corner_speed_frac": 0.12,
+      "directive_scales_target": false
+    },
+    "termination": {
+      "off_track_margin": 2.0,
+      "stuck_speed": 0.5,
+      "stuck_seconds": 8.0,
+      "wrong_way_speed": 7.5,
+      "wrong_way_seconds": 4.5,
+      "wrong_way_arm_metres": 15.0,
+      "stall_seconds": 5.0,
+      "stall_min_metres": 8.0,
+      "stall_grace_seconds": 1.2,
+      "lap_fraction": 0.99,
+      "time_limit_seconds": 120.0
+    },
+    "spawn": {
+      "clean": false,
+      "heading_noise_deg": 10.0,
+      "lateral_noise": 2.0,
+      "launch_speed": 8.0,
+      "clean_speed": 14.0
+    },
+    "physics_dt": 0.02,
+    "decision_period": 5,
+    "aggression": null
+  },
+  "ppo_config": {
+    "total_steps": 500000,
+    "n_envs": 8,
+    "n_steps": 256,
+    "epochs": 10,
+    "minibatch_size": 256,
+    "gamma": 0.995,
+    "lam": 0.95,
+    "clip_epsilon": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.0,
+    "value_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "hidden_sizes": [
+      64,
+      64
+    ],
+    "initial_log_std": 0.0,
+    "normalize_observations": true,
+    "normalize_advantages": true,
+    "seed": 0
+  },
+  "eval_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "runs": [
+    {
+      "seed": 0,
+      "train_seconds": 71.6,
+      "last_batch": {
+        "update": 244,
+        "steps": 499712,
+        "seconds": 71.6,
+        "episodes": 6,
+        "std": 0.6422979831695557,
+        "policy_loss": -0.00010824755299836397,
+        "value_loss": 0.09688248331658542,
+        "entropy": 2.912071868777275,
+        "approx_kl": 1.9980332581326364e-06,
+        "clip_fraction": 0.0,
+        "episode_return": 58.7777333532944,
+        "episode_length": 447.1666666666667,
+        "lap_fraction": 0.990392777793594,
+        "end_lap": 1.0,
+        "end_off_track": 0.0,
+        "end_stall": 0.0,
+        "end_stuck": 0.0,
+        "end_wrong_way": 0.0,
+        "end_time_limit": 0.0
+      },
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.9903610898063417,
+        "lap_fraction_std": 0.00013468772804357896,
+        "lap_fraction_min": 0.9901221074016409,
+        "completed_laps": 10,
+        "lap_time_mean": 43.792000000001245,
+        "end_reasons": {
+          "lap": 10
+        },
+        "mean_speed": 45.12366772056287,
+        "mean_brake": 0.0,
+        "return_mean": 58.925551889318044
+      }
+    },
+    {
+      "seed": 1,
+      "train_seconds": 76.9,
+      "last_batch": {
+        "update": 244,
+        "steps": 499712,
+        "seconds": 76.9,
+        "episodes": 2,
+        "std": 0.6338016986846924,
+        "policy_loss": -0.0001242321595782414,
+        "value_loss": 0.039950050914194436,
+        "entropy": 2.886175513267517,
+        "approx_kl": 2.8605689294636248e-06,
+        "clip_fraction": 0.0,
+        "episode_return": 58.682853169707236,
+        "episode_length": 443.0,
+        "lap_fraction": 0.9902247583843471,
+        "end_lap": 1.0,
+        "end_off_track": 0.0,
+        "end_stall": 0.0,
+        "end_stuck": 0.0,
+        "end_wrong_way": 0.0,
+        "end_time_limit": 0.0
+      },
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.9902714208274475,
+        "lap_fraction_std": 0.00018640832584510225,
+        "lap_fraction_min": 0.9900365921843592,
+        "completed_laps": 10,
+        "lap_time_mean": 43.816000000001246,
+        "end_reasons": {
+          "lap": 10
+        },
+        "mean_speed": 45.19158123239923,
+        "mean_brake": 0.0,
+        "return_mean": 58.807691618676856
+      }
+    },
+    {
+      "seed": 2,
+      "train_seconds": 213.3,
+      "last_batch": {
+        "update": 244,
+        "steps": 499712,
+        "seconds": 213.3,
+        "episodes": 3,
+        "std": 0.6936559081077576,
+        "policy_loss": -0.00037684211565647274,
+        "value_loss": 0.04308103184448555,
+        "entropy": 3.1333469331264494,
+        "approx_kl": 1.0749095235951244e-05,
+        "clip_fraction": 0.0,
+        "episode_return": 58.88685249012182,
+        "episode_length": 449.0,
+        "lap_fraction": 0.9902157991012396,
+        "end_lap": 1.0,
+        "end_off_track": 0.0,
+        "end_stall": 0.0,
+        "end_stuck": 0.0,
+        "end_wrong_way": 0.0,
+        "end_time_limit": 0.0
+      },
+      "eval": {
+        "episodes": 10,
+        "lap_fraction_mean": 0.990319177065345,
+        "lap_fraction_std": 0.00015690756127721226,
+        "lap_fraction_min": 0.9901212555948211,
+        "completed_laps": 10,
+        "lap_time_mean": 43.73200000000124,
+        "end_reasons": {
+          "lap": 10
+        },
+        "mean_speed": 45.11903719200647,
+        "mean_brake": 0.0,
+        "return_mean": 58.91840907191978
+      }
+    }
+  ],
+  "expert": {
+    "episodes": 10,
+    "lap_fraction_mean": 0.9901132642272135,
+    "lap_fraction_std": 5.381288826656942e-05,
+    "lap_fraction_min": 0.9900396232088664,
+    "completed_laps": 10,
+    "lap_time_mean": 96.50799999999795,
+    "end_reasons": {
+      "lap": 10
+    },
+    "mean_speed": 20.463462046281627,
+    "mean_brake": 0.04987340703020927,
+    "return_mean": 75.94370323568617
+  }
+}

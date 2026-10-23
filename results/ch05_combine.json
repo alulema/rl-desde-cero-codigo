@@ -1,0 +1,4652 @@
+{
+  "metadata": {
+    "command": "python experiments/ch05_combine.py",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "commit": "f4461b7",
+    "date": "2026-10-19T12:12:24+00:00"
+  },
+  "env_config": {
+    "track": {
+      "kind": "technical",
+      "half_length": 120.0,
+      "half_height": 60.0,
+      "corner_radius": 40.0,
+      "technical_straight": 200.0,
+      "technical_hairpin_radius": 15.0,
+      "width": 12.0,
+      "random_seeds": [
+        0
+      ],
+      "random_min_corner_radius": 30.0,
+      "random_harmonics": [
+        1,
+        2
+      ],
+      "random_harmonic_freq": [
+        2,
+        3
+      ],
+      "random_harmonic_amp": [
+        0.08,
+        0.16
+      ],
+      "random_radial_jitter": 0.035
+    },
+    "car": {
+      "mass": 1200.0,
+      "linear_drag": 0.2,
+      "engine_force": 12000.0,
+      "brake_force": 18000.0,
+      "coast_force": 2500.0,
+      "max_speed": 55.0,
+      "max_reverse_speed": 12.0,
+      "turn_rate_deg": 130.0,
+      "high_speed_turn_factor": 0.35,
+      "steer_fade_in_speed": 0.4,
+      "min_steer_authority": 0.25,
+      "lateral_grip": 7.0,
+      "grip_model": "rotate",
+      "grip_redirect": 0.85
+    },
+    "obs": {
+      "n_rays": 9,
+      "ray_fov_deg": 150.0,
+      "ray_length": 70.0,
+      "ray_format": "distance",
+      "speeds": true,
+      "heading_error": true,
+      "lateral_offset": true,
+      "progress": true,
+      "curvature_windows": [
+        [
+          0.0,
+          22.0
+        ],
+        [
+          18.0,
+          45.0
+        ],
+        [
+          40.0,
+          75.0
+        ]
+      ],
+      "directive": true,
+      "previous_steer": false
+    },
+    "reward": {
+      "progress_per_metre": 0.02,
+      "target_speed_per_sec": 0.25,
+      "speed_per_sec": 0.0,
+      "line_follow_per_sec": 0.05,
+      "slow_per_sec": 0.15,
+      "edge_per_sec": 0.6,
+      "edge_ramp": true,
+      "edge_safe_frac": 0.55,
+      "time_per_step": 0.0,
+      "stuck_per_sec": 0.3,
+      "alive_per_sec": 0.0,
+      "off_track": 1.0,
+      "stuck": 1.0,
+      "wrong_way": 1.0,
+      "stall": 1.0,
+      "lap_bonus": 12.0,
+      "fast_lap_bonus": 8.0,
+      "straight_speed_frac": 0.42,
+      "corner_speed_frac": 0.12,
+      "directive_scales_target": false
+    },
+    "termination": {
+      "off_track_margin": 2.0,
+      "stuck_speed": 0.5,
+      "stuck_seconds": 8.0,
+      "wrong_way_speed": 7.5,
+      "wrong_way_seconds": 4.5,
+      "wrong_way_arm_metres": 15.0,
+      "stall_seconds": 5.0,
+      "stall_min_metres": 8.0,
+      "stall_grace_seconds": 1.2,
+      "lap_fraction": 0.99,
+      "time_limit_seconds": 60.0
+    },
+    "spawn": {
+      "clean": false,
+      "heading_noise_deg": 10.0,
+      "lateral_noise": 2.0,
+      "launch_speed": 8.0,
+      "clean_speed": 14.0
+    },
+    "physics_dt": 0.02,
+    "decision_period": 5,
+    "aggression": null
+  },
+  "ppo_config": {
+    "total_steps": 500000,
+    "n_envs": 8,
+    "n_steps": 256,
+    "epochs": 10,
+    "minibatch_size": 256,
+    "gamma": 0.995,
+    "lam": 0.95,
+    "clip_epsilon": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.0,
+    "value_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "hidden_sizes": [
+      64,
+      64
+    ],
+    "initial_log_std": 0.0,
+    "normalize_observations": true,
+    "normalize_advantages": true,
+    "seed": 0
+  },
+  "gail_config": {
+    "gail_weight": 0.15,
+    "env_weight": 1.0,
+    "hidden_sizes": [
+      128,
+      128
+    ],
+    "learning_rate": 0.0003,
+    "epochs": 3,
+    "minibatch_size": 256,
+    "gradient_penalty": 10.0,
+    "seed": 0
+  },
+  "bc_aux_config": {
+    "strength": 0.5,
+    "active_fraction": 0.2,
+    "epochs": 3,
+    "minibatches_per_epoch": 8,
+    "minibatch_size": 256,
+    "seed": 0
+  },
+  "bc_config": {
+    "hidden_sizes": [
+      64,
+      64
+    ],
+    "learning_rate": 0.001,
+    "gradient_steps": 5000,
+    "minibatch_size": 256,
+    "seed": 0
+  },
+  "demo_episodes": 20,
+  "directives": {
+    "conserve": 0.15,
+    "attack": 0.85
+  },
+  "expert": {
+    "random_directive": {
+      "episodes": 20,
+      "lap_fraction_mean": 0.9904452148306457,
+      "lap_fraction_min": 0.9900292006032033,
+      "completed_laps": 20,
+      "lap_time_mean": 29.756999999999454,
+      "end_reasons": {
+        "lap": 20
+      },
+      "mean_brake": 0.10716876816052828,
+      "brake_over_threshold": 0.24291226304311359,
+      "disagreement": 0.0,
+      "disagreement_by_time": [
+        {
+          "from_s": 0,
+          "to_s": 5,
+          "steps": 1000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 5,
+          "to_s": 10,
+          "steps": 1000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 10,
+          "to_s": 20,
+          "steps": 2000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 20,
+          "to_s": 30,
+          "steps": 1760,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 30,
+          "to_s": 60,
+          "steps": 201,
+          "disagreement": 0.0
+        }
+      ],
+      "mean_abs_lateral": 1.2089396059183266
+    },
+    "conserve": {
+      "episodes": 20,
+      "lap_fraction_mean": 0.9903581107605474,
+      "lap_fraction_min": 0.9900292006032033,
+      "completed_laps": 20,
+      "lap_time_mean": 31.797999999999412,
+      "end_reasons": {
+        "lap": 20
+      },
+      "mean_brake": 0.08514862981545895,
+      "brake_over_threshold": 0.2467817896389325,
+      "disagreement": 0.0,
+      "disagreement_by_time": [
+        {
+          "from_s": 0,
+          "to_s": 5,
+          "steps": 1000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 5,
+          "to_s": 10,
+          "steps": 1000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 10,
+          "to_s": 20,
+          "steps": 2000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 20,
+          "to_s": 30,
+          "steps": 2000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 30,
+          "to_s": 60,
+          "steps": 370,
+          "disagreement": 0.0
+        }
+      ],
+      "mean_abs_lateral": 1.186207086328879
+    },
+    "attack": {
+      "episodes": 20,
+      "lap_fraction_mean": 0.9905681544040679,
+      "lap_fraction_min": 0.9900420592018321,
+      "completed_laps": 20,
+      "lap_time_mean": 24.798999999999563,
+      "end_reasons": {
+        "lap": 20
+      },
+      "mean_brake": 0.17311807723227848,
+      "brake_over_threshold": 0.21944835917052546,
+      "disagreement": 0.0,
+      "disagreement_by_time": [
+        {
+          "from_s": 0,
+          "to_s": 5,
+          "steps": 1000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 5,
+          "to_s": 10,
+          "steps": 1000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 10,
+          "to_s": 20,
+          "steps": 2000,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 20,
+          "to_s": 30,
+          "steps": 967,
+          "disagreement": 0.0
+        },
+        {
+          "from_s": 30,
+          "to_s": 60,
+          "steps": 0,
+          "disagreement": null
+        }
+      ],
+      "mean_abs_lateral": 1.2714150225464766
+    },
+    "conserve_minus_attack_s": 6.99899999999985
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "demo_samples": 5684,
+      "variants": {
+        "A": {
+          "steps": 500000,
+          "train_seconds": 71.9,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910808794763998,
+            "lap_fraction_min": 0.9902797950688413,
+            "completed_laps": 20,
+            "lap_time_mean": 16.516999999999733,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.00038185513724814434,
+            "brake_over_threshold": 0.0012073649260488982,
+            "disagreement": 2.29800750603522,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.969664863973868
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.410168624354066
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1313,
+                "disagreement": 2.4626545157400987
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.3793056347519435
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911127523331219,
+            "lap_fraction_min": 0.9900863392679816,
+            "completed_laps": 20,
+            "lap_time_mean": 16.515999999999735,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0004656637026182014,
+            "brake_over_threshold": 0.0018110473890733474,
+            "disagreement": 2.336161558882598,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 2.074903577972731
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.4162129969636914
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1313,
+                "disagreement": 2.4741711116844067
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.3899585036737885
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910406984473891,
+            "lap_fraction_min": 0.9900185616316799,
+            "completed_laps": 20,
+            "lap_time_mean": 16.511999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0007777747783611938,
+            "brake_over_threshold": 0.002717391304347826,
+            "disagreement": 2.1927249953294,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.761214045118637
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.3605675713442653
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1312,
+                "disagreement": 2.3936917439543217
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.35211842637832
+          },
+          "conserve_minus_attack_s": 0.004000000000001336
+        },
+        "A_long": {
+          "steps": 1000000,
+          "train_seconds": 144.7,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907472851033315,
+            "lap_fraction_min": 0.9900207084972829,
+            "completed_laps": 20,
+            "lap_time_mean": 16.21599999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.05768798805642707,
+            "brake_over_threshold": 0.09929296034429758,
+            "disagreement": 2.1795851066783225,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 2.008016978461396
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.3038537734297395
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1253,
+                "disagreement": 2.217334078318793
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.607629796445768
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908725951365088,
+            "lap_fraction_min": 0.9900207084972829,
+            "completed_laps": 20,
+            "lap_time_mean": 16.195999999999742,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.054292583824341815,
+            "brake_over_threshold": 0.1000615763546798,
+            "disagreement": 2.215691381786995,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 2.1197934573347554
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.321701003095591
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1248,
+                "disagreement": 2.207589060587991
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.609072194503393
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908476225915948,
+            "lap_fraction_min": 0.9900468894913842,
+            "completed_laps": 20,
+            "lap_time_mean": 16.26999999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0631846037064358,
+            "brake_over_threshold": 0.09525267993874426,
+            "disagreement": 2.049925190423232,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.7878668178869443
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.2350291952995778
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1265,
+                "disagreement": 2.11075868264453
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.574154801010023
+          },
+          "conserve_minus_attack_s": -0.07399999999999807
+        },
+        "B": {
+          "steps": 0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904562595935866,
+            "lap_fraction_min": 0.9900796037379412,
+            "completed_laps": 20,
+            "lap_time_mean": 32.07299999999953,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0653680649728265,
+            "brake_over_threshold": 0.43515491203487466,
+            "disagreement": 0.027288875249250985,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.04349064216896718
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.030696143114864332
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.020926069151432792
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1945,
+                "disagreement": 0.026366862881439957
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 478,
+                "disagreement": 0.016640112625190936
+              }
+            ],
+            "mean_abs_lateral": 1.1775075833769524
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903417422706108,
+            "lap_fraction_min": 0.9900796037379412,
+            "completed_laps": 20,
+            "lap_time_mean": 33.13399999999959,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.05909172852645443,
+            "brake_over_threshold": 0.40325497287522605,
+            "disagreement": 0.026548127396087615,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.04119346238283494
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.027945305633815587
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.022515580420184474
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 2000,
+                "disagreement": 0.02471051525176865
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 636,
+                "disagreement": 0.01978366987402615
+              }
+            ],
+            "mean_abs_lateral": 1.1904563130027503
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906103756857292,
+            "lap_fraction_min": 0.9900445607791281,
+            "completed_laps": 20,
+            "lap_time_mean": 25.848999999999542,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.09083646621454407,
+            "brake_over_threshold": 0.41776061776061774,
+            "disagreement": 0.03500360936308188,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.044333356572613426
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.03503836827877774
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.03256922549202411
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1180,
+                "disagreement": 0.031193661580783717
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.2534338142624522
+          },
+          "conserve_minus_attack_s": 7.285000000000046
+        },
+        "C": {
+          "steps": 500000,
+          "train_seconds": 86.5,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904411511296429,
+            "lap_fraction_min": 0.9900136187777103,
+            "completed_laps": 20,
+            "lap_time_mean": 28.23799999999948,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.002489178605854701,
+            "brake_over_threshold": 0.0613724796604174,
+            "disagreement": 0.4088409444565534,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.3281144953839512
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.5349747920742719
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.39215080798615537
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1626,
+                "disagreement": 0.4043837713062595
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 28,
+                "disagreement": 0.23813515653003176
+              }
+            ],
+            "mean_abs_lateral": 1.1134243449463623
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904070475490225,
+            "lap_fraction_min": 0.9900230053036098,
+            "completed_laps": 20,
+            "lap_time_mean": 30.211999999999442,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0022879133109377807,
+            "brake_over_threshold": 0.0582010582010582,
+            "disagreement": 0.34874114797423006,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.33415685555895014
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.3876841705135087
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.33849317696656384
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1993,
+                "disagreement": 0.35080147036205256
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 55,
+                "disagreement": 0.20385004565429582
+              }
+            ],
+            "mean_abs_lateral": 1.1220834757960914
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906690939440134,
+            "lap_fraction_min": 0.9900192895615672,
+            "completed_laps": 20,
+            "lap_time_mean": 23.595999999999584,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0037733094574483317,
+            "brake_over_threshold": 0.0738155668358714,
+            "disagreement": 0.5842238345354421,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.4714196238574766
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.6912832554280555
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.6103288388914404
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 728,
+                "disagreement": 0.520397984361481
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0595330258011106
+          },
+          "conserve_minus_attack_s": 6.6159999999998576
+        },
+        "D": {
+          "steps": 500000,
+          "train_seconds": 89.2,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903812124458806,
+            "lap_fraction_min": 0.9900081249743512,
+            "completed_laps": 20,
+            "lap_time_mean": 27.570999999999497,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03370939552033781,
+            "brake_over_threshold": 0.25823976819992756,
+            "disagreement": 0.6553626654689385,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.4218405970927166
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.6776043232823197
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.7205186412747623
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1522,
+                "disagreement": 0.7085613901412067
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.137328539374424
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904212289958274,
+            "lap_fraction_min": 0.9900230626738254,
+            "completed_laps": 20,
+            "lap_time_mean": 29.307999999999463,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03390464199107185,
+            "brake_over_threshold": 0.2911413969335605,
+            "disagreement": 0.5980387436624064,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.44568185229231283
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.5590435840873824
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.6650108383436742
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1870,
+                "disagreement": 0.6287381348830383
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.124616928014645
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904994058291561,
+            "lap_fraction_min": 0.990007413338142,
+            "completed_laps": 20,
+            "lap_time_mean": 23.420999999999587,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03168099516334182,
+            "brake_over_threshold": 0.15153452685421995,
+            "disagreement": 0.7830855372148127,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.5228751609447329
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.8192519829676326
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.8964835806553214
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 692,
+                "disagreement": 0.7791084326429079
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.1732192980746825
+          },
+          "conserve_minus_attack_s": 5.886999999999876
+        },
+        "E": {
+          "steps": 1000000,
+          "train_seconds": 71.9,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990730194370475,
+            "lap_fraction_min": 0.990042784985179,
+            "completed_laps": 20,
+            "lap_time_mean": 18.949999999999683,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.007775468393775775,
+            "brake_over_threshold": 0.11690363349131122,
+            "disagreement": 1.5104031323865525,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.4042460653768554
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.5641993238386112
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1798,
+                "disagreement": 1.5395248651772304
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.6063303735193086
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907136363324142,
+            "lap_fraction_min": 0.990042784985179,
+            "completed_laps": 20,
+            "lap_time_mean": 19.096999999999685,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0044652516317604165,
+            "brake_over_threshold": 0.08174458083050405,
+            "disagreement": 1.4775117519462166,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.4451552094919098
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.5043176731480876
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1829,
+                "disagreement": 1.4805465366659738
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.6493581342653517
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910881065505551,
+            "lap_fraction_min": 0.9900790394174795,
+            "completed_laps": 20,
+            "lap_time_mean": 18.56999999999969,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.015267171634621518,
+            "brake_over_threshold": 0.18736559139784947,
+            "disagreement": 1.5614652618232194,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.2595054425143513
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.6410211842239157
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1720,
+                "disagreement": 1.6907698530489004
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.5232619258093446
+          },
+          "conserve_minus_attack_s": 0.5269999999999939
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "demo_samples": 5671,
+      "variants": {
+        "A": {
+          "steps": 500000,
+          "train_seconds": 72.7,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909676468643113,
+            "lap_fraction_min": 0.990132981758854,
+            "completed_laps": 20,
+            "lap_time_mean": 16.694999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.04768075670881132,
+            "brake_over_threshold": 0.09769943232745743,
+            "disagreement": 1.8407637203137759,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.7369834836730411
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.8775101798063083
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1347,
+                "disagreement": 1.8905289594735404
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.6089501005517666
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911314487250473,
+            "lap_fraction_min": 0.9900795989869412,
+            "completed_laps": 20,
+            "lap_time_mean": 16.799999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.054705523146865415,
+            "brake_over_threshold": 0.10240427426536064,
+            "disagreement": 1.8685204562546245,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.8285513695442692
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.8716989803048518
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1369,
+                "disagreement": 1.8953944976425927
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.5536136250022836
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908765846823103,
+            "lap_fraction_min": 0.9900750973302627,
+            "completed_laps": 20,
+            "lap_time_mean": 16.556999999999736,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03367678613539809,
+            "brake_over_threshold": 0.08622249020198974,
+            "disagreement": 1.7712525159568158,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.5218854392117755
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.876473681600355
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1317,
+                "disagreement": 1.8807027142115615
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.757779321151502
+          },
+          "conserve_minus_attack_s": 0.24299999999999855
+        },
+        "A_long": {
+          "steps": 1000000,
+          "train_seconds": 143.2,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911303624627543,
+            "lap_fraction_min": 0.9901246923425754,
+            "completed_laps": 20,
+            "lap_time_mean": 16.45299999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 7.139941990339372e-05,
+            "brake_over_threshold": 0.001212856276531231,
+            "disagreement": 2.2457542369831858,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 2.021126597115664
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.3616870221598965
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1298,
+                "disagreement": 2.329494494834351
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.0903183506013394
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910314348229544,
+            "lap_fraction_min": 0.9900693961197593,
+            "completed_laps": 20,
+            "lap_time_mean": 16.490999999999737,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.000436178066956157,
+            "brake_over_threshold": 0.0042334442092530995,
+            "disagreement": 2.290997167881837,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 2.145491383631224
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.373037263896956
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1307,
+                "disagreement": 2.339555460334395
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.199563117972724
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910525651880191,
+            "lap_fraction_min": 0.9900358015222261,
+            "completed_laps": 20,
+            "lap_time_mean": 16.45799999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 1.474127747066529e-05,
+            "brake_over_threshold": 0.0006062443164595332,
+            "disagreement": 2.1486562908072275,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.763672651081417
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.3226801255780174
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1299,
+                "disagreement": 2.3110579882321862
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.8187294351662262
+          },
+          "conserve_minus_attack_s": 0.0329999999999977
+        },
+        "B": {
+          "steps": 0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990273522866645,
+            "lap_fraction_min": 0.9900107526889916,
+            "completed_laps": 20,
+            "lap_time_mean": 31.131999999999493,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.06388640215630557,
+            "brake_over_threshold": 0.40247032402951555,
+            "disagreement": 0.03103434882998755,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.050668348018341275
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.03344122159305911
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.02496505073164647
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1892,
+                "disagreement": 0.02830046328436611
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 342,
+                "disagreement": 0.017204628647451377
+              }
+            ],
+            "mean_abs_lateral": 1.2069027143827702
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9902765876433766,
+            "lap_fraction_min": 0.9900107526889916,
+            "completed_laps": 20,
+            "lap_time_mean": 32.91899999999955,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.05604694733157937,
+            "brake_over_threshold": 0.387649825519648,
+            "disagreement": 0.030133433449396754,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.04683840555596561
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.0342096987817338
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.02507502730994628
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 2000,
+                "disagreement": 0.02775948443611821
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 591,
+                "disagreement": 0.020122389230364857
+              }
+            ],
+            "mean_abs_lateral": 1.2006225552473069
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990440884133043,
+            "lap_fraction_min": 0.9900730026364754,
+            "completed_laps": 20,
+            "lap_time_mean": 25.78899999999954,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0946121537871154,
+            "brake_over_threshold": 0.40495547812620986,
+            "disagreement": 0.035045732228941494,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.04052856853603734
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.0352803953123269
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.033912012921207546
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1166,
+                "disagreement": 0.03208684648707756
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.2475421180936557
+          },
+          "conserve_minus_attack_s": 7.13000000000001
+        },
+        "C": {
+          "steps": 500000,
+          "train_seconds": 84.5,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9902953676732258,
+            "lap_fraction_min": 0.9900043491705539,
+            "completed_laps": 20,
+            "lap_time_mean": 26.527999999999526,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.01664306790915537,
+            "brake_over_threshold": 0.1678900809335592,
+            "disagreement": 0.6069844518185564,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.41441561685960143
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.7473667375681664
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.6013658069786152
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1313,
+                "disagreement": 0.6552889749634365
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0518009667515122
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903458517641427,
+            "lap_fraction_min": 0.9900043491705539,
+            "completed_laps": 20,
+            "lap_time_mean": 27.996999999999492,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.01400385604347799,
+            "brake_over_threshold": 0.15997859818084537,
+            "disagreement": 0.5819939223522557,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.44488224517018815
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.6340329657732144
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.5931380732850617
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1607,
+                "disagreement": 0.6210632016898391
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.034806534474591
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907014740813406,
+            "lap_fraction_min": 0.9901143242852287,
+            "completed_laps": 20,
+            "lap_time_mean": 23.010999999999598,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.02409024071372701,
+            "brake_over_threshold": 0.1794315469733131,
+            "disagreement": 0.5940635991779158,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.4726544284302956
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.7070746188116509
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.6191239684621749
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 609,
+                "disagreement": 0.5255536033575007
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0727138644523493
+          },
+          "conserve_minus_attack_s": 4.985999999999894
+        },
+        "D": {
+          "steps": 500000,
+          "train_seconds": 84.3,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903739833806308,
+            "lap_fraction_min": 0.9900004137316548,
+            "completed_laps": 20,
+            "lap_time_mean": 26.709999999999518,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.00310316028316838,
+            "brake_over_threshold": 0.0540287904281174,
+            "disagreement": 0.6969388479800387,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.4182184707238981
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.7870021531126132
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.7311358718289174
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1349,
+                "disagreement": 0.7860886066351969
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.1599451818580642
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903766542951142,
+            "lap_fraction_min": 0.9900518119877783,
+            "completed_laps": 20,
+            "lap_time_mean": 28.251999999999487,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0012631127884043278,
+            "brake_over_threshold": 0.03216684340756451,
+            "disagreement": 0.6921663460772044,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.4880319782298583
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.6790951415928717
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.7533913577058765
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1658,
+                "disagreement": 0.7493168581847646
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.1462311102376945
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904012102306832,
+            "lap_fraction_min": 0.9900821276879628,
+            "completed_laps": 20,
+            "lap_time_mean": 23.065999999999597,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.00794657108982533,
+            "brake_over_threshold": 0.1081548777849881,
+            "disagreement": 0.618772471377018,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.43589356004233865
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.6556935706640113
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.7116102494357891
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 623,
+                "disagreement": 0.5550200731910524
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.1921913082928353
+          },
+          "conserve_minus_attack_s": 5.18599999999989
+        },
+        "E": {
+          "steps": 1000000,
+          "train_seconds": 72.2,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910809012435985,
+            "lap_fraction_min": 0.9900240563232245,
+            "completed_laps": 20,
+            "lap_time_mean": 16.76799999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.04351451181205601,
+            "brake_over_threshold": 0.09610235049092532,
+            "disagreement": 1.618936100378663,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.3417569796941349
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.758427035483573
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1361,
+                "disagreement": 1.7201030258596461
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.7056158843940464
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9912793642858497,
+            "lap_fraction_min": 0.9901258016162713,
+            "completed_laps": 20,
+            "lap_time_mean": 16.761999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.04367779174471001,
+            "brake_over_threshold": 0.09550728949717346,
+            "disagreement": 1.6596429863588782,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.4522139600013033
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.7711108188039864
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1361,
+                "disagreement": 1.7301508437523139
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.7376930708803917
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911773212753305,
+            "lap_fraction_min": 0.9900062422773042,
+            "completed_laps": 20,
+            "lap_time_mean": 16.83899999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.04090396009160613,
+            "brake_over_threshold": 0.08200118413262285,
+            "disagreement": 1.4913520417495842,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.0963562944625647
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.6898025456312822
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1378,
+                "disagreement": 1.6339828424791356
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.6383331689397915
+          },
+          "conserve_minus_attack_s": -0.07699999999999463
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "demo_samples": 5610,
+      "variants": {
+        "A": {
+          "steps": 500000,
+          "train_seconds": 86.4,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908380097808582,
+            "lap_fraction_min": 0.990015216555998,
+            "completed_laps": 20,
+            "lap_time_mean": 16.768999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03260706101755626,
+            "brake_over_threshold": 0.07676286819398988,
+            "disagreement": 1.734757212226255,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.6129435134977648
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.7956650318024754
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1361,
+                "disagreement": 1.7795080418752411
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.2416920263821345
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910291225548284,
+            "lap_fraction_min": 0.9900901800095188,
+            "completed_laps": 20,
+            "lap_time_mean": 16.75399999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03241735894705583,
+            "brake_over_threshold": 0.08100059559261465,
+            "disagreement": 1.756516364802242,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.696612746399232
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.8014387796832974
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1358,
+                "disagreement": 1.7675481788832095
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0874339708705432
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908976859438695,
+            "lap_fraction_min": 0.9900605371802612,
+            "completed_laps": 20,
+            "lap_time_mean": 16.81399999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.037381309230191104,
+            "brake_over_threshold": 0.06911895579946603,
+            "disagreement": 1.7010223176625747,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.4017334187284591
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.8380997616920962
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1371,
+                "disagreement": 1.8193384773304042
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.633336450118107
+          },
+          "conserve_minus_attack_s": -0.05999999999999872
+        },
+        "A_long": {
+          "steps": 1000000,
+          "train_seconds": 172.2,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909566848206166,
+            "lap_fraction_min": 0.9900157096919421,
+            "completed_laps": 20,
+            "lap_time_mean": 16.157999999999745,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.04401660064856212,
+            "brake_over_threshold": 0.09722222222222222,
+            "disagreement": 1.8550216195890532,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.6557576266504597
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.9629731201813512
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1240,
+                "disagreement": 1.9286607263199371
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.340987293398537
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9912536496097901,
+            "lap_fraction_min": 0.9900157096919421,
+            "completed_laps": 20,
+            "lap_time_mean": 16.161999999999743,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.04459309985506803,
+            "brake_over_threshold": 0.09559050262102992,
+            "disagreement": 1.8725761594732042,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.7239227481008395
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.9496040336107938
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1243,
+                "disagreement": 1.9301992787288564
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.1784030571077113
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911367181681291,
+            "lap_fraction_min": 0.9900912790398118,
+            "completed_laps": 20,
+            "lap_time_mean": 16.172999999999746,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.04502422461125941,
+            "brake_over_threshold": 0.10329941412272588,
+            "disagreement": 1.844513065349548,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.5363799268167706
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.998601786037678
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1243,
+                "disagreement": 1.9684426050475752
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.7548365895381512
+          },
+          "conserve_minus_attack_s": -0.011000000000002785
+        },
+        "B": {
+          "steps": 0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903113959158205,
+            "lap_fraction_min": 0.9900977435852261,
+            "completed_laps": 20,
+            "lap_time_mean": 38.03600000000047,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.06629465965499334,
+            "brake_over_threshold": 0.571953781512605,
+            "disagreement": 0.11416513709990221,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.12659474319276975
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.09549442341865683
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.11246935859581003
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1909,
+                "disagreement": 0.1052665946843717
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 1707,
+                "disagreement": 0.12975973702246224
+              }
+            ],
+            "mean_abs_lateral": 1.7552271661840921
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9902517947283535,
+            "lap_fraction_min": 0.9900196680656543,
+            "completed_laps": 20,
+            "lap_time_mean": 41.31500000000086,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.06607657617917156,
+            "brake_over_threshold": 0.575383871357756,
+            "disagreement": 0.13126822891696258,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.15139657767680006
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.13000909283748024
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.12901238857269748
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 2000,
+                "disagreement": 0.1324558201892612
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 2271,
+                "disagreement": 0.12390023484544238
+              }
+            ],
+            "mean_abs_lateral": 1.8309788114960235
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904965872633837,
+            "lap_fraction_min": 0.9900186108435235,
+            "completed_laps": 20,
+            "lap_time_mean": 25.89699999999953,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.08723184942526925,
+            "brake_over_threshold": 0.4175824175824176,
+            "disagreement": 0.03959262789215659,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.06285652738056868
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.040439471106762784
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.031382314324680693
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1187,
+                "disagreement": 0.03311401326025561
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.3387071043639516
+          },
+          "conserve_minus_attack_s": 15.418000000001328
+        },
+        "C": {
+          "steps": 500000,
+          "train_seconds": 97.0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903637662201042,
+            "lap_fraction_min": 0.9900131919685593,
+            "completed_laps": 20,
+            "lap_time_mean": 25.700999999999546,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.00016660715321417988,
+            "brake_over_threshold": 0.00019428793471925395,
+            "disagreement": 0.8263538413597031,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.578553148041673
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.9684713778776158
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.8686899103839189
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1147,
+                "disagreement": 0.844672079155419
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0290923422745764
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903740208364414,
+            "lap_fraction_min": 0.9900131919685593,
+            "completed_laps": 20,
+            "lap_time_mean": 27.578999999999503,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0001595228834887943,
+            "brake_over_threshold": 0.00018109380659181456,
+            "disagreement": 0.7299761144998603,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.5813609590451815
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.7779348913961064
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.7591487692835801
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1522,
+                "disagreement": 0.7577757656108939
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.050935882488034
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904266730997844,
+            "lap_fraction_min": 0.990002562021145,
+            "completed_laps": 20,
+            "lap_time_mean": 21.43099999999963,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.00027870247476783467,
+            "brake_over_threshold": 0.0020964360587002098,
+            "disagreement": 1.0279007404203286,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.691699707815819
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.1387361369852398
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 1.1300471106495322
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 293,
+                "disagreement": 1.0998218857486255
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.9047639026945288
+          },
+          "conserve_minus_attack_s": 6.147999999999872
+        },
+        "D": {
+          "steps": 500000,
+          "train_seconds": 110.0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903711414737598,
+            "lap_fraction_min": 0.9900124505324169,
+            "completed_laps": 20,
+            "lap_time_mean": 25.560999999999545,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.034185446574701926,
+            "brake_over_threshold": 0.2375,
+            "disagreement": 0.9238941725392802,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.6473390113877064
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.015405023663256
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.9748765807806086
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1120,
+                "disagreement": 0.9980722917758352
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0652299129827638
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904103832202729,
+            "lap_fraction_min": 0.9900301515950789,
+            "completed_laps": 20,
+            "lap_time_mean": 26.518999999999522,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03211850923135997,
+            "brake_over_threshold": 0.22906079427818557,
+            "disagreement": 0.9674100688423206,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.7516377301113889
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.9883306737851394
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 1.0257414343827578
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1313,
+                "disagreement": 1.0269599566619996
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0495473327292666
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990651673869982,
+            "lap_fraction_min": 0.9900266821302324,
+            "completed_laps": 20,
+            "lap_time_mean": 23.202999999999598,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0374528178704739,
+            "brake_over_threshold": 0.2635542168674699,
+            "disagreement": 0.7331373638995838,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.503166980207367
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.8458582569147104
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.795560312038544
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 648,
+                "disagreement": 0.7214145157501543
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0981583938302506
+          },
+          "conserve_minus_attack_s": 3.3159999999999243
+        },
+        "E": {
+          "steps": 1000000,
+          "train_seconds": 91.5,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9853970856253096,
+            "lap_fraction_min": 0.8864350469378199,
+            "completed_laps": 19,
+            "lap_time_mean": 19.038947368420736,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_brake": 0.007322328837140452,
+            "brake_over_threshold": 0.05907172995780591,
+            "disagreement": 1.4174529703555139,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.1905855996539385
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.5042942472744325
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1792,
+                "disagreement": 1.4955925316181573
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.8780787053618042
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906255486793916,
+            "lap_fraction_min": 0.9900225501705675,
+            "completed_laps": 20,
+            "lap_time_mean": 19.341999999999675,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.00557605436665724,
+            "brake_over_threshold": 0.054695562435500514,
+            "disagreement": 1.4207017472452665,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.2597229738796345
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.486466661094717
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1876,
+                "disagreement": 1.4714554037037855
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.8099114406500353
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8695793389925142,
+            "lap_fraction_min": 0.2872423402697484,
+            "completed_laps": 13,
+            "lap_time_mean": 18.187692307692007,
+            "end_reasons": {
+              "off_track": 7,
+              "lap": 13
+            },
+            "mean_brake": 0.010658323833787883,
+            "brake_over_threshold": 0.07901234567901234,
+            "disagreement": 1.4291897364649144,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.0546268596449255
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 935,
+                "disagreement": 1.606785598497516
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1305,
+                "disagreement": 1.5889680857518926
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.1500010760702652
+          },
+          "conserve_minus_attack_s": 1.1543076923076683
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "demo_samples": 5495,
+      "variants": {
+        "A": {
+          "steps": 500000,
+          "train_seconds": 91.5,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990993088895401,
+            "lap_fraction_min": 0.9900212327016394,
+            "completed_laps": 20,
+            "lap_time_mean": 16.488999999999738,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.009610220123029454,
+            "brake_over_threshold": 0.054429996976111276,
+            "disagreement": 1.894382779744665,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.7923787205030088
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.9424258102179328
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1307,
+                "disagreement": 1.9356689532476399
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.8001736333606795
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908225689654764,
+            "lap_fraction_min": 0.9900212327016394,
+            "completed_laps": 20,
+            "lap_time_mean": 16.533999999999736,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.007772811377667201,
+            "brake_over_threshold": 0.04646952323476162,
+            "disagreement": 1.8969876392862275,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.8319830739106586
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.9302118182082253
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1314,
+                "disagreement": 1.9211736259327807
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.646708605767877
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908755770241573,
+            "lap_fraction_min": 0.9900864285426384,
+            "completed_laps": 20,
+            "lap_time_mean": 16.405999999999743,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.011874382289828194,
+            "brake_over_threshold": 0.06597750076010946,
+            "disagreement": 1.879600312629958,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.681227579728411
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.973895737242554
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1289,
+                "disagreement": 1.96034298779594
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.2101862527111975
+          },
+          "conserve_minus_attack_s": 0.127999999999993
+        },
+        "A_long": {
+          "steps": 1000000,
+          "train_seconds": 206.8,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909197378283311,
+            "lap_fraction_min": 0.990054033142247,
+            "completed_laps": 20,
+            "lap_time_mean": 16.29299999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.04497244203116233,
+            "brake_over_threshold": 0.09712009803921569,
+            "disagreement": 2.1897544197694288,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 2.034027610124827
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.2970322493582107
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1264,
+                "disagreement": 2.2280843090540956
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.7697881452028685
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909336339135472,
+            "lap_fraction_min": 0.9900050375664166,
+            "completed_laps": 20,
+            "lap_time_mean": 16.201999999999742,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.048264008611807685,
+            "brake_over_threshold": 0.1000615763546798,
+            "disagreement": 2.1593767423139605,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 2.0921454285213534
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.243084875466649
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1248,
+                "disagreement": 2.1461741626985114
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.7732521215648744
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.991050522595233,
+            "lap_fraction_min": 0.9900521328526823,
+            "completed_laps": 20,
+            "lap_time_mean": 16.54299999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.032556676207840855,
+            "brake_over_threshold": 0.07265601447090744,
+            "disagreement": 2.261762868535564,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.886290159361438
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.4464748575176722
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1317,
+                "disagreement": 2.4066077585826533
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.838357940240564
+          },
+          "conserve_minus_attack_s": -0.3409999999999975
+        },
+        "B": {
+          "steps": 0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990412958794242,
+            "lap_fraction_min": 0.9900155122471682,
+            "completed_laps": 20,
+            "lap_time_mean": 30.504999999999477,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.06655587432826744,
+            "brake_over_threshold": 0.3554354944335298,
+            "disagreement": 0.04486956036140151,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.04997884093592413
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.04005563473617839
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.0498654418423968
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1848,
+                "disagreement": 0.03797615163891465
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 260,
+                "disagreement": 0.054299950391654035
+              }
+            ],
+            "mean_abs_lateral": 1.2276727587596346
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904089864780495,
+            "lap_fraction_min": 0.9900155122471682,
+            "completed_laps": 20,
+            "lap_time_mean": 32.43499999999948,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.05784097755638978,
+            "brake_over_threshold": 0.3214780600461894,
+            "disagreement": 0.056098482617479815,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.07188114533164716
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.04247214099461588
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.06367337555484015
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 2000,
+                "disagreement": 0.04694753506310364
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 495,
+                "disagreement": 0.05811017583511274
+              }
+            ],
+            "mean_abs_lateral": 1.2022224894010651
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9905903004913036,
+            "lap_fraction_min": 0.9900953687343681,
+            "completed_laps": 20,
+            "lap_time_mean": 27.6849999999995,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0803545912693774,
+            "brake_over_threshold": 0.4685188526068916,
+            "disagreement": 0.03826026961997627,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.0712131905479862
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.03497238432749577
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.02790805339408047
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1499,
+                "disagreement": 0.033312646304851076
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 44,
+                "disagreement": 0.003166727929859223
+              }
+            ],
+            "mean_abs_lateral": 1.21647200833494
+          },
+          "conserve_minus_attack_s": 4.749999999999975
+        },
+        "C": {
+          "steps": 500000,
+          "train_seconds": 107.5,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904981630365175,
+            "lap_fraction_min": 0.9900472540895755,
+            "completed_laps": 20,
+            "lap_time_mean": 26.62099999999952,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.040501169972107745,
+            "brake_over_threshold": 0.1775403074615673,
+            "disagreement": 0.7470954006183063,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.5384586440788393
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.7435533811450775
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.809723902721172
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1334,
+                "disagreement": 0.8122541500987893
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.2402402571448583
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904509583334967,
+            "lap_fraction_min": 0.9900062674618355,
+            "completed_laps": 20,
+            "lap_time_mean": 28.251999999999487,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03966285317293747,
+            "brake_over_threshold": 0.19858657243816255,
+            "disagreement": 0.7119162338141598,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.5826163430718828
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.6611015232703191
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.767787324323242
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1660,
+                "disagreement": 0.7531044387948547
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.2257094852633599
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908471620751713,
+            "lap_fraction_min": 0.9900576415236484,
+            "completed_laps": 20,
+            "lap_time_mean": 22.8909999999996,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.04036802038667351,
+            "brake_over_threshold": 0.12516354121238552,
+            "disagreement": 0.8432922414609335,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.591900530367702
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.9016588967354082
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.9200099855044541
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 586,
+                "disagreement": 0.9108512307642023
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.2569999259532194
+          },
+          "conserve_minus_attack_s": 5.360999999999887
+        },
+        "D": {
+          "steps": 500000,
+          "train_seconds": 117.9,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9905128033317959,
+            "lap_fraction_min": 0.9900114720421658,
+            "completed_laps": 20,
+            "lap_time_mean": 25.12099999999955,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03209164390250904,
+            "brake_over_threshold": 0.1855383392928089,
+            "disagreement": 0.9203400883243137,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.6597175365388723
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.9678129314873168
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 1.0150193488662813
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1034,
+                "disagreement": 0.9433489737580689
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.2263188984184874
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990340056383042,
+            "lap_fraction_min": 0.9900114720421658,
+            "completed_laps": 20,
+            "lap_time_mean": 26.011999999999535,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.02084466199213621,
+            "brake_over_threshold": 0.11362763915547025,
+            "disagreement": 0.9343999115974666,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.7168614308236135
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.9688584830124276
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.9972229297343244
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1210,
+                "disagreement": 0.9818659224116624
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.2182617450980104
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990536317280786,
+            "lap_fraction_min": 0.9902042642185991,
+            "completed_laps": 20,
+            "lap_time_mean": 23.473999999999585,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.059073900719906425,
+            "brake_over_threshold": 0.3831914893617021,
+            "disagreement": 0.7342982727657962,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.5263277656336763
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.8591577082403737
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.785450233531785
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 700,
+                "disagreement": 0.7068799158023169
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.2520382560072978
+          },
+          "conserve_minus_attack_s": 2.5379999999999505
+        },
+        "E": {
+          "steps": 1000000,
+          "train_seconds": 113.9,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908984644701804,
+            "lap_fraction_min": 0.9900388757013993,
+            "completed_laps": 20,
+            "lap_time_mean": 19.073999999999685,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.05555309974808921,
+            "brake_over_threshold": 0.27805388438399165,
+            "disagreement": 1.7432586266426424,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.4039136320048837
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.8817740596128245
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1823,
+                "disagreement": 1.853422950102641
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.6923207386460434
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909775747649988,
+            "lap_fraction_min": 0.9900388757013993,
+            "completed_laps": 20,
+            "lap_time_mean": 19.036999999999683,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.05069059717230104,
+            "brake_over_threshold": 0.27215521761929734,
+            "disagreement": 1.7587482156505116,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.513104746708997
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.8557584153970101
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1814,
+                "disagreement": 1.8406849682387234
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.6807017431742982
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9905372582531988,
+            "lap_fraction_min": 0.9900277476000832,
+            "completed_laps": 20,
+            "lap_time_mean": 19.02599999999968,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.05605803019330746,
+            "brake_over_threshold": 0.29099973760167935,
+            "disagreement": 1.6151938884025556,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.1593400205311621
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.7770318766488085
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1811,
+                "disagreement": 1.7775439047609993
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.8014511771614531
+          },
+          "conserve_minus_attack_s": 0.011000000000002785
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "demo_samples": 5449,
+      "variants": {
+        "A": {
+          "steps": 500000,
+          "train_seconds": 108.8,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911658939398779,
+            "lap_fraction_min": 0.9900094352182115,
+            "completed_laps": 20,
+            "lap_time_mean": 16.42399999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.036186737906918356,
+            "brake_over_threshold": 0.09380692167577413,
+            "disagreement": 1.8254496805619715,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.6545641523496597
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.902805893130304
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1294,
+                "disagreement": 1.8977289043981231
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.01366092000807
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9912253146016947,
+            "lap_fraction_min": 0.990117870950844,
+            "completed_laps": 20,
+            "lap_time_mean": 16.48299999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03692231868048702,
+            "brake_over_threshold": 0.09019370460048426,
+            "disagreement": 1.8392142564154295,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.7259119719122897
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.8950276608819732
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1304,
+                "disagreement": 1.883300820860672
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.9280179607034234
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909951901053315,
+            "lap_fraction_min": 0.9900327140011703,
+            "completed_laps": 20,
+            "lap_time_mean": 16.34899999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03849739493011375,
+            "brake_over_threshold": 0.10027430661383724,
+            "disagreement": 1.792969371029445,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.4846700752552215
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.9351396215013932
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1281,
+                "disagreement": 1.9226563697041323
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.22542221861984
+          },
+          "conserve_minus_attack_s": 0.13400000000000034
+        },
+        "A_long": {
+          "steps": 1000000,
+          "train_seconds": 240.2,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911471246291041,
+            "lap_fraction_min": 0.9900119580177759,
+            "completed_laps": 20,
+            "lap_time_mean": 16.684999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.007574404848284984,
+            "brake_over_threshold": 0.017344497607655503,
+            "disagreement": 2.2072322870219625,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.9435735162787469
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.282796133143167
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1344,
+                "disagreement": 2.347183867841911
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.7621500933196932
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910086012062649,
+            "lap_fraction_min": 0.9900119580177759,
+            "completed_laps": 20,
+            "lap_time_mean": 16.767999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0006639041013215419,
+            "brake_over_threshold": 0.0020827134781315083,
+            "disagreement": 2.1926436878177653,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 2.03564185573379
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.2585665211048918
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1361,
+                "disagreement": 2.259564333517139
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.679169344195898
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909800786811284,
+            "lap_fraction_min": 0.9900372784698067,
+            "completed_laps": 20,
+            "lap_time_mean": 16.501999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.02362460153404862,
+            "brake_over_threshold": 0.06257557436517533,
+            "disagreement": 2.2000042822148753,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.8181972069108756
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 2.3667766603587435
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1308,
+                "disagreement": 2.364403897780725
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 2.0467896052130543
+          },
+          "conserve_minus_attack_s": 0.2660000000000018
+        },
+        "B": {
+          "steps": 0,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9472034979461261,
+            "lap_fraction_min": 0.12783892428204396,
+            "completed_laps": 19,
+            "lap_time_mean": 36.446315789473864,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_brake": 0.05101283426171379,
+            "brake_over_threshold": 0.550071530758226,
+            "disagreement": 0.10738855854154311,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.279818320621278
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 959,
+                "disagreement": 0.17500700887691317
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1900,
+                "disagreement": 0.06138794158463716
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1886,
+                "disagreement": 0.06884436144623718
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 1245,
+                "disagreement": 0.04539632720701587
+              }
+            ],
+            "mean_abs_lateral": 1.373842790691862
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.946877259602249,
+            "lap_fraction_min": 0.12366350679723999,
+            "completed_laps": 19,
+            "lap_time_mean": 40.52526315789547,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_brake": 0.047821265723732215,
+            "brake_over_threshold": 0.5805954825462012,
+            "disagreement": 0.09182823077370238,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.23416313183197585
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 985,
+                "disagreement": 0.14217480680786163
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1900,
+                "disagreement": 0.05411574851021003
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1900,
+                "disagreement": 0.06737481139699834
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 2007,
+                "disagreement": 0.0550514169542967
+              }
+            ],
+            "mean_abs_lateral": 1.1770856730969843
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990353937016837,
+            "lap_fraction_min": 0.9900445401081371,
+            "completed_laps": 20,
+            "lap_time_mean": 28.739999999999476,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.06756172865587776,
+            "brake_over_threshold": 0.48783877692842254,
+            "disagreement": 0.16701271299276874,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.2590538513220141
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.24954501627114728
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.10713566331609474
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1712,
+                "disagreement": 0.12844219041617347
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 44,
+                "disagreement": 0.4218625401940245
+              }
+            ],
+            "mean_abs_lateral": 1.8768502788046966
+          },
+          "conserve_minus_attack_s": 11.785263157895997
+        },
+        "C": {
+          "steps": 500000,
+          "train_seconds": 124.3,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903118596228797,
+            "lap_fraction_min": 0.9900166201269779,
+            "completed_laps": 20,
+            "lap_time_mean": 25.031999999999556,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.0305973476324783,
+            "brake_over_threshold": 0.2862838915470494,
+            "disagreement": 0.9812493863952848,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.6337096162488458
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.119962081312063
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 1.0232586381232698
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1016,
+                "disagreement": 1.1040924688497051
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.057416147115395
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990317573948888,
+            "lap_fraction_min": 0.9900166201269779,
+            "completed_laps": 20,
+            "lap_time_mean": 25.187999999999555,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.02965067110858264,
+            "brake_over_threshold": 0.25346809353943717,
+            "disagreement": 1.1571198802661888,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.8958482958562476
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 1.1993527590505395
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 1.2201915259986826
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1046,
+                "disagreement": 1.2459300276472625
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0490523859392977
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9905311926738429,
+            "lap_fraction_min": 0.9901341309781598,
+            "completed_laps": 20,
+            "lap_time_mean": 24.613999999999564,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.03441941717130473,
+            "brake_over_threshold": 0.3584752635847526,
+            "disagreement": 0.44924832035757173,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.3342716455188723
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.5395735498590077
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.4620341614680637
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 932,
+                "disagreement": 0.4482609417269708
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0651534602643127
+          },
+          "conserve_minus_attack_s": 0.573999999999991
+        },
+        "D": {
+          "steps": 500000,
+          "train_seconds": 124.3,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903321417030597,
+            "lap_fraction_min": 0.9900331586723853,
+            "completed_laps": 20,
+            "lap_time_mean": 27.15899999999951,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.007513331044677512,
+            "brake_over_threshold": 0.1043733921352444,
+            "disagreement": 0.550785364300186,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.4162568489417938
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.6959763265470674
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.5224630824378702
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1442,
+                "disagreement": 0.5826731013571506
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0012415845762344
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9902834193609525,
+            "lap_fraction_min": 0.9900331586723853,
+            "completed_laps": 20,
+            "lap_time_mean": 28.24999999999948,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.009014248391024085,
+            "brake_over_threshold": 0.12636974195828915,
+            "disagreement": 0.5204276934588768,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.3927647275848948
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.6295233738506998
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.489093682746111
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 1658,
+                "disagreement": 0.5694236566118868
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.0111214633193095
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903039161759496,
+            "lap_fraction_min": 0.9900113768229388,
+            "completed_laps": 20,
+            "lap_time_mean": 24.493999999999566,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_brake": 0.002944978746992278,
+            "brake_over_threshold": 0.04381495822294681,
+            "disagreement": 0.6467551689446089,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 0.45012919875237617
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 1000,
+                "disagreement": 0.7564513783882508
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 2000,
+                "disagreement": 0.6858747300731121
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 907,
+                "disagreement": 0.6563369092881419
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.98537275356691
+          },
+          "conserve_minus_attack_s": 3.755999999999915
+        },
+        "E": {
+          "steps": 1000000,
+          "train_seconds": 117.6,
+          "random_directive": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.6694184111499473,
+            "lap_fraction_min": 0.29149797570850194,
+            "completed_laps": 8,
+            "lap_time_mean": 20.904999999999642,
+            "end_reasons": {
+              "off_track": 12,
+              "lap": 8
+            },
+            "mean_brake": 0.006722468721614902,
+            "brake_over_threshold": 0.03842159916926272,
+            "disagreement": 1.5699797788092342,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.2888050274252452
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 862,
+                "disagreement": 1.6803683045056461
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 943,
+                "disagreement": 1.74470488126534
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 84,
+                "disagreement": 1.8230044290184504
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.9674810716030391
+          },
+          "conserve": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8617224371650625,
+            "lap_fraction_min": 0.29149797570850194,
+            "completed_laps": 15,
+            "lap_time_mean": 21.09599999999964,
+            "end_reasons": {
+              "lap": 15,
+              "off_track": 5
+            },
+            "mean_brake": 0.005723503438338381,
+            "brake_over_threshold": 0.025053879310344827,
+            "disagreement": 1.6058219002537633,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 1000,
+                "disagreement": 1.39688930272778
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 920,
+                "disagreement": 1.6497460207893997
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 1613,
+                "disagreement": 1.6897220393380348
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 179,
+                "disagreement": 1.7912491756183888
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 0.8469954591514618
+          },
+          "attack": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.445532320802198,
+            "lap_fraction_min": 0.1702108073552193,
+            "completed_laps": 1,
+            "lap_time_mean": 19.25999999999968,
+            "end_reasons": {
+              "off_track": 19,
+              "lap": 1
+            },
+            "mean_brake": 0.007441979135561115,
+            "brake_over_threshold": 0.07071240105540898,
+            "disagreement": 1.3209969165590614,
+            "disagreement_by_time": [
+              {
+                "from_s": 0,
+                "to_s": 5,
+                "steps": 992,
+                "disagreement": 1.0655944787172138
+              },
+              {
+                "from_s": 5,
+                "to_s": 10,
+                "steps": 647,
+                "disagreement": 1.6003580785077816
+              },
+              {
+                "from_s": 10,
+                "to_s": 20,
+                "steps": 256,
+                "disagreement": 1.6046396765523838
+              },
+              {
+                "from_s": 20,
+                "to_s": 30,
+                "steps": 0,
+                "disagreement": null
+              },
+              {
+                "from_s": 30,
+                "to_s": 60,
+                "steps": 0,
+                "disagreement": null
+              }
+            ],
+            "mean_abs_lateral": 1.3585057216457783
+          },
+          "conserve_minus_attack_s": 1.835999999999963
+        }
+      }
+    }
+  ]
+}

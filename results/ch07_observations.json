@@ -1,0 +1,3835 @@
+{
+  "metadata": {
+    "command": "python experiments/ch07_observations.py",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "commit": "b640083",
+    "date": "2026-10-19T21:29:54+00:00"
+  },
+  "ppo_config": {
+    "total_steps": 500000,
+    "n_envs": 8,
+    "n_steps": 256,
+    "epochs": 10,
+    "minibatch_size": 256,
+    "gamma": 0.995,
+    "lam": 0.95,
+    "clip_epsilon": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.0,
+    "value_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "hidden_sizes": [
+      64,
+      64
+    ],
+    "initial_log_std": 0.0,
+    "normalize_observations": true,
+    "normalize_advantages": true,
+    "seed": 0
+  },
+  "eval_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019
+  ],
+  "unseen_tracks": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119
+  ],
+  "observations": {
+    "full": {
+      "n_rays": 9,
+      "ray_fov_deg": 150.0,
+      "ray_length": 70.0,
+      "ray_format": "distance",
+      "speeds": true,
+      "heading_error": true,
+      "lateral_offset": true,
+      "progress": true,
+      "curvature_windows": [
+        [
+          0.0,
+          22.0
+        ],
+        [
+          18.0,
+          45.0
+        ],
+        [
+          40.0,
+          75.0
+        ]
+      ],
+      "directive": true,
+      "previous_steer": false,
+      "stack": 1
+    },
+    "no_progress": {
+      "n_rays": 9,
+      "ray_fov_deg": 150.0,
+      "ray_length": 70.0,
+      "ray_format": "distance",
+      "speeds": true,
+      "heading_error": true,
+      "lateral_offset": true,
+      "progress": false,
+      "curvature_windows": [
+        [
+          0.0,
+          22.0
+        ],
+        [
+          18.0,
+          45.0
+        ],
+        [
+          40.0,
+          75.0
+        ]
+      ],
+      "directive": true,
+      "previous_steer": false,
+      "stack": 1
+    },
+    "no_curvature": {
+      "n_rays": 9,
+      "ray_fov_deg": 150.0,
+      "ray_length": 70.0,
+      "ray_format": "distance",
+      "speeds": true,
+      "heading_error": true,
+      "lateral_offset": true,
+      "progress": true,
+      "curvature_windows": [],
+      "directive": true,
+      "previous_steer": false,
+      "stack": 1
+    },
+    "previous_steer": {
+      "n_rays": 9,
+      "ray_fov_deg": 150.0,
+      "ray_length": 70.0,
+      "ray_format": "distance",
+      "speeds": true,
+      "heading_error": true,
+      "lateral_offset": true,
+      "progress": true,
+      "curvature_windows": [
+        [
+          0.0,
+          22.0
+        ],
+        [
+          18.0,
+          45.0
+        ],
+        [
+          40.0,
+          75.0
+        ]
+      ],
+      "directive": true,
+      "previous_steer": true,
+      "stack": 1
+    },
+    "stacked": {
+      "n_rays": 9,
+      "ray_fov_deg": 150.0,
+      "ray_length": 70.0,
+      "ray_format": "distance",
+      "speeds": true,
+      "heading_error": true,
+      "lateral_offset": true,
+      "progress": true,
+      "curvature_windows": [
+        [
+          0.0,
+          22.0
+        ],
+        [
+          18.0,
+          45.0
+        ],
+        [
+          40.0,
+          75.0
+        ]
+      ],
+      "directive": true,
+      "previous_steer": false,
+      "stack": 4
+    }
+  },
+  "experiments": {
+    "random8/full": {
+      "env_config": {
+        "track": {
+          "kind": "random",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 72.2,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908723825575679,
+            "lap_fraction_std": 0.00026121122855060115,
+            "lap_fraction_min": 0.9904324338292418,
+            "completed_laps": 20,
+            "lap_time_mean": 17.035999999999724,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.950226962894256,
+            "mean_brake": 0.0,
+            "return_mean": 31.42643295712303
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908055267864315,
+            "lap_fraction_std": 0.000212522485480467,
+            "lap_fraction_min": 0.9904651453308807,
+            "completed_laps": 20,
+            "lap_time_mean": 17.010999999999726,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.985360352574496,
+            "mean_brake": 0.0,
+            "return_mean": 31.40976411013458
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.49445281005822805,
+            "lap_fraction_std": 0.2407478837097777,
+            "lap_fraction_min": 0.06631989596879063,
+            "completed_laps": 2,
+            "lap_time_mean": 17.829999999999707,
+            "end_reasons": {
+              "off_track": 17,
+              "lap": 2,
+              "stall": 1
+            },
+            "mean_speed": 29.424989115825536,
+            "mean_brake": 0.08146475043244934,
+            "return_mean": 8.529832289932404
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 107.9,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908604620918859,
+            "lap_fraction_std": 0.0003424544198394766,
+            "lap_fraction_min": 0.9900655388406755,
+            "completed_laps": 20,
+            "lap_time_mean": 17.054999999999723,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.00588774713401,
+            "mean_brake": 0.0,
+            "return_mean": 31.416945192525866
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907276241458234,
+            "lap_fraction_std": 0.0003347551986183599,
+            "lap_fraction_min": 0.9900036139291529,
+            "completed_laps": 20,
+            "lap_time_mean": 17.050999999999725,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.97804308586804,
+            "mean_brake": 0.0,
+            "return_mean": 31.405743487905074
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.4715634112443231,
+            "lap_fraction_std": 0.17003330857945745,
+            "lap_fraction_min": 0.24072110286320228,
+            "completed_laps": 1,
+            "lap_time_mean": 16.979999999999727,
+            "end_reasons": {
+              "off_track": 19,
+              "lap": 1
+            },
+            "mean_speed": 30.784193003172117,
+            "mean_brake": 0.03213053994740191,
+            "return_mean": 7.494513845593708
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 202.9,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907602533486237,
+            "lap_fraction_std": 0.0002726864468574025,
+            "lap_fraction_min": 0.9902692741479001,
+            "completed_laps": 20,
+            "lap_time_mean": 16.836999999999733,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.87445912081945,
+            "mean_brake": 0.0002587421308648024,
+            "return_mean": 31.553388868335468
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908588771000563,
+            "lap_fraction_std": 0.0003019326617530784,
+            "lap_fraction_min": 0.9902806188568567,
+            "completed_laps": 20,
+            "lap_time_mean": 16.83499999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.91131529210102,
+            "mean_brake": 0.0,
+            "return_mean": 31.53519653955861
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.48707780898314323,
+            "lap_fraction_std": 0.20219550643849,
+            "lap_fraction_min": 0.12549900720406298,
+            "completed_laps": 2,
+            "lap_time_mean": 17.599999999999714,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 30.365129179588173,
+            "mean_brake": 0.05694782921356738,
+            "return_mean": 8.75126325761446
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 125.0,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908184544310729,
+            "lap_fraction_std": 0.0002400989169322249,
+            "lap_fraction_min": 0.9904239018429956,
+            "completed_laps": 20,
+            "lap_time_mean": 17.08599999999972,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.96242794565303,
+            "mean_brake": 0.0,
+            "return_mean": 31.3952497939124
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990819540193421,
+            "lap_fraction_std": 0.00022334234215461756,
+            "lap_fraction_min": 0.9904371512476446,
+            "completed_laps": 20,
+            "lap_time_mean": 17.061999999999724,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.97462400520668,
+            "mean_brake": 0.0,
+            "return_mean": 31.387710936654997
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.533269428627559,
+            "lap_fraction_std": 0.20288670762212516,
+            "lap_fraction_min": 0.28504765305390584,
+            "completed_laps": 2,
+            "lap_time_mean": 17.73999999999971,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 31.786952928679035,
+            "mean_brake": 0.015348075784306497,
+            "return_mean": 9.3040174887587
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 161.1,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907332994629219,
+            "lap_fraction_std": 0.0002005562379615297,
+            "lap_fraction_min": 0.9904260399562083,
+            "completed_laps": 20,
+            "lap_time_mean": 16.941999999999727,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.90344626127056,
+            "mean_brake": 0.0003974202933699586,
+            "return_mean": 31.51529164593803
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907963677233435,
+            "lap_fraction_std": 0.0002803953515481724,
+            "lap_fraction_min": 0.9902806188568564,
+            "completed_laps": 20,
+            "lap_time_mean": 16.925999999999725,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.94359861407089,
+            "mean_brake": 0.0,
+            "return_mean": 31.4956716752764
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.5604604615855295,
+            "lap_fraction_std": 0.22790628191704246,
+            "lap_fraction_min": 0.28385054897446604,
+            "completed_laps": 4,
+            "lap_time_mean": 20.204999999999657,
+            "end_reasons": {
+              "lap": 4,
+              "off_track": 16
+            },
+            "mean_speed": 30.194761954653224,
+            "mean_brake": 0.06856214387446445,
+            "return_mean": 11.731267408283362
+          }
+        }
+      ]
+    },
+    "random8/no_progress": {
+      "env_config": {
+        "track": {
+          "kind": "random",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": false,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 158.6,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908943162913587,
+            "lap_fraction_std": 0.00027066362069419974,
+            "lap_fraction_min": 0.9903274836645901,
+            "completed_laps": 20,
+            "lap_time_mean": 16.905999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.95430270271786,
+            "mean_brake": 0.0,
+            "return_mean": 31.526817094333232
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907349943036763,
+            "lap_fraction_std": 0.0002401027343279111,
+            "lap_fraction_min": 0.9903965339165305,
+            "completed_laps": 20,
+            "lap_time_mean": 16.89999999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.950933521248444,
+            "mean_brake": 0.0,
+            "return_mean": 31.50772584932715
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.4590868568074072,
+            "lap_fraction_std": 0.19468236866807478,
+            "lap_fraction_min": 0.24390243902438977,
+            "completed_laps": 2,
+            "lap_time_mean": 17.619999999999713,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 31.084176093191182,
+            "mean_brake": 0.015546399182721438,
+            "return_mean": 8.173432075868831
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 160.6,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907981561168768,
+            "lap_fraction_std": 0.0002719349408453354,
+            "lap_fraction_min": 0.9902692741479007,
+            "completed_laps": 20,
+            "lap_time_mean": 17.03099999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.98634191545554,
+            "mean_brake": 0.0,
+            "return_mean": 31.433142221718647
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907796115394051,
+            "lap_fraction_std": 0.0002506722972865137,
+            "lap_fraction_min": 0.9902806188568569,
+            "completed_laps": 20,
+            "lap_time_mean": 17.017999999999727,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.96796105076419,
+            "mean_brake": 2.432871003483617e-05,
+            "return_mean": 31.425733765742468
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.5532705765939345,
+            "lap_fraction_std": 0.24772393964667655,
+            "lap_fraction_min": 0.07042660319086648,
+            "completed_laps": 4,
+            "lap_time_mean": 21.454999999999632,
+            "end_reasons": {
+              "lap": 4,
+              "off_track": 15,
+              "stall": 1
+            },
+            "mean_speed": 27.55120272336892,
+            "mean_brake": 0.08445938171068643,
+            "return_mean": 11.472677690471173
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 162.0,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907904910007146,
+            "lap_fraction_std": 0.0002748388989384425,
+            "lap_fraction_min": 0.9902692741479018,
+            "completed_laps": 20,
+            "lap_time_mean": 16.883999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.91655749514872,
+            "mean_brake": 0.0,
+            "return_mean": 31.54769779719394
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907426432754145,
+            "lap_fraction_std": 0.0003176357119924423,
+            "lap_fraction_min": 0.9901199956207688,
+            "completed_laps": 20,
+            "lap_time_mean": 16.886999999999727,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.909056049168775,
+            "mean_brake": 0.0,
+            "return_mean": 31.527781591045674
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.43340093265944485,
+            "lap_fraction_std": 0.22955033210962436,
+            "lap_fraction_min": 0.119658421908055,
+            "completed_laps": 2,
+            "lap_time_mean": 17.619999999999713,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 29.89384115808901,
+            "mean_brake": 0.04296898167891612,
+            "return_mean": 7.774807102987966
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 150.2,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907880147606557,
+            "lap_fraction_std": 0.0001766341932102729,
+            "lap_fraction_min": 0.9904770236291953,
+            "completed_laps": 20,
+            "lap_time_mean": 16.958999999999726,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.96354504654464,
+            "mean_brake": 0.0,
+            "return_mean": 31.49425914634773
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908616471045036,
+            "lap_fraction_std": 0.00031761819532030375,
+            "lap_fraction_min": 0.99046514533088,
+            "completed_laps": 20,
+            "lap_time_mean": 16.942999999999728,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.97460997491632,
+            "mean_brake": 0.0,
+            "return_mean": 31.48411665773142
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.5365352858691903,
+            "lap_fraction_std": 0.19924634339584668,
+            "lap_fraction_min": 0.2844720496894414,
+            "completed_laps": 2,
+            "lap_time_mean": 17.729999999999713,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 31.81777719312256,
+            "mean_brake": 0.046680056190288546,
+            "return_mean": 9.449938783099837
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 182.4,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907488157733926,
+            "lap_fraction_std": 0.0002371942679295962,
+            "lap_fraction_min": 0.9902692741478999,
+            "completed_laps": 20,
+            "lap_time_mean": 16.79199999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.82240270597323,
+            "mean_brake": 0.00035751590059924707,
+            "return_mean": 31.523145198137136
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907630877789975,
+            "lap_fraction_std": 0.00026288458953368436,
+            "lap_fraction_min": 0.9904356356325803,
+            "completed_laps": 20,
+            "lap_time_mean": 16.78599999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.852978264103236,
+            "mean_brake": 0.0,
+            "return_mean": 31.505259692767254
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7611833904302607,
+            "lap_fraction_std": 0.261363465903966,
+            "lap_fraction_min": 0.3303907981086818,
+            "completed_laps": 9,
+            "lap_time_mean": 22.779999999999603,
+            "end_reasons": {
+              "lap": 9,
+              "off_track": 11
+            },
+            "mean_speed": 31.251360273612192,
+            "mean_brake": 0.07338004224065234,
+            "return_mean": 19.345136429729212
+          }
+        }
+      ]
+    },
+    "random8/no_curvature": {
+      "env_config": {
+        "track": {
+          "kind": "random",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 187.5,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907948536394919,
+            "lap_fraction_std": 0.00027636225697506806,
+            "lap_fraction_min": 0.9904239018429948,
+            "completed_laps": 20,
+            "lap_time_mean": 17.128999999999724,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.08824420367327,
+            "mean_brake": 0.0,
+            "return_mean": 31.352460459012434
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907926061382302,
+            "lap_fraction_std": 0.00020204308763439364,
+            "lap_fraction_min": 0.990280618856857,
+            "completed_laps": 20,
+            "lap_time_mean": 17.124999999999723,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.08144568064472,
+            "mean_brake": 0.0,
+            "return_mean": 31.335627279796075
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.3914319679746027,
+            "lap_fraction_std": 0.17607593700302865,
+            "lap_fraction_min": 0.19148936170212788,
+            "completed_laps": 1,
+            "lap_time_mean": 17.099999999999724,
+            "end_reasons": {
+              "off_track": 19,
+              "lap": 1
+            },
+            "mean_speed": 29.8855737557633,
+            "mean_brake": 0.028780643631560215,
+            "return_mean": 6.134423087023621
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 159.6,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907618065425368,
+            "lap_fraction_std": 0.00021134612379573606,
+            "lap_fraction_min": 0.9902692741479004,
+            "completed_laps": 20,
+            "lap_time_mean": 16.916999999999728,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.91718379327764,
+            "mean_brake": 2.6133447362665543e-05,
+            "return_mean": 31.52731541759686
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908732958163761,
+            "lap_fraction_std": 0.00027866541394974307,
+            "lap_fraction_min": 0.9902806188568564,
+            "completed_laps": 20,
+            "lap_time_mean": 16.904999999999724,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.934565692976896,
+            "mean_brake": 0.0,
+            "return_mean": 31.514336187262963
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.35648656445696736,
+            "lap_fraction_std": 0.21144347487536547,
+            "lap_fraction_min": 0.053315994798439556,
+            "completed_laps": 1,
+            "lap_time_mean": 16.85999999999973,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 1,
+              "stall": 1
+            },
+            "mean_speed": 27.660199413362392,
+            "mean_brake": 0.08866727222297235,
+            "return_mean": 5.340708576045555
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 158.6,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909290727996615,
+            "lap_fraction_std": 0.00024514060397037255,
+            "lap_fraction_min": 0.9904324338292424,
+            "completed_laps": 20,
+            "lap_time_mean": 16.868999999999726,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.89746777962071,
+            "mean_brake": 3.288423544482181e-05,
+            "return_mean": 31.536300510588426
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908484218623027,
+            "lap_fraction_std": 0.0002950597602971598,
+            "lap_fraction_min": 0.9904371512476434,
+            "completed_laps": 20,
+            "lap_time_mean": 16.864999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.920614532415186,
+            "mean_brake": 0.0,
+            "return_mean": 31.515118781839654
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.40859072411685793,
+            "lap_fraction_std": 0.24964360672457273,
+            "lap_fraction_min": 0.06111833550065022,
+            "completed_laps": 2,
+            "lap_time_mean": 17.69999999999971,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 28.950505311069172,
+            "mean_brake": 0.06324654604006039,
+            "return_mean": 7.374938806784255
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 184.1,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908247695630715,
+            "lap_fraction_std": 0.0003027521420189793,
+            "lap_fraction_min": 0.990083403405156,
+            "completed_laps": 20,
+            "lap_time_mean": 16.872999999999728,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.85368869998125,
+            "mean_brake": 0.0,
+            "return_mean": 31.54581808818087
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908404341131055,
+            "lap_fraction_std": 0.0002659943767860249,
+            "lap_fraction_min": 0.9904651453308806,
+            "completed_laps": 20,
+            "lap_time_mean": 16.844999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.855331067069635,
+            "mean_brake": 0.0,
+            "return_mean": 31.519135735045374
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.43219362073504064,
+            "lap_fraction_std": 0.2270162164729968,
+            "lap_fraction_min": 0.10924175524138839,
+            "completed_laps": 1,
+            "lap_time_mean": 16.77999999999973,
+            "end_reasons": {
+              "off_track": 19,
+              "lap": 1
+            },
+            "mean_speed": 29.41247328392426,
+            "mean_brake": 0.05538661871133736,
+            "return_mean": 6.806660998142552
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 171.0,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906743757256958,
+            "lap_fraction_std": 0.0002631739992422588,
+            "lap_fraction_min": 0.9900271781716069,
+            "completed_laps": 20,
+            "lap_time_mean": 16.80799999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.85707709941221,
+            "mean_brake": 0.0,
+            "return_mean": 31.545478434776175
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907152381057793,
+            "lap_fraction_std": 0.00032565031099440284,
+            "lap_fraction_min": 0.9900167699197377,
+            "completed_laps": 20,
+            "lap_time_mean": 16.81199999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.8730132549249,
+            "mean_brake": 0.0,
+            "return_mean": 31.52902941207943
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.40929758783850667,
+            "lap_fraction_std": 0.2506773527018104,
+            "lap_fraction_min": 0.06306667563260215,
+            "completed_laps": 2,
+            "lap_time_mean": 17.559999999999715,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 29.06162551622446,
+            "mean_brake": 0.06951118808860883,
+            "return_mean": 7.358272249497295
+          }
+        }
+      ]
+    },
+    "random8/previous_steer": {
+      "env_config": {
+        "track": {
+          "kind": "random",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": true,
+          "stack": 1
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 173.0,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908529706350235,
+            "lap_fraction_std": 0.00030961031042052515,
+            "lap_fraction_min": 0.9900151617872478,
+            "completed_laps": 20,
+            "lap_time_mean": 16.95899999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.914229171963406,
+            "mean_brake": 0.00038387758885440786,
+            "return_mean": 31.504586885004898
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908548529541935,
+            "lap_fraction_std": 0.0002872381875850349,
+            "lap_fraction_min": 0.9902806188568573,
+            "completed_laps": 20,
+            "lap_time_mean": 16.945999999999728,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.94564028250284,
+            "mean_brake": 0.0,
+            "return_mean": 31.48556026773641
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.5946729230326822,
+            "lap_fraction_std": 0.24744681750514755,
+            "lap_fraction_min": 0.2823370286953767,
+            "completed_laps": 4,
+            "lap_time_mean": 19.979999999999663,
+            "end_reasons": {
+              "lap": 4,
+              "off_track": 16
+            },
+            "mean_speed": 31.192517324200885,
+            "mean_brake": 0.07672503988253296,
+            "return_mean": 12.174960494416663
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 181.5,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990813824810561,
+            "lap_fraction_std": 0.00028966202824138123,
+            "lap_fraction_min": 0.9902692741479016,
+            "completed_laps": 20,
+            "lap_time_mean": 17.122999999999724,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.10266404223405,
+            "mean_brake": 0.0,
+            "return_mean": 31.356997159919636
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908267373770142,
+            "lap_fraction_std": 0.0003347097858411507,
+            "lap_fraction_min": 0.9900963412326037,
+            "completed_laps": 20,
+            "lap_time_mean": 17.117999999999725,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.10103136694169,
+            "mean_brake": 0.0,
+            "return_mean": 31.340204024870115
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.44908330585311396,
+            "lap_fraction_std": 0.2241678792960412,
+            "lap_fraction_min": 0.1326792552413882,
+            "completed_laps": 2,
+            "lap_time_mean": 17.989999999999704,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 30.724399541601912,
+            "mean_brake": 0.04130215664011925,
+            "return_mean": 7.899306962375126
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 169.4,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908441140882852,
+            "lap_fraction_std": 0.00027171028236575934,
+            "lap_fraction_min": 0.990499730518292,
+            "completed_laps": 20,
+            "lap_time_mean": 17.078999999999724,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.015014223804144,
+            "mean_brake": 0.0,
+            "return_mean": 31.39831805091914
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908175486600956,
+            "lap_fraction_std": 0.000248152452147206,
+            "lap_fraction_min": 0.9902806188568569,
+            "completed_laps": 20,
+            "lap_time_mean": 17.072999999999727,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.023372940351884,
+            "mean_brake": 0.0,
+            "return_mean": 31.381465089734625
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.4941995484633483,
+            "lap_fraction_std": 0.19711234621797916,
+            "lap_fraction_min": 0.2102628285356699,
+            "completed_laps": 2,
+            "lap_time_mean": 17.859999999999708,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 30.487663633242505,
+            "mean_brake": 0.027063852815390615,
+            "return_mean": 8.81183947213773
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 156.7,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990737845454883,
+            "lap_fraction_std": 0.00023727621462222366,
+            "lap_fraction_min": 0.990269274147901,
+            "completed_laps": 20,
+            "lap_time_mean": 16.78999999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.85237850319112,
+            "mean_brake": 0.00010898623898712514,
+            "return_mean": 31.5383208659689
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908681403206065,
+            "lap_fraction_std": 0.00023596546335459653,
+            "lap_fraction_min": 0.99046514533088,
+            "completed_laps": 20,
+            "lap_time_mean": 16.77699999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.88991792917138,
+            "mean_brake": 0.0,
+            "return_mean": 31.518700240403092
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.5475056802792347,
+            "lap_fraction_std": 0.21690306536704973,
+            "lap_fraction_min": 0.28695652173913105,
+            "completed_laps": 2,
+            "lap_time_mean": 17.469999999999715,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 32.06079561682336,
+            "mean_brake": 0.05472593834104428,
+            "return_mean": 9.576255114181441
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 169.1,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907261858007687,
+            "lap_fraction_std": 0.0001881766210062617,
+            "lap_fraction_min": 0.9904324338292424,
+            "completed_laps": 20,
+            "lap_time_mean": 17.130999999999723,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.07612689212338,
+            "mean_brake": 0.0,
+            "return_mean": 31.334869306709503
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907353938401584,
+            "lap_fraction_std": 0.0003229682650217142,
+            "lap_fraction_min": 0.9900384433423648,
+            "completed_laps": 20,
+            "lap_time_mean": 17.141999999999722,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.05013662027659,
+            "mean_brake": 0.0,
+            "return_mean": 31.31628255426397
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.5209855281963799,
+            "lap_fraction_std": 0.1831396847714372,
+            "lap_fraction_min": 0.28571428571428603,
+            "completed_laps": 2,
+            "lap_time_mean": 17.909999999999705,
+            "end_reasons": {
+              "off_track": 18,
+              "lap": 2
+            },
+            "mean_speed": 31.352483504647807,
+            "mean_brake": 0.03256371790221298,
+            "return_mean": 9.042080536448742
+          }
+        }
+      ]
+    },
+    "random8/stacked": {
+      "env_config": {
+        "track": {
+          "kind": "random",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 4
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 155.9,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907326844090496,
+            "lap_fraction_std": 0.0002746643259662818,
+            "lap_fraction_min": 0.9901004665877653,
+            "completed_laps": 20,
+            "lap_time_mean": 16.886999999999723,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.868703636348194,
+            "mean_brake": 0.0,
+            "return_mean": 31.53529230184055
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990814983061059,
+            "lap_fraction_std": 0.00032389129295721283,
+            "lap_fraction_min": 0.9902806188568567,
+            "completed_laps": 20,
+            "lap_time_mean": 16.89999999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.83984127788381,
+            "mean_brake": 0.0,
+            "return_mean": 31.5155632610061
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.4850130007803323,
+            "lap_fraction_std": 0.2607424197833433,
+            "lap_fraction_min": 0.056203605514316024,
+            "completed_laps": 3,
+            "lap_time_mean": 22.419999999999607,
+            "end_reasons": {
+              "off_track": 16,
+              "lap": 3,
+              "stall": 1
+            },
+            "mean_speed": 26.898001905826124,
+            "mean_brake": 0.06238687659460988,
+            "return_mean": 9.452136649204606
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 165.1,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908541968819081,
+            "lap_fraction_std": 0.000292839878156006,
+            "lap_fraction_min": 0.9902940199358876,
+            "completed_laps": 20,
+            "lap_time_mean": 17.025999999999726,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 38.02699541391032,
+            "mean_brake": 0.0,
+            "return_mean": 31.428372088381934
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907048680464813,
+            "lap_fraction_std": 0.00021926995009544138,
+            "lap_fraction_min": 0.9900088227518996,
+            "completed_laps": 20,
+            "lap_time_mean": 17.083999999999726,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.92862892858126,
+            "mean_brake": 0.00030418090481628,
+            "return_mean": 31.39309939400375
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.5256707917944874,
+            "lap_fraction_std": 0.37774978053687475,
+            "lap_fraction_min": 0.006454521113086645,
+            "completed_laps": 7,
+            "lap_time_mean": 23.954285714285337,
+            "end_reasons": {
+              "lap": 7,
+              "stall": 5,
+              "off_track": 8
+            },
+            "mean_speed": 21.989386654520032,
+            "mean_brake": 0.12637458055102407,
+            "return_mean": 13.110106155573153
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 149.3,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908587756289426,
+            "lap_fraction_std": 0.0002740739869507557,
+            "lap_fraction_min": 0.9904239018429961,
+            "completed_laps": 20,
+            "lap_time_mean": 16.96199999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.886445415646776,
+            "mean_brake": 0.00044275511641503633,
+            "return_mean": 31.4957535888584
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907992329628789,
+            "lap_fraction_std": 0.00019607419770242804,
+            "lap_fraction_min": 0.9904934391737427,
+            "completed_laps": 20,
+            "lap_time_mean": 16.99599999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.761312822253515,
+            "mean_brake": 0.0009025695663111901,
+            "return_mean": 31.46846371124746
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.475244109092898,
+            "lap_fraction_std": 0.39030365538082334,
+            "lap_fraction_min": 0.0037730052413883493,
+            "completed_laps": 6,
+            "lap_time_mean": 23.22666666666626,
+            "end_reasons": {
+              "lap": 6,
+              "off_track": 8,
+              "stall": 6
+            },
+            "mean_speed": 19.456718792115872,
+            "mean_brake": 0.2326370866394377,
+            "return_mean": 11.17899663743586
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 154.7,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908570546116724,
+            "lap_fraction_std": 0.00029521812192130083,
+            "lap_fraction_min": 0.9902692741479007,
+            "completed_laps": 20,
+            "lap_time_mean": 16.924999999999727,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.87873131637363,
+            "mean_brake": 0.0,
+            "return_mean": 31.543401538891413
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907925542717736,
+            "lap_fraction_std": 0.00030210980872867865,
+            "lap_fraction_min": 0.9900180491983942,
+            "completed_laps": 20,
+            "lap_time_mean": 16.91199999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.877783752647495,
+            "mean_brake": 0.0,
+            "return_mean": 31.525252919620243
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.601238102205123,
+            "lap_fraction_std": 0.2386978003515039,
+            "lap_fraction_min": 0.2857142857142862,
+            "completed_laps": 5,
+            "lap_time_mean": 22.43999999999961,
+            "end_reasons": {
+              "lap": 5,
+              "off_track": 15
+            },
+            "mean_speed": 27.073056870115767,
+            "mean_brake": 0.0375529302643182,
+            "return_mean": 13.398610930476073
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 156.5,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907744271936257,
+            "lap_fraction_std": 0.00027663734259217646,
+            "lap_fraction_min": 0.9903943555123609,
+            "completed_laps": 20,
+            "lap_time_mean": 16.957999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.912126158625284,
+            "mean_brake": 1.3007309739989351e-05,
+            "return_mean": 31.49065042817788
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907350753317298,
+            "lap_fraction_std": 0.00020049579541023377,
+            "lap_fraction_min": 0.9902806188568564,
+            "completed_laps": 20,
+            "lap_time_mean": 17.082999999999725,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 37.66079395800233,
+            "mean_brake": 0.0022245240600114484,
+            "return_mean": 31.442535389241613
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.3784242838174268,
+            "lap_fraction_std": 0.3886976172054709,
+            "lap_fraction_min": 0.0039730940976173135,
+            "completed_laps": 5,
+            "lap_time_mean": 25.23999999999963,
+            "end_reasons": {
+              "lap": 5,
+              "stall": 9,
+              "off_track": 5,
+              "stuck": 1
+            },
+            "mean_speed": 15.7901704566538,
+            "mean_brake": 0.2973225511353016,
+            "return_mean": 8.410813047894374
+          }
+        }
+      ]
+    },
+    "technical/full": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 155.7,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910808794763998,
+            "lap_fraction_std": 0.0006528123492136736,
+            "lap_fraction_min": 0.9902797950688413,
+            "completed_laps": 20,
+            "lap_time_mean": 16.516999999999733,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.3533901276213,
+            "mean_brake": 0.0003908452283622337,
+            "return_mean": 28.85852244219665
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907699754384852,
+            "lap_fraction_std": 0.00017278478663026003,
+            "lap_fraction_min": 0.9902806188568578,
+            "completed_laps": 20,
+            "lap_time_mean": 17.930999999999706,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 36.122837963076975,
+            "mean_brake": 0.0,
+            "return_mean": 31.261284447112473
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.6778798178519514,
+            "lap_fraction_std": 0.2661524177187213,
+            "lap_fraction_min": 0.28485756815584196,
+            "completed_laps": 8,
+            "lap_time_mean": 21.929999999999623,
+            "end_reasons": {
+              "lap": 8,
+              "off_track": 12
+            },
+            "mean_speed": 30.518654968277627,
+            "mean_brake": 0.04876486792475688,
+            "return_mean": 16.733590614439734
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 142.3,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909676468643113,
+            "lap_fraction_std": 0.0007262233901195303,
+            "lap_fraction_min": 0.990132981758854,
+            "completed_laps": 20,
+            "lap_time_mean": 16.694999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.966522220391305,
+            "mean_brake": 0.04756417418537312,
+            "return_mean": 28.897650301494913
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907857049553199,
+            "lap_fraction_std": 0.0001977769343625636,
+            "lap_fraction_min": 0.9905213052449572,
+            "completed_laps": 20,
+            "lap_time_mean": 18.058999999999706,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 35.74482428832591,
+            "mean_brake": 0.0016596385362453031,
+            "return_mean": 31.32237609340703
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.6980841664467787,
+            "lap_fraction_std": 0.27490327337043013,
+            "lap_fraction_min": 0.294409937888199,
+            "completed_laps": 9,
+            "lap_time_mean": 21.502222222221853,
+            "end_reasons": {
+              "lap": 9,
+              "off_track": 11
+            },
+            "mean_speed": 31.52506434197025,
+            "mean_brake": 0.035152622864772526,
+            "return_mean": 18.05158190423615
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 144.0,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908380097808582,
+            "lap_fraction_std": 0.0007293662682945406,
+            "lap_fraction_min": 0.990015216555998,
+            "completed_laps": 20,
+            "lap_time_mean": 16.768999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.827261747930255,
+            "mean_brake": 0.03254103282963418,
+            "return_mean": 28.95758429494706
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906843435567632,
+            "lap_fraction_std": 0.00020643072923254684,
+            "lap_fraction_min": 0.9900766195252441,
+            "completed_laps": 20,
+            "lap_time_mean": 19.813999999999666,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 32.308043266266225,
+            "mean_brake": 0.00047179628963623873,
+            "return_mean": 31.156427499814203
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9071599712856555,
+            "lap_fraction_std": 0.1832779853760867,
+            "lap_fraction_min": 0.3530506691934879,
+            "completed_laps": 16,
+            "lap_time_mean": 24.703749999999562,
+            "end_reasons": {
+              "lap": 16,
+              "off_track": 4
+            },
+            "mean_speed": 29.607186064255934,
+            "mean_brake": 0.04554466455128249,
+            "return_mean": 27.72403643674709
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 144.1,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990993088895401,
+            "lap_fraction_std": 0.0007934748677073615,
+            "lap_fraction_min": 0.9900212327016394,
+            "completed_laps": 20,
+            "lap_time_mean": 16.488999999999738,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.52291106278501,
+            "mean_brake": 0.009636185040112695,
+            "return_mean": 28.7927927279713
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906941099759836,
+            "lap_fraction_std": 0.0002604514159681513,
+            "lap_fraction_min": 0.9901592569445483,
+            "completed_laps": 20,
+            "lap_time_mean": 18.374999999999698,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 34.95525745397636,
+            "mean_brake": 0.0025065321477029763,
+            "return_mean": 31.283355794525097
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.518790514142346,
+            "lap_fraction_std": 0.26876841219681247,
+            "lap_fraction_min": 0.1144500885747217,
+            "completed_laps": 4,
+            "lap_time_mean": 22.144999999999616,
+            "end_reasons": {
+              "lap": 4,
+              "off_track": 16
+            },
+            "mean_speed": 29.40348300621107,
+            "mean_brake": 0.0486260445459661,
+            "return_mean": 10.814729790693097
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 152.1,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911658939398779,
+            "lap_fraction_std": 0.0007798919484465917,
+            "lap_fraction_min": 0.9900094352182115,
+            "completed_laps": 20,
+            "lap_time_mean": 16.42399999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.73746050626057,
+            "mean_brake": 0.03615483142114561,
+            "return_mean": 28.664798533636525
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9905999604527492,
+            "lap_fraction_std": 0.0002462307178257922,
+            "lap_fraction_min": 0.9900729569745519,
+            "completed_laps": 20,
+            "lap_time_mean": 19.13499999999968,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 33.99141871565511,
+            "mean_brake": 0.003710295583650168,
+            "return_mean": 31.130023971965823
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9457652955648614,
+            "lap_fraction_std": 0.14602896196781165,
+            "lap_fraction_min": 0.3611807504943007,
+            "completed_laps": 18,
+            "lap_time_mean": 24.90555555555512,
+            "end_reasons": {
+              "lap": 18,
+              "off_track": 2
+            },
+            "mean_speed": 30.34036459417901,
+            "mean_brake": 0.027527958840619416,
+            "return_mean": 30.266524254499398
+          }
+        }
+      ]
+    },
+    "technical/no_progress": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": false,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 153.4,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9327000127065863,
+            "lap_fraction_std": 0.17505601523094536,
+            "lap_fraction_min": 0.38455693107480154,
+            "completed_laps": 18,
+            "lap_time_mean": 16.08444444444419,
+            "end_reasons": {
+              "lap": 18,
+              "off_track": 2
+            },
+            "mean_speed": 30.908777642458414,
+            "mean_brake": 0.04738444562781267,
+            "return_mean": 25.816062465017428
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907302185384559,
+            "lap_fraction_std": 0.00017385475796093602,
+            "lap_fraction_min": 0.9902806188568576,
+            "completed_laps": 20,
+            "lap_time_mean": 18.937999999999683,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 34.27327090045892,
+            "mean_brake": 0.008287566468615983,
+            "return_mean": 31.156930360154938
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8844303772820299,
+            "lap_fraction_std": 0.22387454034614607,
+            "lap_fraction_min": 0.2995469111144161,
+            "completed_laps": 16,
+            "lap_time_mean": 24.107499999999575,
+            "end_reasons": {
+              "lap": 16,
+              "off_track": 4
+            },
+            "mean_speed": 30.363535506053143,
+            "mean_brake": 0.02978475597188075,
+            "return_mean": 27.22083777252527
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 153.5,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908551435002794,
+            "lap_fraction_std": 0.0006988286951330743,
+            "lap_fraction_min": 0.990075136384668,
+            "completed_laps": 20,
+            "lap_time_mean": 16.567999999999735,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.365567245004776,
+            "mean_brake": 0.017341968302215228,
+            "return_mean": 28.769959112856885
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907000649421569,
+            "lap_fraction_std": 0.0001737594944482584,
+            "lap_fraction_min": 0.990280618856857,
+            "completed_laps": 20,
+            "lap_time_mean": 18.381999999999696,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 35.61487797654092,
+            "mean_brake": 0.0002825447619122052,
+            "return_mean": 31.161789541630164
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7355747240355102,
+            "lap_fraction_std": 0.2655816017987607,
+            "lap_fraction_min": 0.29127744307882425,
+            "completed_laps": 8,
+            "lap_time_mean": 21.95999999999962,
+            "end_reasons": {
+              "off_track": 12,
+              "lap": 8
+            },
+            "mean_speed": 31.0476041305283,
+            "mean_brake": 0.02131130929772551,
+            "return_mean": 17.603375346230635
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 143.8,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911021304339839,
+            "lap_fraction_std": 0.0006937383444435665,
+            "lap_fraction_min": 0.9900910765137095,
+            "completed_laps": 20,
+            "lap_time_mean": 16.574999999999736,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.429086561366848,
+            "mean_brake": 0.03182392025695575,
+            "return_mean": 28.70452057663703
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990722027629116,
+            "lap_fraction_std": 0.0002140233322667285,
+            "lap_fraction_min": 0.9902806188568576,
+            "completed_laps": 20,
+            "lap_time_mean": 18.472999999999693,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 35.351234258539066,
+            "mean_brake": 0.009839405951324518,
+            "return_mean": 31.15803467229847
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8462501683147409,
+            "lap_fraction_std": 0.22796980135910663,
+            "lap_fraction_min": 0.35653498975097914,
+            "completed_laps": 14,
+            "lap_time_mean": 23.414285714285306,
+            "end_reasons": {
+              "lap": 14,
+              "off_track": 6
+            },
+            "mean_speed": 30.928033599999786,
+            "mean_brake": 0.04666868174297596,
+            "return_mean": 24.90039419556144
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 144.1,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911971406693058,
+            "lap_fraction_std": 0.0007243397659280102,
+            "lap_fraction_min": 0.9900504265506613,
+            "completed_laps": 20,
+            "lap_time_mean": 16.38499999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.497379187538968,
+            "mean_brake": 2.182778053132359e-05,
+            "return_mean": 28.806901335690874
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906886711495353,
+            "lap_fraction_std": 0.0002211397146860252,
+            "lap_fraction_min": 0.9901185061582696,
+            "completed_laps": 20,
+            "lap_time_mean": 18.87199999999969,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 34.10858403891443,
+            "mean_brake": 0.0,
+            "return_mean": 31.220921020711604
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9588365456259679,
+            "lap_fraction_std": 0.13844429241376285,
+            "lap_fraction_min": 0.35537354956514877,
+            "completed_laps": 19,
+            "lap_time_mean": 24.769473684210094,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_speed": 30.572437174149094,
+            "mean_brake": 0.01625082140320684,
+            "return_mean": 31.357775914041788
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 128.8,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911702382561003,
+            "lap_fraction_std": 0.0007009385954216322,
+            "lap_fraction_min": 0.9900282987895512,
+            "completed_laps": 20,
+            "lap_time_mean": 16.54299999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.361560273375318,
+            "mean_brake": 0.03652209685589852,
+            "return_mean": 28.61976298682081
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906811215791558,
+            "lap_fraction_std": 0.0002530654705031299,
+            "lap_fraction_min": 0.9900168285323342,
+            "completed_laps": 20,
+            "lap_time_mean": 18.932999999999687,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 33.89152443984481,
+            "mean_brake": 0.0004199770111086184,
+            "return_mean": 31.23572806795371
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.6446644765393676,
+            "lap_fraction_std": 0.2662800434207952,
+            "lap_fraction_min": 0.2956521739130436,
+            "completed_laps": 7,
+            "lap_time_mean": 21.645714285713915,
+            "end_reasons": {
+              "lap": 7,
+              "off_track": 13
+            },
+            "mean_speed": 30.66362865244335,
+            "mean_brake": 0.042633470617315955,
+            "return_mean": 15.513424737408618
+          }
+        }
+      ]
+    },
+    "technical/no_curvature": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 134.3,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9913578056430874,
+            "lap_fraction_std": 0.000657626907426246,
+            "lap_fraction_min": 0.9900065140414968,
+            "completed_laps": 20,
+            "lap_time_mean": 16.858999999999735,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.471064198145136,
+            "mean_brake": 0.06959632887839654,
+            "return_mean": 29.013950572989337
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906932736163252,
+            "lap_fraction_std": 0.0001949973395961669,
+            "lap_fraction_min": 0.990280618856857,
+            "completed_laps": 20,
+            "lap_time_mean": 19.725999999999665,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 32.36303891299163,
+            "mean_brake": 0.018202516949586196,
+            "return_mean": 31.199233241888834
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904493477758638,
+            "lap_fraction_std": 0.0003173100124217487,
+            "lap_fraction_min": 0.9900036800058429,
+            "completed_laps": 20,
+            "lap_time_mean": 25.029999999999557,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.455538707155483,
+            "mean_brake": 0.05401019167936301,
+            "return_mean": 32.905377104107494
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 146.7,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909890166241159,
+            "lap_fraction_std": 0.000723942066598167,
+            "lap_fraction_min": 0.9900485346500787,
+            "completed_laps": 20,
+            "lap_time_mean": 16.477999999999735,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.73006810690298,
+            "mean_brake": 0.043388023960904944,
+            "return_mean": 28.547152701174873
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907013937470832,
+            "lap_fraction_std": 0.00021481142727706185,
+            "lap_fraction_min": 0.990280618856857,
+            "completed_laps": 20,
+            "lap_time_mean": 18.368999999999694,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 35.841176129563294,
+            "mean_brake": 0.00957869290433733,
+            "return_mean": 31.073513202046637
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8942847222928801,
+            "lap_fraction_std": 0.20090804191614162,
+            "lap_fraction_min": 0.353050669193488,
+            "completed_laps": 16,
+            "lap_time_mean": 24.30374999999957,
+            "end_reasons": {
+              "lap": 16,
+              "off_track": 4
+            },
+            "mean_speed": 30.61358751003714,
+            "mean_brake": 0.05237463250386136,
+            "return_mean": 27.34603223546113
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 151.0,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911109449442103,
+            "lap_fraction_std": 0.0007380554904588075,
+            "lap_fraction_min": 0.9900180995671685,
+            "completed_laps": 20,
+            "lap_time_mean": 16.367999999999743,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.946017522536245,
+            "mean_brake": 0.04143781490572952,
+            "return_mean": 28.558595689510504
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906988279232672,
+            "lap_fraction_std": 0.00022120579931327893,
+            "lap_fraction_min": 0.9900332151415233,
+            "completed_laps": 20,
+            "lap_time_mean": 18.574999999999694,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 35.548516417611765,
+            "mean_brake": 0.0046963779045547166,
+            "return_mean": 30.76113812358946
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.874783483341884,
+            "lap_fraction_std": 0.23470499824355723,
+            "lap_fraction_min": 0.12199560564066818,
+            "completed_laps": 15,
+            "lap_time_mean": 24.21733333333291,
+            "end_reasons": {
+              "off_track": 5,
+              "lap": 15
+            },
+            "mean_speed": 30.34232162755661,
+            "mean_brake": 0.04430703366862707,
+            "return_mean": 25.629573819860887
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 156.3,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908191627763221,
+            "lap_fraction_std": 0.0007741355541043537,
+            "lap_fraction_min": 0.990022394376646,
+            "completed_laps": 20,
+            "lap_time_mean": 17.29399999999972,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 28.81711293582424,
+            "mean_brake": 0.05922027198910057,
+            "return_mean": 28.93047413532141
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907583286932378,
+            "lap_fraction_std": 0.00020775961562862914,
+            "lap_fraction_min": 0.9904371512476452,
+            "completed_laps": 20,
+            "lap_time_mean": 19.150999999999677,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 33.37969112612847,
+            "mean_brake": 0.023313407429769673,
+            "return_mean": 31.254592270053656
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8182883451809208,
+            "lap_fraction_std": 0.2506995979862717,
+            "lap_fraction_min": 0.2819875776397517,
+            "completed_laps": 13,
+            "lap_time_mean": 25.004615384614944,
+            "end_reasons": {
+              "lap": 13,
+              "off_track": 7
+            },
+            "mean_speed": 28.85748902918711,
+            "mean_brake": 0.07705236917850233,
+            "return_mean": 23.781254271409505
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 136.5,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9914448843638599,
+            "lap_fraction_std": 0.0006752955554506506,
+            "lap_fraction_min": 0.9900347517930342,
+            "completed_laps": 20,
+            "lap_time_mean": 16.98999999999973,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.62705758317203,
+            "mean_brake": 0.05282302005992251,
+            "return_mean": 28.77377705955019
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906957964905194,
+            "lap_fraction_std": 0.00019860189050149168,
+            "lap_fraction_min": 0.9902806188568574,
+            "completed_laps": 20,
+            "lap_time_mean": 19.560999999999673,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 33.05703163380435,
+            "mean_brake": 0.0026227798056643386,
+            "return_mean": 31.132477550967355
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8606104485507187,
+            "lap_fraction_std": 0.2360640088595073,
+            "lap_fraction_min": 0.294409937888199,
+            "completed_laps": 14,
+            "lap_time_mean": 24.141428571428147,
+            "end_reasons": {
+              "lap": 14,
+              "off_track": 6
+            },
+            "mean_speed": 30.09918520951468,
+            "mean_brake": 0.04242925400082066,
+            "return_mean": 25.070995543461116
+          }
+        }
+      ]
+    },
+    "technical/previous_steer": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": true,
+          "stack": 1
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 134.2,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9913900656465403,
+            "lap_fraction_std": 0.0006239376565603291,
+            "lap_fraction_min": 0.9900348552102695,
+            "completed_laps": 20,
+            "lap_time_mean": 16.35699999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.719775851740813,
+            "mean_brake": 0.00029710016280232144,
+            "return_mean": 28.72677250976714
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906452634965157,
+            "lap_fraction_std": 0.00023045467264153037,
+            "lap_fraction_min": 0.9900269744999962,
+            "completed_laps": 20,
+            "lap_time_mean": 19.269999999999676,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 33.74683435997493,
+            "mean_brake": 0.0,
+            "return_mean": 31.07816012209861
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9447694627165546,
+            "lap_fraction_std": 0.14816304407364583,
+            "lap_fraction_min": 0.35537354956514916,
+            "completed_laps": 18,
+            "lap_time_mean": 25.498888888888455,
+            "end_reasons": {
+              "lap": 18,
+              "off_track": 2
+            },
+            "mean_speed": 29.66887989246314,
+            "mean_brake": 0.0181801250942428,
+            "return_mean": 30.157478287248324
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 137.9,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909489993228388,
+            "lap_fraction_std": 0.0008114272449121951,
+            "lap_fraction_min": 0.9900664884640902,
+            "completed_laps": 20,
+            "lap_time_mean": 16.744999999999735,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.101232397445862,
+            "mean_brake": 0.028867643966793928,
+            "return_mean": 29.24136731777558
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907195491363725,
+            "lap_fraction_std": 0.000190669863396916,
+            "lap_fraction_min": 0.9904371512476435,
+            "completed_laps": 20,
+            "lap_time_mean": 20.335999999999654,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 31.24826026128727,
+            "mean_brake": 4.369387701346479e-05,
+            "return_mean": 31.144141733907333
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9590436330821263,
+            "lap_fraction_std": 0.13742611916087713,
+            "lap_fraction_min": 0.3600193103084702,
+            "completed_laps": 19,
+            "lap_time_mean": 23.878947368420633,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_speed": 30.697619279519,
+            "mean_brake": 0.02463740625447826,
+            "return_mean": 31.550772881014403
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 143.0,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908368026053587,
+            "lap_fraction_std": 0.0007205883679241677,
+            "lap_fraction_min": 0.9900348888630336,
+            "completed_laps": 20,
+            "lap_time_mean": 16.543999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.212506769808318,
+            "mean_brake": 0.05290718174961193,
+            "return_mean": 28.93005273571481
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906691629513809,
+            "lap_fraction_std": 0.0002353353259001554,
+            "lap_fraction_min": 0.9901111118404297,
+            "completed_laps": 20,
+            "lap_time_mean": 19.144999999999676,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 33.60270267542379,
+            "mean_brake": 0.01397447334847971,
+            "return_mean": 31.197244532623778
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.916333702974376,
+            "lap_fraction_std": 0.18911361519932274,
+            "lap_fraction_min": 0.29316770186335434,
+            "completed_laps": 17,
+            "lap_time_mean": 24.219999999999573,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 3
+            },
+            "mean_speed": 30.67470757675785,
+            "mean_brake": 0.04174501966063823,
+            "return_mean": 28.746342097171595
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 126.0,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909380006389933,
+            "lap_fraction_std": 0.0007640088013869366,
+            "lap_fraction_min": 0.9900139730230556,
+            "completed_laps": 20,
+            "lap_time_mean": 16.285999999999746,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.67098200244738,
+            "mean_brake": 0.0,
+            "return_mean": 28.79190260683516
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990745229940931,
+            "lap_fraction_std": 0.00022356964449416137,
+            "lap_fraction_min": 0.9904371512476455,
+            "completed_laps": 20,
+            "lap_time_mean": 18.925999999999682,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 34.186913257883724,
+            "mean_brake": 0.0,
+            "return_mean": 31.172543614639928
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9429202441944822,
+            "lap_fraction_std": 0.14739734237557087,
+            "lap_fraction_min": 0.35653498975097936,
+            "completed_laps": 17,
+            "lap_time_mean": 23.777647058823113,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 3
+            },
+            "mean_speed": 31.188851763540413,
+            "mean_brake": 0.007635809973639313,
+            "return_mean": 29.253498687826198
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 134.9,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9912068230588389,
+            "lap_fraction_std": 0.0007260700218861462,
+            "lap_fraction_min": 0.9901873089114285,
+            "completed_laps": 20,
+            "lap_time_mean": 16.34499999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.778609655850932,
+            "mean_brake": 0.042266916726713656,
+            "return_mean": 28.802546765598102
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990742974223694,
+            "lap_fraction_std": 0.00022622082958321323,
+            "lap_fraction_min": 0.9902806188568585,
+            "completed_laps": 20,
+            "lap_time_mean": 18.422999999999696,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 35.34491637416418,
+            "mean_brake": 0.00010517440255611173,
+            "return_mean": 31.198158055027204
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9190440706727483,
+            "lap_fraction_std": 0.17951292427578583,
+            "lap_fraction_min": 0.35560385849971676,
+            "completed_laps": 17,
+            "lap_time_mean": 23.67294117647017,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 3
+            },
+            "mean_speed": 31.458517546363055,
+            "mean_brake": 0.03721635661433319,
+            "return_mean": 28.68224796520362
+          }
+        }
+      ]
+    },
+    "technical/stacked": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 4
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 125.9,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9589983936336566,
+            "lap_fraction_std": 0.07746028143403455,
+            "lap_fraction_min": 0.7285378868284536,
+            "completed_laps": 17,
+            "lap_time_mean": 17.331764705882076,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 3
+            },
+            "mean_speed": 28.509168332305972,
+            "mean_brake": 0.017727882726400315,
+            "return_mean": 25.734342233343177
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9906770933276985,
+            "lap_fraction_std": 0.00021967085235559153,
+            "lap_fraction_min": 0.9900092057407108,
+            "completed_laps": 20,
+            "lap_time_mean": 20.818999999999644,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.38933548873563,
+            "mean_brake": 0.007934253048706368,
+            "return_mean": 31.127299557926836
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8588167556303589,
+            "lap_fraction_std": 0.2249987557565051,
+            "lap_fraction_min": 0.3543330737857962,
+            "completed_laps": 13,
+            "lap_time_mean": 25.539999999999544,
+            "end_reasons": {
+              "lap": 13,
+              "off_track": 7
+            },
+            "mean_speed": 28.19396702921433,
+            "mean_brake": 0.03768110447237586,
+            "return_mean": 24.548458097127295
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 151.6,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909138331359133,
+            "lap_fraction_std": 0.0006667148500147534,
+            "lap_fraction_min": 0.9900049393799814,
+            "completed_laps": 20,
+            "lap_time_mean": 16.650999999999733,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.293121372702007,
+            "mean_brake": 0.06325049366320283,
+            "return_mean": 28.589652959981162
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907411642726676,
+            "lap_fraction_std": 0.00023587634948847426,
+            "lap_fraction_min": 0.9904371512476448,
+            "completed_laps": 20,
+            "lap_time_mean": 18.801999999999687,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 34.426100291585996,
+            "mean_brake": 0.010293819512012442,
+            "return_mean": 31.176498563117377
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.94544113872523,
+            "lap_fraction_std": 0.1469231267450796,
+            "lap_fraction_min": 0.3588578701226407,
+            "completed_laps": 18,
+            "lap_time_mean": 26.206666666666237,
+            "end_reasons": {
+              "lap": 18,
+              "stuck": 1,
+              "off_track": 1
+            },
+            "mean_speed": 28.347253117112707,
+            "mean_brake": 0.07161251783093953,
+            "return_mean": 29.67263326914891
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 125.8,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9913382588253521,
+            "lap_fraction_std": 0.0006925016520376387,
+            "lap_fraction_min": 0.9900825766903336,
+            "completed_laps": 20,
+            "lap_time_mean": 16.43499999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.415810475320036,
+            "mean_brake": 0.06802490321521162,
+            "return_mean": 28.87914527379794
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907223944373829,
+            "lap_fraction_std": 0.00020707464247291316,
+            "lap_fraction_min": 0.9902806188568576,
+            "completed_laps": 20,
+            "lap_time_mean": 18.4549999999997,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 34.78106273002187,
+            "mean_brake": 0.009515344042257724,
+            "return_mean": 31.3180301386598
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9454073163831422,
+            "lap_fraction_std": 0.14716248313710106,
+            "lap_fraction_min": 0.35769642993680995,
+            "completed_laps": 18,
+            "lap_time_mean": 26.385555555555147,
+            "end_reasons": {
+              "lap": 18,
+              "off_track": 2
+            },
+            "mean_speed": 28.655367614631963,
+            "mean_brake": 0.042609181945962304,
+            "return_mean": 30.374098289315167
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 136.5,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910360766127063,
+            "lap_fraction_std": 0.0007426979167258776,
+            "lap_fraction_min": 0.9900166675071904,
+            "completed_laps": 20,
+            "lap_time_mean": 16.614999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.358801826284445,
+            "mean_brake": 0.011965816203814915,
+            "return_mean": 28.80970795349257
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990746541376789,
+            "lap_fraction_std": 0.0002058304611817391,
+            "lap_fraction_min": 0.9903244490664119,
+            "completed_laps": 20,
+            "lap_time_mean": 18.544999999999693,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 35.064546498085136,
+            "mean_brake": 0.0015890708319810539,
+            "return_mean": 31.198163683005664
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8994870858109758,
+            "lap_fraction_std": 0.24063720041870934,
+            "lap_fraction_min": 0.06479201511094063,
+            "completed_laps": 17,
+            "lap_time_mean": 25.619999999999546,
+            "end_reasons": {
+              "lap": 17,
+              "off_track": 2,
+              "stall": 1
+            },
+            "mean_speed": 27.900340906966232,
+            "mean_brake": 0.05523603538427124,
+            "return_mean": 28.284043970906755
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 145.7,
+          "seen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9912416241142644,
+            "lap_fraction_std": 0.0006806988137606668,
+            "lap_fraction_min": 0.9900275013238596,
+            "completed_laps": 20,
+            "lap_time_mean": 16.542999999999736,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.24276311614967,
+            "mean_brake": 0.005548832797556693,
+            "return_mean": 28.90446248186609
+          },
+          "unseen": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9907179710958044,
+            "lap_fraction_std": 0.00024401031282871125,
+            "lap_fraction_min": 0.9900023934083434,
+            "completed_laps": 20,
+            "lap_time_mean": 18.91399999999968,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 34.48802649030178,
+            "mean_brake": 0.0005816150884754173,
+            "return_mean": 31.134839197266018
+          },
+          "unseen_hard": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8925579297745042,
+            "lap_fraction_std": 0.19928001953740923,
+            "lap_fraction_min": 0.3530506691934878,
+            "completed_laps": 15,
+            "lap_time_mean": 24.599999999999564,
+            "end_reasons": {
+              "lap": 15,
+              "off_track": 5
+            },
+            "mean_speed": 30.043066494578632,
+            "mean_brake": 0.040432879714926,
+            "return_mean": 26.70790005377439
+          }
+        }
+      ]
+    }
+  },
+  "expert": {
+    "technical": {
+      "episodes": 20,
+      "lap_fraction_mean": 0.9904452148306457,
+      "lap_fraction_std": 0.0003737407559989208,
+      "lap_fraction_min": 0.9900292006032033,
+      "completed_laps": 20,
+      "lap_time_mean": 29.756999999999454,
+      "end_reasons": {
+        "lap": 20
+      },
+      "mean_speed": 15.572745097167076,
+      "mean_brake": 0.10968152002557888,
+      "return_mean": 27.930538574733163
+    },
+    "random8": {
+      "episodes": 20,
+      "lap_fraction_mean": 0.990657661839616,
+      "lap_fraction_std": 0.00015929602315277022,
+      "lap_fraction_min": 0.9902692741479039,
+      "completed_laps": 20,
+      "lap_time_mean": 32.6859999999997,
+      "end_reasons": {
+        "lap": 20
+      },
+      "mean_speed": 19.383696642519364,
+      "mean_brake": 0.08482597738667455,
+      "return_mean": 34.34162082678639
+    },
+    "unseen": {
+      "episodes": 20,
+      "lap_fraction_mean": 0.9905751172456817,
+      "lap_fraction_std": 0.00023819720940288346,
+      "lap_fraction_min": 0.9900277828367142,
+      "completed_laps": 20,
+      "lap_time_mean": 34.25599999999984,
+      "end_reasons": {
+        "lap": 20
+      },
+      "mean_speed": 18.464106110672635,
+      "mean_brake": 0.0713261169982799,
+      "return_mean": 34.86076623716452
+    },
+    "unseen_hard": {
+      "episodes": 20,
+      "lap_fraction_mean": 0.9239342208604029,
+      "lap_fraction_std": 0.09244530344264475,
+      "lap_fraction_min": 0.6755037115588552,
+      "completed_laps": 11,
+      "lap_time_mean": 48.04727272727464,
+      "end_reasons": {
+        "lap": 11,
+        "time_limit": 9
+      },
+      "mean_speed": 12.919350059293134,
+      "mean_brake": 0.1340613376597409,
+      "return_mean": 28.024909924655475
+    }
+  }
+}

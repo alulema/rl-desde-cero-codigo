@@ -1,0 +1,553 @@
+{
+  "metadata": {
+    "command": "python experiments/ch04_gail.py",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "commit": "3f63ee1",
+    "date": "2026-10-19T01:43:38+00:00"
+  },
+  "variant": "gail_env",
+  "env_config": {
+    "track": {
+      "kind": "technical",
+      "half_length": 120.0,
+      "half_height": 60.0,
+      "corner_radius": 40.0,
+      "technical_straight": 200.0,
+      "technical_hairpin_radius": 15.0,
+      "width": 12.0,
+      "random_seeds": [
+        0
+      ],
+      "random_min_corner_radius": 30.0,
+      "random_harmonics": [
+        1,
+        2
+      ],
+      "random_harmonic_freq": [
+        2,
+        3
+      ],
+      "random_harmonic_amp": [
+        0.08,
+        0.16
+      ],
+      "random_radial_jitter": 0.035
+    },
+    "car": {
+      "mass": 1200.0,
+      "linear_drag": 0.2,
+      "engine_force": 12000.0,
+      "brake_force": 18000.0,
+      "coast_force": 2500.0,
+      "max_speed": 55.0,
+      "max_reverse_speed": 12.0,
+      "turn_rate_deg": 130.0,
+      "high_speed_turn_factor": 0.35,
+      "steer_fade_in_speed": 0.4,
+      "min_steer_authority": 0.25,
+      "lateral_grip": 7.0,
+      "grip_model": "rotate",
+      "grip_redirect": 0.85
+    },
+    "obs": {
+      "n_rays": 9,
+      "ray_fov_deg": 150.0,
+      "ray_length": 70.0,
+      "ray_format": "distance",
+      "speeds": true,
+      "heading_error": true,
+      "lateral_offset": true,
+      "progress": true,
+      "curvature_windows": [
+        [
+          0.0,
+          22.0
+        ],
+        [
+          18.0,
+          45.0
+        ],
+        [
+          40.0,
+          75.0
+        ]
+      ],
+      "directive": true,
+      "previous_steer": false
+    },
+    "reward": {
+      "progress_per_metre": 0.02,
+      "target_speed_per_sec": 0.25,
+      "speed_per_sec": 0.0,
+      "line_follow_per_sec": 0.05,
+      "slow_per_sec": 0.15,
+      "edge_per_sec": 0.6,
+      "edge_ramp": true,
+      "edge_safe_frac": 0.55,
+      "time_per_step": 0.0,
+      "stuck_per_sec": 0.3,
+      "alive_per_sec": 0.0,
+      "off_track": 1.0,
+      "stuck": 1.0,
+      "wrong_way": 1.0,
+      "stall": 1.0,
+      "lap_bonus": 12.0,
+      "fast_lap_bonus": 8.0,
+      "straight_speed_frac": 0.42,
+      "corner_speed_frac": 0.12,
+      "directive_scales_target": false
+    },
+    "termination": {
+      "off_track_margin": 2.0,
+      "stuck_speed": 0.5,
+      "stuck_seconds": 8.0,
+      "wrong_way_speed": 7.5,
+      "wrong_way_seconds": 4.5,
+      "wrong_way_arm_metres": 15.0,
+      "stall_seconds": 5.0,
+      "stall_min_metres": 8.0,
+      "stall_grace_seconds": 1.2,
+      "lap_fraction": 0.99,
+      "time_limit_seconds": 60.0
+    },
+    "spawn": {
+      "clean": false,
+      "heading_noise_deg": 10.0,
+      "lateral_noise": 2.0,
+      "launch_speed": 8.0,
+      "clean_speed": 14.0
+    },
+    "physics_dt": 0.02,
+    "decision_period": 5,
+    "aggression": null
+  },
+  "gail_config": {
+    "gail_weight": 0.15,
+    "env_weight": 1.0,
+    "hidden_sizes": [
+      128,
+      128
+    ],
+    "learning_rate": 0.0003,
+    "epochs": 3,
+    "minibatch_size": 256,
+    "gradient_penalty": 10.0,
+    "seed": 0
+  },
+  "ppo_config": {
+    "total_steps": 500000,
+    "n_envs": 8,
+    "n_steps": 256,
+    "epochs": 10,
+    "minibatch_size": 256,
+    "gamma": 0.995,
+    "lam": 0.95,
+    "clip_epsilon": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.0,
+    "value_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "hidden_sizes": [
+      64,
+      64
+    ],
+    "initial_log_std": 0.0,
+    "normalize_observations": true,
+    "normalize_advantages": true,
+    "seed": 0
+  },
+  "demo_episodes": 20,
+  "runs": [
+    {
+      "seed": 0,
+      "train_seconds": 89.9,
+      "demo_samples": 5684,
+      "last_batch": {
+        "update": 244,
+        "steps": 499712,
+        "seconds": 89.9,
+        "episodes": 5,
+        "std": 0.6009103655815125,
+        "policy_loss": -0.00010773712710943073,
+        "value_loss": 0.2717771165072918,
+        "entropy": 2.4078908622264863,
+        "approx_kl": 2.477635280229151e-06,
+        "clip_fraction": 0.0,
+        "d_expert": 0.681545615196228,
+        "d_agent": 0.3387109637260437,
+        "gail_reward": 0.449834942817688,
+        "env_reward": 0.08126807720050261,
+        "discriminator_loss": 0.85695148507754,
+        "episode_return": 28.481879544357923,
+        "episode_length": 286.6,
+        "lap_fraction": 0.9905402155705353,
+        "end_lap": 1.0,
+        "end_off_track": 0.0,
+        "end_stall": 0.0,
+        "end_stuck": 0.0,
+        "end_wrong_way": 0.0,
+        "end_time_limit": 0.0
+      },
+      "eval": {
+        "episodes": 20,
+        "lap_fraction_mean": 0.9904411511296429,
+        "lap_fraction_min": 0.9900136187777103,
+        "completed_laps": 20,
+        "lap_time_mean": 28.23799999999948,
+        "end_reasons": {
+          "lap": 20
+        },
+        "mean_brake": 0.002489178605854701,
+        "brake_over_threshold": 0.0613724796604174,
+        "disagreement": 0.4088409444565534,
+        "disagreement_by_time": [
+          {
+            "from_s": 0,
+            "to_s": 5,
+            "steps": 1000,
+            "disagreement": 0.3281144953839512
+          },
+          {
+            "from_s": 5,
+            "to_s": 10,
+            "steps": 1000,
+            "disagreement": 0.5349747920742719
+          },
+          {
+            "from_s": 10,
+            "to_s": 20,
+            "steps": 2000,
+            "disagreement": 0.39215080798615537
+          },
+          {
+            "from_s": 20,
+            "to_s": 30,
+            "steps": 1626,
+            "disagreement": 0.4043837713062595
+          },
+          {
+            "from_s": 30,
+            "to_s": 60,
+            "steps": 28,
+            "disagreement": 0.23813515653003176
+          }
+        ],
+        "mean_abs_lateral": 1.1134243449463623
+      }
+    },
+    {
+      "seed": 1,
+      "train_seconds": 88.5,
+      "demo_samples": 5671,
+      "last_batch": {
+        "update": 244,
+        "steps": 499712,
+        "seconds": 88.5,
+        "episodes": 6,
+        "std": 0.6221775412559509,
+        "policy_loss": -0.0002293392491992563,
+        "value_loss": 0.4719110051169991,
+        "entropy": 2.4913753986358644,
+        "approx_kl": 4.3600593926385045e-06,
+        "clip_fraction": 0.0,
+        "d_expert": 0.6637584567070007,
+        "d_agent": 0.3520505428314209,
+        "gail_reward": 0.4713926315307617,
+        "env_reward": 0.0907498564002614,
+        "discriminator_loss": 0.8991826896866163,
+        "episode_return": 28.69689776515349,
+        "episode_length": 292.5,
+        "lap_fraction": 0.9905945704002962,
+        "end_lap": 1.0,
+        "end_off_track": 0.0,
+        "end_stall": 0.0,
+        "end_stuck": 0.0,
+        "end_wrong_way": 0.0,
+        "end_time_limit": 0.0
+      },
+      "eval": {
+        "episodes": 20,
+        "lap_fraction_mean": 0.9902953676732258,
+        "lap_fraction_min": 0.9900043491705539,
+        "completed_laps": 20,
+        "lap_time_mean": 26.527999999999526,
+        "end_reasons": {
+          "lap": 20
+        },
+        "mean_brake": 0.01664306790915537,
+        "brake_over_threshold": 0.1678900809335592,
+        "disagreement": 0.6069844518185564,
+        "disagreement_by_time": [
+          {
+            "from_s": 0,
+            "to_s": 5,
+            "steps": 1000,
+            "disagreement": 0.41441561685960143
+          },
+          {
+            "from_s": 5,
+            "to_s": 10,
+            "steps": 1000,
+            "disagreement": 0.7473667375681664
+          },
+          {
+            "from_s": 10,
+            "to_s": 20,
+            "steps": 2000,
+            "disagreement": 0.6013658069786152
+          },
+          {
+            "from_s": 20,
+            "to_s": 30,
+            "steps": 1313,
+            "disagreement": 0.6552889749634365
+          },
+          {
+            "from_s": 30,
+            "to_s": 60,
+            "steps": 0,
+            "disagreement": null
+          }
+        ],
+        "mean_abs_lateral": 1.0518009667515122
+      }
+    },
+    {
+      "seed": 2,
+      "train_seconds": 88.8,
+      "demo_samples": 5610,
+      "last_batch": {
+        "update": 244,
+        "steps": 499712,
+        "seconds": 88.8,
+        "episodes": 7,
+        "std": 0.6378575563430786,
+        "policy_loss": -0.00015313279000110923,
+        "value_loss": 0.5786863394081593,
+        "entropy": 2.551714187860489,
+        "approx_kl": 2.103386214002967e-06,
+        "clip_fraction": 0.0,
+        "d_expert": 0.6807893514633179,
+        "d_agent": 0.3860335648059845,
+        "gail_reward": 0.5378307104110718,
+        "env_reward": 0.09933609328913089,
+        "discriminator_loss": 0.9046329955259959,
+        "episode_return": 28.75076947099572,
+        "episode_length": 267.2857142857143,
+        "lap_fraction": 0.990611241571643,
+        "end_lap": 1.0,
+        "end_off_track": 0.0,
+        "end_stall": 0.0,
+        "end_stuck": 0.0,
+        "end_wrong_way": 0.0,
+        "end_time_limit": 0.0
+      },
+      "eval": {
+        "episodes": 20,
+        "lap_fraction_mean": 0.9903637662201042,
+        "lap_fraction_min": 0.9900131919685593,
+        "completed_laps": 20,
+        "lap_time_mean": 25.700999999999546,
+        "end_reasons": {
+          "lap": 20
+        },
+        "mean_brake": 0.00016660715321417988,
+        "brake_over_threshold": 0.00019428793471925395,
+        "disagreement": 0.8263538413597031,
+        "disagreement_by_time": [
+          {
+            "from_s": 0,
+            "to_s": 5,
+            "steps": 1000,
+            "disagreement": 0.578553148041673
+          },
+          {
+            "from_s": 5,
+            "to_s": 10,
+            "steps": 1000,
+            "disagreement": 0.9684713778776158
+          },
+          {
+            "from_s": 10,
+            "to_s": 20,
+            "steps": 2000,
+            "disagreement": 0.8686899103839189
+          },
+          {
+            "from_s": 20,
+            "to_s": 30,
+            "steps": 1147,
+            "disagreement": 0.844672079155419
+          },
+          {
+            "from_s": 30,
+            "to_s": 60,
+            "steps": 0,
+            "disagreement": null
+          }
+        ],
+        "mean_abs_lateral": 1.0290923422745764
+      }
+    },
+    {
+      "seed": 3,
+      "train_seconds": 87.9,
+      "demo_samples": 5495,
+      "last_batch": {
+        "update": 244,
+        "steps": 499712,
+        "seconds": 87.9,
+        "episodes": 8,
+        "std": 0.5989728569984436,
+        "policy_loss": -0.00026387238758616147,
+        "value_loss": 0.5026944920420646,
+        "entropy": 2.431325817108154,
+        "approx_kl": 1.0181142715737224e-05,
+        "clip_fraction": 0.0,
+        "d_expert": 0.6586050987243652,
+        "d_agent": 0.3362289071083069,
+        "gail_reward": 0.4385567307472229,
+        "env_reward": 0.10961719817886575,
+        "discriminator_loss": 0.8766901915272077,
+        "episode_return": 28.734806546680012,
+        "episode_length": 275.75,
+        "lap_fraction": 0.9905662021354231,
+        "end_lap": 1.0,
+        "end_off_track": 0.0,
+        "end_stall": 0.0,
+        "end_stuck": 0.0,
+        "end_wrong_way": 0.0,
+        "end_time_limit": 0.0
+      },
+      "eval": {
+        "episodes": 20,
+        "lap_fraction_mean": 0.9904981630365175,
+        "lap_fraction_min": 0.9900472540895755,
+        "completed_laps": 20,
+        "lap_time_mean": 26.62099999999952,
+        "end_reasons": {
+          "lap": 20
+        },
+        "mean_brake": 0.040501169972107745,
+        "brake_over_threshold": 0.1775403074615673,
+        "disagreement": 0.7470954006183063,
+        "disagreement_by_time": [
+          {
+            "from_s": 0,
+            "to_s": 5,
+            "steps": 1000,
+            "disagreement": 0.5384586440788393
+          },
+          {
+            "from_s": 5,
+            "to_s": 10,
+            "steps": 1000,
+            "disagreement": 0.7435533811450775
+          },
+          {
+            "from_s": 10,
+            "to_s": 20,
+            "steps": 2000,
+            "disagreement": 0.809723902721172
+          },
+          {
+            "from_s": 20,
+            "to_s": 30,
+            "steps": 1334,
+            "disagreement": 0.8122541500987893
+          },
+          {
+            "from_s": 30,
+            "to_s": 60,
+            "steps": 0,
+            "disagreement": null
+          }
+        ],
+        "mean_abs_lateral": 1.2402402571448583
+      }
+    },
+    {
+      "seed": 4,
+      "train_seconds": 89.9,
+      "demo_samples": 5449,
+      "last_batch": {
+        "update": 244,
+        "steps": 499712,
+        "seconds": 89.9,
+        "episodes": 8,
+        "std": 0.6864755749702454,
+        "policy_loss": -0.00015679228818044066,
+        "value_loss": 0.6912539958953857,
+        "entropy": 2.71693412065506,
+        "approx_kl": 3.232230665162206e-06,
+        "clip_fraction": 0.0,
+        "d_expert": 0.676575243473053,
+        "d_agent": 0.35745978355407715,
+        "gail_reward": 0.47537314891815186,
+        "env_reward": 0.1060645534366519,
+        "discriminator_loss": 0.8971972862879435,
+        "episode_return": 28.250635903717562,
+        "episode_length": 283.25,
+        "lap_fraction": 0.9904419450144477,
+        "end_lap": 1.0,
+        "end_off_track": 0.0,
+        "end_stall": 0.0,
+        "end_stuck": 0.0,
+        "end_wrong_way": 0.0,
+        "end_time_limit": 0.0
+      },
+      "eval": {
+        "episodes": 20,
+        "lap_fraction_mean": 0.9903118596228797,
+        "lap_fraction_min": 0.9900166201269779,
+        "completed_laps": 20,
+        "lap_time_mean": 25.031999999999556,
+        "end_reasons": {
+          "lap": 20
+        },
+        "mean_brake": 0.0305973476324783,
+        "brake_over_threshold": 0.2862838915470494,
+        "disagreement": 0.9812493863952848,
+        "disagreement_by_time": [
+          {
+            "from_s": 0,
+            "to_s": 5,
+            "steps": 1000,
+            "disagreement": 0.6337096162488458
+          },
+          {
+            "from_s": 5,
+            "to_s": 10,
+            "steps": 1000,
+            "disagreement": 1.119962081312063
+          },
+          {
+            "from_s": 10,
+            "to_s": 20,
+            "steps": 2000,
+            "disagreement": 1.0232586381232698
+          },
+          {
+            "from_s": 20,
+            "to_s": 30,
+            "steps": 1016,
+            "disagreement": 1.1040924688497051
+          },
+          {
+            "from_s": 30,
+            "to_s": 60,
+            "steps": 0,
+            "disagreement": null
+          }
+        ],
+        "mean_abs_lateral": 1.057416147115395
+      }
+    }
+  ]
+}

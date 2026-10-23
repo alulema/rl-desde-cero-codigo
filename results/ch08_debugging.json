@@ -1,0 +1,1919 @@
+{
+  "metadata": {
+    "command": "python experiments/ch08_debugging.py",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "commit": "289c0a3",
+    "date": "2026-10-20T01:04:14+00:00"
+  },
+  "ppo_config": {
+    "total_steps": 500000,
+    "n_envs": 8,
+    "n_steps": 256,
+    "epochs": 10,
+    "minibatch_size": 256,
+    "gamma": 0.995,
+    "lam": 0.95,
+    "clip_epsilon": 0.2,
+    "learning_rate": 0.0003,
+    "entropy_coef": 0.0,
+    "value_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "hidden_sizes": [
+      64,
+      64
+    ],
+    "initial_log_std": 0.0,
+    "normalize_observations": true,
+    "normalize_advantages": true,
+    "seed": 0
+  },
+  "eval_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019
+  ],
+  "scenarios": {
+    "clean": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "baseline_sign_bug": false,
+      "checks": {
+        "observations": {
+          "samples": 7021,
+          "constant": [],
+          "constant_values": {},
+          "std": {
+            "ray0": 0.0303533636033535,
+            "ray1": 0.03342762961983681,
+            "ray2": 0.04921654984354973,
+            "ray3": 0.12556204199790955,
+            "ray4": 0.3153664469718933,
+            "ray5": 0.19797438383102417,
+            "ray6": 0.13138031959533691,
+            "ray7": 0.07262904942035675,
+            "ray8": 0.05324330925941467,
+            "forward_speed": 0.1280401200056076,
+            "lateral_speed": 0.009858207777142525,
+            "heading_error": 0.060996510088443756,
+            "lateral_offset": 0.32810014486312866,
+            "progress": 0.28265225887298584,
+            "curvature_0_22m": 0.33645060658454895,
+            "curvature_18_45m": 0.3994390368461609,
+            "curvature_40_75m": 0.4249121844768524,
+            "aggression": 0.2274549901485443
+          },
+          "flag": false,
+          "finding": "los 18 valores cambian"
+        },
+        "steering": {
+          "speed": 20.0,
+          "seconds": 1.0,
+          "speed_straight": 14.496330461717823,
+          "speed_full_steer": 14.538026443854962,
+          "turn_speed_change": 0.002876312888096064,
+          "flag": false,
+          "finding": "en 1 s, girando a fondo termina a 14.5 m/s y recto a 14.5 m/s (+0%)"
+        },
+        "reward": {
+          "returns": {
+            "baseline": 27.930538574733163,
+            "brake": -2.819958474719909,
+            "idle": -4.027601349410026
+          },
+          "flag": false,
+          "finding": "la línea base cobra 27.93; frenar, -2.82; no hacer nada, -4.03"
+        },
+        "termination": {
+          "time_limit_seconds": 60.0,
+          "track_length": 494.2211534601373,
+          "speed_needed": 8.154649032092266,
+          "baseline_mean_speed": 15.572745097167076,
+          "baseline_end_reasons": {
+            "lap": 20
+          },
+          "baseline_time_limit_fraction": null,
+          "flag": false,
+          "finding": "para la vuelta en 60 s hace falta una media de 8.2 m/s; la línea base lleva 15.6 m/s y el reloj corta 0 de 20 episodios"
+        },
+        "baseline": {
+          "summary": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904452148306457,
+            "lap_fraction_std": 0.0003737407559989208,
+            "lap_fraction_min": 0.9900292006032033,
+            "completed_laps": 20,
+            "lap_time_mean": 29.756999999999454,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 15.572745097167076,
+            "mean_brake": 0.10968152002557888,
+            "return_mean": 27.930538574733163
+          },
+          "offset": 4.0,
+          "speed": 15.0,
+          "seconds": 3.0,
+          "remaining_offset": 0.009223567072884005,
+          "flag": false,
+          "finding": "da la vuelta en 20 de 20 episodios (fracción media 0.99); desde 4 m del centro, a los 3 s sigue a 0.0 m"
+        }
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 72.5,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910808794763998,
+            "lap_fraction_std": 0.0006528123492136736,
+            "lap_fraction_min": 0.9902797950688413,
+            "completed_laps": 20,
+            "lap_time_mean": 16.516999999999733,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.3533901276213,
+            "mean_brake": 0.0003908452283622337,
+            "return_mean": 28.85852244219665
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 72.3,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909676468643113,
+            "lap_fraction_std": 0.0007262233901195303,
+            "lap_fraction_min": 0.990132981758854,
+            "completed_laps": 20,
+            "lap_time_mean": 16.694999999999734,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.966522220391305,
+            "mean_brake": 0.04756417418537312,
+            "return_mean": 28.897650301494913
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 72.3,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908380097808582,
+            "lap_fraction_std": 0.0007293662682945406,
+            "lap_fraction_min": 0.990015216555998,
+            "completed_laps": 20,
+            "lap_time_mean": 16.768999999999732,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 29.827261747930255,
+            "mean_brake": 0.03254103282963418,
+            "return_mean": 28.95758429494706
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 113.8,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.990993088895401,
+            "lap_fraction_std": 0.0007934748677073615,
+            "lap_fraction_min": 0.9900212327016394,
+            "completed_laps": 20,
+            "lap_time_mean": 16.488999999999738,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.52291106278501,
+            "mean_brake": 0.009636185040112695,
+            "return_mean": 28.7927927279713
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 98.4,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911658939398779,
+            "lap_fraction_std": 0.0007798919484465917,
+            "lap_fraction_min": 0.9900094352182115,
+            "completed_laps": 20,
+            "lap_time_mean": 16.42399999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.73746050626057,
+            "mean_brake": 0.03615483142114561,
+            "return_mean": 28.664798533636525
+          }
+        }
+      ]
+    },
+    "grip_bug": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 9.0,
+          "grip_model": "erase",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "baseline_sign_bug": false,
+      "checks": {
+        "observations": {
+          "samples": 7018,
+          "constant": [],
+          "constant_values": {},
+          "std": {
+            "ray0": 0.032261159271001816,
+            "ray1": 0.035767119377851486,
+            "ray2": 0.05480581149458885,
+            "ray3": 0.13289839029312134,
+            "ray4": 0.3242773711681366,
+            "ray5": 0.1891268938779831,
+            "ray6": 0.14474321901798248,
+            "ray7": 0.11655425280332565,
+            "ray8": 0.09651283919811249,
+            "forward_speed": 0.12806865572929382,
+            "lateral_speed": 0.007573149167001247,
+            "heading_error": 0.06117157265543938,
+            "lateral_offset": 0.3394182324409485,
+            "progress": 0.28278183937072754,
+            "curvature_0_22m": 0.33641836047172546,
+            "curvature_18_45m": 0.3994406759738922,
+            "curvature_40_75m": 0.42479196190834045,
+            "aggression": 0.22739200294017792
+          },
+          "flag": false,
+          "finding": "los 18 valores cambian"
+        },
+        "steering": {
+          "speed": 20.0,
+          "seconds": 1.0,
+          "speed_straight": 14.496330461717823,
+          "speed_full_steer": 10.462173802148433,
+          "turn_speed_change": -0.2782881274832183,
+          "flag": true,
+          "finding": "en 1 s, girando a fondo termina a 10.5 m/s y recto a 14.5 m/s (-28%)"
+        },
+        "reward": {
+          "returns": {
+            "baseline": 27.71840187462816,
+            "brake": -2.8182729974551934,
+            "idle": -4.029855362740865
+          },
+          "flag": false,
+          "finding": "la línea base cobra 27.72; frenar, -2.82; no hacer nada, -4.03"
+        },
+        "termination": {
+          "time_limit_seconds": 60.0,
+          "track_length": 494.2211534601373,
+          "speed_needed": 8.154649032092266,
+          "baseline_mean_speed": 15.535411385146848,
+          "baseline_end_reasons": {
+            "lap": 20
+          },
+          "baseline_time_limit_fraction": null,
+          "flag": false,
+          "finding": "para la vuelta en 60 s hace falta una media de 8.2 m/s; la línea base lleva 15.5 m/s y el reloj corta 0 de 20 episodios"
+        },
+        "baseline": {
+          "summary": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9903815166427099,
+            "lap_fraction_std": 0.0003605712800798527,
+            "lap_fraction_min": 0.9900097409995309,
+            "completed_laps": 20,
+            "lap_time_mean": 29.765999999999444,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 15.535411385146848,
+            "mean_brake": 0.10405270112019113,
+            "return_mean": 27.71840187462816
+          },
+          "offset": 4.0,
+          "speed": 15.0,
+          "seconds": 3.0,
+          "remaining_offset": 0.002378653222867762,
+          "flag": false,
+          "finding": "da la vuelta en 20 de 20 episodios (fracción media 0.99); desde 4 m del centro, a los 3 s sigue a 0.0 m"
+        }
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 72.7,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910711021252586,
+            "lap_fraction_std": 0.0006864179224825818,
+            "lap_fraction_min": 0.9900097030769036,
+            "completed_laps": 20,
+            "lap_time_mean": 17.690999999999715,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 28.071406975189564,
+            "mean_brake": 0.0024832097554283424,
+            "return_mean": 29.38827201687689
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 72.7,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909846901317326,
+            "lap_fraction_std": 0.0007351214828022693,
+            "lap_fraction_min": 0.9900308590116961,
+            "completed_laps": 20,
+            "lap_time_mean": 17.65799999999971,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 28.41181859066894,
+            "mean_brake": 0.03044643816788954,
+            "return_mean": 29.27277729891849
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 71.5,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908781573711316,
+            "lap_fraction_std": 0.0006489186425530303,
+            "lap_fraction_min": 0.9900865991070849,
+            "completed_laps": 20,
+            "lap_time_mean": 17.885999999999708,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 27.910099018150778,
+            "mean_brake": 0.025943463458642447,
+            "return_mean": 29.33597004034967
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 71.9,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911895405557083,
+            "lap_fraction_std": 0.0006370063746469068,
+            "lap_fraction_min": 0.9901968550738097,
+            "completed_laps": 20,
+            "lap_time_mean": 17.52299999999972,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 28.540357356801287,
+            "mean_brake": 0.011221978177185102,
+            "return_mean": 29.303420472996144
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 71.5,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9908793286137234,
+            "lap_fraction_std": 0.000673218070764085,
+            "lap_fraction_min": 0.9900992754049605,
+            "completed_laps": 20,
+            "lap_time_mean": 17.492999999999718,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 28.462773050763797,
+            "mean_brake": 0.0007624498009494036,
+            "return_mean": 29.343785318366496
+          }
+        }
+      ]
+    },
+    "zero_observation": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": 9
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "baseline_sign_bug": false,
+      "checks": {
+        "observations": {
+          "samples": 7021,
+          "constant": [
+            "forward_speed",
+            "lateral_speed",
+            "heading_error",
+            "lateral_offset",
+            "progress",
+            "curvature_0_22m",
+            "curvature_18_45m",
+            "curvature_40_75m",
+            "aggression"
+          ],
+          "constant_values": {
+            "forward_speed": 0.0,
+            "lateral_speed": 0.0,
+            "heading_error": 0.0,
+            "lateral_offset": 0.0,
+            "progress": 0.0,
+            "curvature_0_22m": 0.0,
+            "curvature_18_45m": 0.0,
+            "curvature_40_75m": 0.0,
+            "aggression": 0.0
+          },
+          "std": {
+            "ray0": 0.0303533636033535,
+            "ray1": 0.03342762961983681,
+            "ray2": 0.04921654984354973,
+            "ray3": 0.12556204199790955,
+            "ray4": 0.3153664469718933,
+            "ray5": 0.19797438383102417,
+            "ray6": 0.13138031959533691,
+            "ray7": 0.07262904942035675,
+            "ray8": 0.05324330925941467,
+            "forward_speed": 0.0,
+            "lateral_speed": 0.0,
+            "heading_error": 0.0,
+            "lateral_offset": 0.0,
+            "progress": 0.0,
+            "curvature_0_22m": 0.0,
+            "curvature_18_45m": 0.0,
+            "curvature_40_75m": 0.0,
+            "aggression": 0.0
+          },
+          "flag": true,
+          "finding": "9 de 18 valores no cambian nunca: forward_speed, lateral_speed, heading_error, lateral_offset, progress, curvature_0_22m, curvature_18_45m, curvature_40_75m, aggression"
+        },
+        "steering": {
+          "speed": 20.0,
+          "seconds": 1.0,
+          "speed_straight": 14.496330461717823,
+          "speed_full_steer": 14.538026443854962,
+          "turn_speed_change": 0.002876312888096064,
+          "flag": false,
+          "finding": "en 1 s, girando a fondo termina a 14.5 m/s y recto a 14.5 m/s (+0%)"
+        },
+        "reward": {
+          "returns": {
+            "baseline": 27.930538574733163,
+            "brake": -2.819958474719909,
+            "idle": -4.027601349410026
+          },
+          "flag": false,
+          "finding": "la línea base cobra 27.93; frenar, -2.82; no hacer nada, -4.03"
+        },
+        "termination": {
+          "time_limit_seconds": 60.0,
+          "track_length": 494.2211534601373,
+          "speed_needed": 8.154649032092266,
+          "baseline_mean_speed": 15.572745097167076,
+          "baseline_end_reasons": {
+            "lap": 20
+          },
+          "baseline_time_limit_fraction": null,
+          "flag": false,
+          "finding": "para la vuelta en 60 s hace falta una media de 8.2 m/s; la línea base lleva 15.6 m/s y el reloj corta 0 de 20 episodios"
+        },
+        "baseline": {
+          "summary": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9904452148306457,
+            "lap_fraction_std": 0.0003737407559989208,
+            "lap_fraction_min": 0.9900292006032033,
+            "completed_laps": 20,
+            "lap_time_mean": 29.756999999999454,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 15.572745097167076,
+            "mean_brake": 0.10968152002557888,
+            "return_mean": 27.930538574733163
+          },
+          "offset": 4.0,
+          "speed": 15.0,
+          "seconds": 3.0,
+          "remaining_offset": 0.009223567072884005,
+          "flag": false,
+          "finding": "da la vuelta en 20 de 20 episodios (fracción media 0.99); desde 4 m del centro, a los 3 s sigue a 0.0 m"
+        }
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 143.4,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.6140817786311263,
+            "lap_fraction_std": 0.14288708241460146,
+            "lap_fraction_min": 0.3765182186234817,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 20
+            },
+            "mean_speed": 28.154136908128255,
+            "mean_brake": 0.06050042191910695,
+            "return_mean": 5.785030483348025
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 106.2,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.610837010323061,
+            "lap_fraction_std": 0.14649678386847192,
+            "lap_fraction_min": 0.358199735263387,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 20
+            },
+            "mean_speed": 28.126595067194813,
+            "mean_brake": 0.05905921023397802,
+            "return_mean": 5.694373188128123
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 88.9,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7061840165207146,
+            "lap_fraction_std": 0.21677893979749358,
+            "lap_fraction_min": 0.024042090295350687,
+            "completed_laps": 3,
+            "lap_time_mean": 20.613333333332985,
+            "end_reasons": {
+              "off_track": 16,
+              "lap": 3,
+              "stall": 1
+            },
+            "mean_speed": 25.39983274137197,
+            "mean_brake": 0.08683478282650717,
+            "return_mean": 9.688283147919757
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 102.4,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7424172372023572,
+            "lap_fraction_std": 0.13287588443536003,
+            "lap_fraction_min": 0.5240336886549225,
+            "completed_laps": 1,
+            "lap_time_mean": 18.599999999999692,
+            "end_reasons": {
+              "off_track": 19,
+              "lap": 1
+            },
+            "mean_speed": 27.756801078416846,
+            "mean_brake": 0.044339543962008864,
+            "return_mean": 8.13089538130253
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 112.4,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.6971998156331942,
+            "lap_fraction_std": 0.16013292312769528,
+            "lap_fraction_min": 0.380566801619433,
+            "completed_laps": 1,
+            "lap_time_mean": 19.57999999999967,
+            "end_reasons": {
+              "off_track": 19,
+              "lap": 1
+            },
+            "mean_speed": 28.09395379371592,
+            "mean_brake": 0.08242122177465279,
+            "return_mean": 7.429747269909191
+          }
+        }
+      ]
+    },
+    "short_time_limit": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 25.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "baseline_sign_bug": false,
+      "checks": {
+        "observations": {
+          "samples": 6057,
+          "constant": [],
+          "constant_values": {},
+          "std": {
+            "ray0": 0.030191458761692047,
+            "ray1": 0.03375085070729256,
+            "ray2": 0.05187118798494339,
+            "ray3": 0.1349860429763794,
+            "ray4": 0.3167053163051605,
+            "ray5": 0.1967790275812149,
+            "ray6": 0.13953319191932678,
+            "ray7": 0.07661434262990952,
+            "ray8": 0.05584357678890228,
+            "forward_speed": 0.13149529695510864,
+            "lateral_speed": 0.009838509373366833,
+            "heading_error": 0.06376703828573227,
+            "lateral_offset": 0.32385626435279846,
+            "progress": 0.28786104917526245,
+            "curvature_0_22m": 0.34058302640914917,
+            "curvature_18_45m": 0.4060385525226593,
+            "curvature_40_75m": 0.4305751621723175,
+            "aggression": 0.2339194416999817
+          },
+          "flag": false,
+          "finding": "los 18 valores cambian"
+        },
+        "steering": {
+          "speed": 20.0,
+          "seconds": 1.0,
+          "speed_straight": 14.496330461717823,
+          "speed_full_steer": 14.538026443854962,
+          "turn_speed_change": 0.002876312888096064,
+          "flag": false,
+          "finding": "en 1 s, girando a fondo termina a 14.5 m/s y recto a 14.5 m/s (+0%)"
+        },
+        "reward": {
+          "returns": {
+            "baseline": 10.465042492296169,
+            "brake": -2.819958474719909,
+            "idle": -4.027601349410026
+          },
+          "flag": false,
+          "finding": "la línea base cobra 10.47; frenar, -2.82; no hacer nada, -4.03"
+        },
+        "termination": {
+          "time_limit_seconds": 25.0,
+          "track_length": 494.2211534601373,
+          "speed_needed": 19.57115767702144,
+          "baseline_mean_speed": 15.297557137894966,
+          "baseline_end_reasons": {
+            "time_limit": 19,
+            "lap": 1
+          },
+          "baseline_time_limit_fraction": 0.8131864146544074,
+          "flag": true,
+          "finding": "para la vuelta en 25 s hace falta una media de 19.6 m/s; la línea base lleva 15.3 m/s y el reloj corta 19 de 20 episodios"
+        },
+        "baseline": {
+          "summary": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.8220530245142446,
+            "lap_fraction_std": 0.08719144250878344,
+            "lap_fraction_min": 0.7191636069207935,
+            "completed_laps": 1,
+            "lap_time_mean": 24.699999999999562,
+            "end_reasons": {
+              "time_limit": 19,
+              "lap": 1
+            },
+            "mean_speed": 15.297557137894966,
+            "mean_brake": 0.11400699258682698,
+            "return_mean": 10.465042492296169
+          },
+          "offset": 4.0,
+          "speed": 15.0,
+          "seconds": 3.0,
+          "remaining_offset": 0.009223567072884005,
+          "flag": true,
+          "finding": "da la vuelta en 1 de 20 episodios (fracción media 0.82); desde 4 m del centro, a los 3 s sigue a 0.0 m"
+        }
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 116.3,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909795300760973,
+            "lap_fraction_std": 0.0006449964048412305,
+            "lap_fraction_min": 0.990198228724544,
+            "completed_laps": 20,
+            "lap_time_mean": 16.04699999999975,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.589591803261065,
+            "mean_brake": 0.04153777552964925,
+            "return_mean": 25.863868898660677
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9909795300760973,
+            "lap_fraction_std": 0.0006449964048412305,
+            "lap_fraction_min": 0.990198228724544,
+            "completed_laps": 20,
+            "lap_time_mean": 16.04699999999975,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.589591803261065,
+            "mean_brake": 0.04153777552964925,
+            "return_mean": 28.85930889866063
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 116.6,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911276071785702,
+            "lap_fraction_std": 0.0007006352052396144,
+            "lap_fraction_min": 0.9900471859997355,
+            "completed_laps": 20,
+            "lap_time_mean": 15.947999999999748,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.827587597637915,
+            "mean_brake": 0.06191233862991502,
+            "return_mean": 25.870906459208392
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9911276071785702,
+            "lap_fraction_std": 0.0007006352052396144,
+            "lap_fraction_min": 0.9900471859997355,
+            "completed_laps": 20,
+            "lap_time_mean": 15.947999999999748,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.827587597637915,
+            "mean_brake": 0.06191233862991502,
+            "return_mean": 28.847866459208348
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 120.7,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910166799638762,
+            "lap_fraction_std": 0.0006836029249758017,
+            "lap_fraction_min": 0.9900242195516195,
+            "completed_laps": 20,
+            "lap_time_mean": 16.33999999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.02324915214512,
+            "mean_brake": 0.048456774545595035,
+            "return_mean": 25.98225332809568
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910166799638762,
+            "lap_fraction_std": 0.0006836029249758017,
+            "lap_fraction_min": 0.9900242195516195,
+            "completed_laps": 20,
+            "lap_time_mean": 16.33999999999974,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.02324915214512,
+            "mean_brake": 0.048456774545595035,
+            "return_mean": 29.032386661428955
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 119.1,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910757488806958,
+            "lap_fraction_std": 0.0006851606484006163,
+            "lap_fraction_min": 0.9900427219912782,
+            "completed_laps": 20,
+            "lap_time_mean": 16.044999999999746,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.74473458795386,
+            "mean_brake": 0.06407849723433952,
+            "return_mean": 25.8889205360405
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910757488806958,
+            "lap_fraction_std": 0.0006851606484006163,
+            "lap_fraction_min": 0.9900427219912782,
+            "completed_laps": 20,
+            "lap_time_mean": 16.044999999999746,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.74473458795386,
+            "mean_brake": 0.06407849723433952,
+            "return_mean": 28.883987202707118
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 117.2,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910446032992313,
+            "lap_fraction_std": 0.0007660605966425529,
+            "lap_fraction_min": 0.9900776475596831,
+            "completed_laps": 20,
+            "lap_time_mean": 16.047999999999746,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.66385295720093,
+            "mean_brake": 0.06307024060345832,
+            "return_mean": 25.794553613658586
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9910446032992313,
+            "lap_fraction_std": 0.0007660605966425529,
+            "lap_fraction_min": 0.9900776475596831,
+            "completed_laps": 20,
+            "lap_time_mean": 16.047999999999746,
+            "end_reasons": {
+              "lap": 20
+            },
+            "mean_speed": 30.66385295720093,
+            "mean_brake": 0.06307024060345832,
+            "return_mean": 28.790180280325217
+          }
+        }
+      ]
+    },
+    "baseline_sign": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 7.0,
+          "grip_model": "rotate",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": null
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 60.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "baseline_sign_bug": true,
+      "checks": {
+        "observations": {
+          "samples": 2872,
+          "constant": [],
+          "constant_values": {},
+          "std": {
+            "ray0": 0.03218812495470047,
+            "ray1": 0.04059967026114464,
+            "ray2": 0.0750928446650505,
+            "ray3": 0.20139913260936737,
+            "ray4": 0.34179750084877014,
+            "ray5": 0.20094823837280273,
+            "ray6": 0.19559840857982635,
+            "ray7": 0.11689258366823196,
+            "ray8": 0.14063194394111633,
+            "forward_speed": 0.13362763822078705,
+            "lateral_speed": 0.009583854116499424,
+            "heading_error": 0.08971280604600906,
+            "lateral_offset": 0.36989089846611023,
+            "progress": 0.25966447591781616,
+            "curvature_0_22m": 0.3617100417613983,
+            "curvature_18_45m": 0.42746323347091675,
+            "curvature_40_75m": 0.437004953622818,
+            "aggression": 0.23797573149204254
+          },
+          "flag": false,
+          "finding": "los 18 valores cambian"
+        },
+        "steering": {
+          "speed": 20.0,
+          "seconds": 1.0,
+          "speed_straight": 14.496330461717823,
+          "speed_full_steer": 14.538026443854962,
+          "turn_speed_change": 0.002876312888096064,
+          "flag": false,
+          "finding": "en 1 s, girando a fondo termina a 14.5 m/s y recto a 14.5 m/s (+0%)"
+        },
+        "reward": {
+          "returns": {
+            "baseline": 1.963765307287641,
+            "brake": -2.819958474719909,
+            "idle": -4.027601349410026
+          },
+          "flag": false,
+          "finding": "la línea base cobra 1.96; frenar, -2.82; no hacer nada, -4.03"
+        },
+        "termination": {
+          "time_limit_seconds": 60.0,
+          "track_length": 494.2211534601373,
+          "speed_needed": 8.154649032092266,
+          "baseline_mean_speed": 13.138776535910996,
+          "baseline_end_reasons": {
+            "off_track": 20
+          },
+          "baseline_time_limit_fraction": null,
+          "flag": false,
+          "finding": "para la vuelta en 60 s hace falta una media de 8.2 m/s; la línea base lleva 13.1 m/s y el reloj corta 0 de 20 episodios"
+        },
+        "baseline": {
+          "summary": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.2692305983119794,
+            "lap_fraction_std": 0.12846061060291752,
+            "lap_fraction_min": 0.0576339803595619,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 20
+            },
+            "mean_speed": 13.138776535910996,
+            "mean_brake": 0.12043150229137964,
+            "return_mean": 1.963765307287641
+          },
+          "offset": 4.0,
+          "speed": 15.0,
+          "seconds": 3.0,
+          "remaining_offset": 2.4330143332607252,
+          "flag": true,
+          "finding": "da la vuelta en 0 de 20 episodios (fracción media 0.27); desde 4 m del centro, a los 3 s sigue a 2.4 m"
+        }
+      },
+      "runs": []
+    },
+    "all_bugs": {
+      "env_config": {
+        "track": {
+          "kind": "technical",
+          "half_length": 120.0,
+          "half_height": 60.0,
+          "corner_radius": 40.0,
+          "technical_straight": 200.0,
+          "technical_hairpin_radius": 15.0,
+          "width": 12.0,
+          "random_seeds": [
+            0
+          ],
+          "random_min_corner_radius": 30.0,
+          "random_harmonics": [
+            1,
+            2
+          ],
+          "random_harmonic_freq": [
+            2,
+            3
+          ],
+          "random_harmonic_amp": [
+            0.08,
+            0.16
+          ],
+          "random_radial_jitter": 0.035
+        },
+        "car": {
+          "mass": 1200.0,
+          "linear_drag": 0.2,
+          "engine_force": 12000.0,
+          "brake_force": 18000.0,
+          "coast_force": 2500.0,
+          "max_speed": 55.0,
+          "max_reverse_speed": 12.0,
+          "turn_rate_deg": 130.0,
+          "high_speed_turn_factor": 0.35,
+          "steer_fade_in_speed": 0.4,
+          "min_steer_authority": 0.25,
+          "lateral_grip": 9.0,
+          "grip_model": "erase",
+          "grip_redirect": 0.85
+        },
+        "obs": {
+          "n_rays": 9,
+          "ray_fov_deg": 150.0,
+          "ray_length": 70.0,
+          "ray_format": "distance",
+          "speeds": true,
+          "heading_error": true,
+          "lateral_offset": true,
+          "progress": true,
+          "curvature_windows": [
+            [
+              0.0,
+              22.0
+            ],
+            [
+              18.0,
+              45.0
+            ],
+            [
+              40.0,
+              75.0
+            ]
+          ],
+          "directive": true,
+          "previous_steer": false,
+          "stack": 1,
+          "zero_fill_from": 9
+        },
+        "reward": {
+          "progress_per_metre": 0.02,
+          "target_speed_per_sec": 0.25,
+          "speed_per_sec": 0.0,
+          "line_follow_per_sec": 0.05,
+          "slow_per_sec": 0.15,
+          "edge_per_sec": 0.6,
+          "edge_ramp": true,
+          "edge_safe_frac": 0.55,
+          "time_per_step": 0.0,
+          "stuck_per_sec": 0.3,
+          "alive_per_sec": 0.0,
+          "off_track": 1.0,
+          "stuck": 1.0,
+          "wrong_way": 1.0,
+          "stall": 1.0,
+          "lap_bonus": 12.0,
+          "fast_lap_bonus": 8.0,
+          "straight_speed_frac": 0.42,
+          "corner_speed_frac": 0.12,
+          "directive_scales_target": false
+        },
+        "termination": {
+          "off_track_margin": 2.0,
+          "stuck_speed": 0.5,
+          "stuck_seconds": 8.0,
+          "wrong_way_speed": 7.5,
+          "wrong_way_seconds": 4.5,
+          "wrong_way_arm_metres": 15.0,
+          "stall_seconds": 5.0,
+          "stall_min_metres": 8.0,
+          "stall_grace_seconds": 1.2,
+          "lap_fraction": 0.99,
+          "time_limit_seconds": 25.0
+        },
+        "spawn": {
+          "clean": false,
+          "heading_noise_deg": 10.0,
+          "lateral_noise": 2.0,
+          "launch_speed": 8.0,
+          "clean_speed": 14.0
+        },
+        "physics_dt": 0.02,
+        "decision_period": 5,
+        "aggression": null
+      },
+      "baseline_sign_bug": true,
+      "checks": {
+        "observations": {
+          "samples": 2840,
+          "constant": [
+            "forward_speed",
+            "lateral_speed",
+            "heading_error",
+            "lateral_offset",
+            "progress",
+            "curvature_0_22m",
+            "curvature_18_45m",
+            "curvature_40_75m",
+            "aggression"
+          ],
+          "constant_values": {
+            "forward_speed": 0.0,
+            "lateral_speed": 0.0,
+            "heading_error": 0.0,
+            "lateral_offset": 0.0,
+            "progress": 0.0,
+            "curvature_0_22m": 0.0,
+            "curvature_18_45m": 0.0,
+            "curvature_40_75m": 0.0,
+            "aggression": 0.0
+          },
+          "std": {
+            "ray0": 0.03156926482915878,
+            "ray1": 0.04001634195446968,
+            "ray2": 0.07857412099838257,
+            "ray3": 0.20539379119873047,
+            "ray4": 0.3407532572746277,
+            "ray5": 0.18475332856178284,
+            "ray6": 0.20694951713085175,
+            "ray7": 0.09534119069576263,
+            "ray8": 0.11927367001771927,
+            "forward_speed": 0.0,
+            "lateral_speed": 0.0,
+            "heading_error": 0.0,
+            "lateral_offset": 0.0,
+            "progress": 0.0,
+            "curvature_0_22m": 0.0,
+            "curvature_18_45m": 0.0,
+            "curvature_40_75m": 0.0,
+            "aggression": 0.0
+          },
+          "flag": true,
+          "finding": "9 de 18 valores no cambian nunca: forward_speed, lateral_speed, heading_error, lateral_offset, progress, curvature_0_22m, curvature_18_45m, curvature_40_75m, aggression"
+        },
+        "steering": {
+          "speed": 20.0,
+          "seconds": 1.0,
+          "speed_straight": 14.496330461717823,
+          "speed_full_steer": 10.462173802148433,
+          "turn_speed_change": -0.2782881274832183,
+          "flag": true,
+          "finding": "en 1 s, girando a fondo termina a 10.5 m/s y recto a 14.5 m/s (-28%)"
+        },
+        "reward": {
+          "returns": {
+            "baseline": 1.9571405444997072,
+            "brake": -2.8182729974551934,
+            "idle": -4.029855362740865
+          },
+          "flag": false,
+          "finding": "la línea base cobra 1.96; frenar, -2.82; no hacer nada, -4.03"
+        },
+        "termination": {
+          "time_limit_seconds": 25.0,
+          "track_length": 494.2211534601373,
+          "speed_needed": 19.57115767702144,
+          "baseline_mean_speed": 13.139344501523794,
+          "baseline_end_reasons": {
+            "off_track": 20
+          },
+          "baseline_time_limit_fraction": null,
+          "flag": true,
+          "finding": "para la vuelta en 25 s hace falta una media de 19.6 m/s; la línea base lleva 13.1 m/s y el reloj corta 0 de 20 episodios"
+        },
+        "baseline": {
+          "summary": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.26248055211321486,
+            "lap_fraction_std": 0.1291393693465178,
+            "lap_fraction_min": 0.05281708627411919,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 20
+            },
+            "mean_speed": 13.139344501523794,
+            "mean_brake": 0.11233880495327606,
+            "return_mean": 1.9571405444997072
+          },
+          "offset": 4.0,
+          "speed": 15.0,
+          "seconds": 3.0,
+          "remaining_offset": 2.436652724234578,
+          "flag": true,
+          "finding": "da la vuelta en 0 de 20 episodios (fracción media 0.26); desde 4 m del centro, a los 3 s sigue a 2.4 m"
+        }
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "train_seconds": 126.3,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9777939036606649,
+            "lap_fraction_std": 0.05699452278733117,
+            "lap_fraction_min": 0.729378526525881,
+            "completed_laps": 19,
+            "lap_time_mean": 19.638947368420723,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_speed": 25.610277008607284,
+            "mean_brake": 0.06313376103935456,
+            "return_mean": 24.61282235490999
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9777939036606649,
+            "lap_fraction_std": 0.05699452278733117,
+            "lap_fraction_min": 0.729378526525881,
+            "completed_laps": 19,
+            "lap_time_mean": 19.638947368420723,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_speed": 25.610277008607284,
+            "mean_brake": 0.06313376103935456,
+            "return_mean": 28.095462354909934
+          }
+        },
+        {
+          "seed": 1,
+          "train_seconds": 114.6,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7166013610799842,
+            "lap_fraction_std": 0.13149515520011668,
+            "lap_fraction_min": 0.4716599190283398,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 20
+            },
+            "mean_speed": 28.063772798985802,
+            "mean_brake": 0.05283065924042381,
+            "return_mean": 6.913889121685784
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7166013610799842,
+            "lap_fraction_std": 0.13149515520011668,
+            "lap_fraction_min": 0.4716599190283398,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 20
+            },
+            "mean_speed": 28.063772798985802,
+            "mean_brake": 0.05283065924042381,
+            "return_mean": 6.913889121685784
+          }
+        },
+        {
+          "seed": 2,
+          "train_seconds": 126.1,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9748840324273171,
+            "lap_fraction_std": 0.06948613832758387,
+            "lap_fraction_min": 0.6720133665242396,
+            "completed_laps": 19,
+            "lap_time_mean": 19.834736842104927,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_speed": 25.01501564479817,
+            "mean_brake": 0.06804160227625057,
+            "return_mean": 24.628399792244164
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.9748840324273171,
+            "lap_fraction_std": 0.06948613832758387,
+            "lap_fraction_min": 0.6720133665242396,
+            "completed_laps": 19,
+            "lap_time_mean": 19.834736842104927,
+            "end_reasons": {
+              "lap": 19,
+              "off_track": 1
+            },
+            "mean_speed": 25.01501564479817,
+            "mean_brake": 0.06804160227625057,
+            "return_mean": 28.14575979224411
+          }
+        },
+        {
+          "seed": 3,
+          "train_seconds": 124.5,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7493840972916886,
+            "lap_fraction_std": 0.13160078936065087,
+            "lap_fraction_min": 0.5301065631488495,
+            "completed_laps": 1,
+            "lap_time_mean": 18.899999999999686,
+            "end_reasons": {
+              "off_track": 19,
+              "lap": 1
+            },
+            "mean_speed": 26.096121965713735,
+            "mean_brake": 0.07421449763119845,
+            "return_mean": 8.281153373638874
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7493840972916886,
+            "lap_fraction_std": 0.13160078936065087,
+            "lap_fraction_min": 0.5301065631488495,
+            "completed_laps": 1,
+            "lap_time_mean": 18.899999999999686,
+            "end_reasons": {
+              "off_track": 19,
+              "lap": 1
+            },
+            "mean_speed": 26.096121965713735,
+            "mean_brake": 0.07421449763119845,
+            "return_mean": 8.45755337363887
+          }
+        },
+        {
+          "seed": 4,
+          "train_seconds": 126.2,
+          "evaluation": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7162828106453226,
+            "lap_fraction_std": 0.13250161315628717,
+            "lap_fraction_min": 0.46761133603238875,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 20
+            },
+            "mean_speed": 27.8990844934589,
+            "mean_brake": 0.05621321938482189,
+            "return_mean": 6.934319120321359
+          },
+          "evaluation_60s": {
+            "episodes": 20,
+            "lap_fraction_mean": 0.7162828106453226,
+            "lap_fraction_std": 0.13250161315628717,
+            "lap_fraction_min": 0.46761133603238875,
+            "completed_laps": 0,
+            "lap_time_mean": null,
+            "end_reasons": {
+              "off_track": 20
+            },
+            "mean_speed": 27.8990844934589,
+            "mean_brake": 0.05621321938482189,
+            "return_mean": 6.934319120321359
+          }
+        }
+      ]
+    }
+  }
+}
