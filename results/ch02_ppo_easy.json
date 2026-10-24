@@ -9,8 +9,8 @@
       4
     ],
     "book_run": true,
-    "commit": "f94d7a6",
-    "date": "2026-10-22T14:01:49+00:00"
+    "commit": "8e77117",
+    "date": "2026-10-23T19:26:02+00:00"
   },
   "circuit": "easy",
   "env_config": {
@@ -168,7 +168,7 @@
   "runs": [
     {
       "seed": 0,
-      "train_seconds": 147.8,
+      "train_seconds": 79.4,
       "steps_to_all_laps": 47104,
       "eval": {
         "episodes": 10,
@@ -400,7 +400,7 @@
     },
     {
       "seed": 1,
-      "train_seconds": 156.9,
+      "train_seconds": 79.5,
       "steps_to_all_laps": 36864,
       "eval": {
         "episodes": 10,
@@ -636,7 +636,7 @@
     },
     {
       "seed": 2,
-      "train_seconds": 151.7,
+      "train_seconds": 83.9,
       "steps_to_all_laps": 43008,
       "eval": {
         "episodes": 10,
@@ -870,7 +870,7 @@
     },
     {
       "seed": 3,
-      "train_seconds": 147.6,
+      "train_seconds": 91.1,
       "steps_to_all_laps": 36864,
       "eval": {
         "episodes": 10,
@@ -1103,7 +1103,7 @@
     },
     {
       "seed": 4,
-      "train_seconds": 153.6,
+      "train_seconds": 94.1,
       "steps_to_all_laps": 45056,
       "eval": {
         "episodes": 10,

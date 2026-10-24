@@ -8,8 +8,9 @@
       3,
       4
     ],
-    "commit": "e10ba10",
-    "date": "2026-10-20T03:56:19+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-23T19:25:56+00:00"
   },
   "preset": "agentic",
   "config": {
@@ -64,6 +65,7 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": true,
+      "progress_encoding": "linear",
       "curvature_windows": [
         [
           0.0,
@@ -142,7 +144,8 @@
       },
       "mean_speed": 0.6261840851121675,
       "mean_brake": 0.5218816110933733,
-      "return_mean": -2.652084686059132
+      "return_mean": -2.652084686059132,
+      "discounted_return_mean": -2.205308667965215
     },
     "episodes": [
       {
@@ -157,6 +160,7 @@
         "mean_brake": 0.4913838822694879,
         "mean_abs_steer": 0.5207903807064452,
         "episode_return": -2.594395480865939,
+        "discounted_return": -2.1499368861502433,
         "reward_terms": {
           "progress": 0.08206808690384756,
           "target_speed": 0.02563455224951016,
@@ -178,6 +182,7 @@
         "mean_brake": 0.5431442849963432,
         "mean_abs_steer": 0.5526732401744482,
         "episode_return": -2.6613607605276735,
+        "discounted_return": -2.2146160696212207,
         "reward_terms": {
           "progress": 0.07855925186988387,
           "target_speed": 0.007172690431483072,
@@ -199,6 +204,7 @@
         "mean_brake": 0.5158939638382215,
         "mean_abs_steer": 0.49720522641923615,
         "episode_return": -2.622955161291917,
+        "discounted_return": -2.1770741999253485,
         "reward_terms": {
           "progress": 0.07827101878096158,
           "target_speed": 0.03144116385789227,
@@ -220,6 +226,7 @@
         "mean_brake": 0.4596367331809982,
         "mean_abs_steer": 0.457497287954354,
         "episode_return": -2.636050534915327,
+        "discounted_return": -2.1888630042458805,
         "reward_terms": {
           "progress": 0.06105733291600054,
           "target_speed": 0.04436312285073652,
@@ -241,6 +248,7 @@
         "mean_brake": 0.5993491911818154,
         "mean_abs_steer": 0.45732705924533534,
         "episode_return": -2.7456614926948046,
+        "discounted_return": -2.2960531798833834,
         "reward_terms": {
           "progress": 0.06002834345579473,
           "target_speed": 0.019186118104501285,
@@ -265,7 +273,8 @@
       },
       "mean_speed": 19.221975435491498,
       "mean_brake": 0.08254057316754211,
-      "return_mean": 32.767672661881974
+      "return_mean": 32.767672661881974,
+      "discounted_return_mean": 11.55370403070462
     },
     "episodes": [
       {
@@ -280,6 +289,7 @@
         "mean_brake": 0.0930395779377319,
         "mean_abs_steer": 0.11839725597767159,
         "episode_return": 32.747924498143526,
+        "discounted_return": 11.920167058078883,
         "reward_terms": {
           "progress": 12.906093842995926,
           "target_speed": 3.9080199709913144,
@@ -301,6 +311,7 @@
         "mean_brake": 0.09234298807138068,
         "mean_abs_steer": 0.1139551030229424,
         "episode_return": 32.59378632694755,
+        "discounted_return": 11.373048660437814,
         "reward_terms": {
           "progress": 12.90163612755836,
           "target_speed": 3.826187571526529,
@@ -322,6 +333,7 @@
         "mean_brake": 0.04613033122424994,
         "mean_abs_steer": 0.09412534001697054,
         "episode_return": 33.16766769028562,
+        "discounted_return": 11.078903177652833,
         "reward_terms": {
           "progress": 12.904327070502497,
           "target_speed": 4.6818451188669865,
@@ -343,6 +355,7 @@
         "mean_brake": 0.04657105870423187,
         "mean_abs_steer": 0.0949739232585823,
         "episode_return": 33.2922313300446,
+        "discounted_return": 11.11055957488249,
         "reward_terms": {
           "progress": 12.903882644017644,
           "target_speed": 4.800329902301983,
@@ -363,6 +376,7 @@
         "mean_brake": 0.13461890990011618,
         "mean_abs_steer": 0.13353452124625978,
         "episode_return": 32.0367534639886,
+        "discounted_return": 12.285841682471082,
         "reward_terms": {
           "progress": 12.906093842995908,
           "target_speed": 3.0929035680172534,

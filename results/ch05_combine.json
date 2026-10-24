@@ -8,8 +8,9 @@
       3,
       4
     ],
-    "commit": "f4461b7",
-    "date": "2026-10-19T12:12:24+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-23T20:53:23+00:00"
   },
   "env_config": {
     "track": {
@@ -63,6 +64,7 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": true,
+      "progress_encoding": "linear",
       "curvature_windows": [
         [
           0.0,
@@ -78,7 +80,9 @@
         ]
       ],
       "directive": true,
-      "previous_steer": false
+      "previous_steer": false,
+      "stack": 1,
+      "zero_fill_from": null
     },
     "reward": {
       "progress_per_metre": 0.02,
@@ -332,7 +336,7 @@
       "variants": {
         "A": {
           "steps": 500000,
-          "train_seconds": 71.9,
+          "train_seconds": 81.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910808794763998,
@@ -475,7 +479,7 @@
         },
         "A_long": {
           "steps": 1000000,
-          "train_seconds": 144.7,
+          "train_seconds": 177.5,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907472851033315,
@@ -760,7 +764,7 @@
         },
         "C": {
           "steps": 500000,
-          "train_seconds": 86.5,
+          "train_seconds": 132.0,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9904411511296429,
@@ -903,7 +907,7 @@
         },
         "D": {
           "steps": 500000,
-          "train_seconds": 89.2,
+          "train_seconds": 91.3,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9903812124458806,
@@ -1046,7 +1050,7 @@
         },
         "E": {
           "steps": 1000000,
-          "train_seconds": 71.9,
+          "train_seconds": 77.2,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.990730194370475,
@@ -1195,7 +1199,7 @@
       "variants": {
         "A": {
           "steps": 500000,
-          "train_seconds": 72.7,
+          "train_seconds": 77.3,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909676468643113,
@@ -1338,7 +1342,7 @@
         },
         "A_long": {
           "steps": 1000000,
-          "train_seconds": 143.2,
+          "train_seconds": 156.2,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911303624627543,
@@ -1623,7 +1627,7 @@
         },
         "C": {
           "steps": 500000,
-          "train_seconds": 84.5,
+          "train_seconds": 91.2,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9902953676732258,
@@ -1766,7 +1770,7 @@
         },
         "D": {
           "steps": 500000,
-          "train_seconds": 84.3,
+          "train_seconds": 90.6,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9903739833806308,
@@ -1909,7 +1913,7 @@
         },
         "E": {
           "steps": 1000000,
-          "train_seconds": 72.2,
+          "train_seconds": 79.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910809012435985,
@@ -2058,7 +2062,7 @@
       "variants": {
         "A": {
           "steps": 500000,
-          "train_seconds": 86.4,
+          "train_seconds": 87.4,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908380097808582,
@@ -2201,7 +2205,7 @@
         },
         "A_long": {
           "steps": 1000000,
-          "train_seconds": 172.2,
+          "train_seconds": 165.2,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909566848206166,
@@ -2486,7 +2490,7 @@
         },
         "C": {
           "steps": 500000,
-          "train_seconds": 97.0,
+          "train_seconds": 92.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9903637662201042,
@@ -2629,7 +2633,7 @@
         },
         "D": {
           "steps": 500000,
-          "train_seconds": 110.0,
+          "train_seconds": 91.4,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9903711414737598,
@@ -2772,7 +2776,7 @@
         },
         "E": {
           "steps": 1000000,
-          "train_seconds": 91.5,
+          "train_seconds": 80.0,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9853970856253096,
@@ -2923,7 +2927,7 @@
       "variants": {
         "A": {
           "steps": 500000,
-          "train_seconds": 91.5,
+          "train_seconds": 84.2,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.990993088895401,
@@ -3066,7 +3070,7 @@
         },
         "A_long": {
           "steps": 1000000,
-          "train_seconds": 206.8,
+          "train_seconds": 157.8,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909197378283311,
@@ -3351,7 +3355,7 @@
         },
         "C": {
           "steps": 500000,
-          "train_seconds": 107.5,
+          "train_seconds": 90.7,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9904981630365175,
@@ -3494,7 +3498,7 @@
         },
         "D": {
           "steps": 500000,
-          "train_seconds": 117.9,
+          "train_seconds": 95.7,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9905128033317959,
@@ -3637,7 +3641,7 @@
         },
         "E": {
           "steps": 1000000,
-          "train_seconds": 113.9,
+          "train_seconds": 85.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908984644701804,
@@ -3786,7 +3790,7 @@
       "variants": {
         "A": {
           "steps": 500000,
-          "train_seconds": 108.8,
+          "train_seconds": 84.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911658939398779,
@@ -3929,7 +3933,7 @@
         },
         "A_long": {
           "steps": 1000000,
-          "train_seconds": 240.2,
+          "train_seconds": 165.4,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911471246291041,
@@ -4216,7 +4220,7 @@
         },
         "C": {
           "steps": 500000,
-          "train_seconds": 124.3,
+          "train_seconds": 90.7,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9903118596228797,
@@ -4359,7 +4363,7 @@
         },
         "D": {
           "steps": 500000,
-          "train_seconds": 124.3,
+          "train_seconds": 91.3,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9903321417030597,
@@ -4502,7 +4506,7 @@
         },
         "E": {
           "steps": 1000000,
-          "train_seconds": 117.6,
+          "train_seconds": 79.6,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.6694184111499473,

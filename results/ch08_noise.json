@@ -8,8 +8,9 @@
       3,
       4
     ],
-    "commit": "3e079f3",
-    "date": "2026-10-21T03:13:14+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-24T01:35:29+00:00"
   },
   "ppo_config": {
     "total_steps": 500000,
@@ -60,7 +61,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 202.3,
+          "train_seconds": 84.1,
           "policy_std": 0.5386000275611877,
           "mean": {
             "episodes": 20,
@@ -75,6 +76,7 @@
             "mean_speed": 30.3533901276213,
             "mean_brake": 0.0003908452283622337,
             "return_mean": 28.85852244219665,
+            "discounted_return_mean": 15.127526559843579,
             "mean_throttle": 0.7817564747529248
           },
           "sampled": {
@@ -90,6 +92,7 @@
             "mean_speed": 29.851922186162295,
             "mean_brake": 0.011628560699017002,
             "return_mean": 28.84868098079242,
+            "discounted_return_mean": 14.993958346797925,
             "mean_throttle": 0.7642589989445744
           },
           "clipped_mean": {
@@ -105,12 +108,13 @@
             "mean_speed": 29.713764109619195,
             "mean_brake": 0.029195157137412886,
             "return_mean": 28.745522721554124,
+            "discounted_return_mean": 14.865326977366024,
             "mean_throttle": 0.7344457347741468
           }
         },
         {
           "seed": 1,
-          "train_seconds": 208.4,
+          "train_seconds": 89.5,
           "policy_std": 0.5366359353065491,
           "mean": {
             "episodes": 20,
@@ -125,6 +129,7 @@
             "mean_speed": 29.966522220391305,
             "mean_brake": 0.04756417418537312,
             "return_mean": 28.897650301494913,
+            "discounted_return_mean": 15.076281642715491,
             "mean_throttle": 0.7625639353114402
           },
           "sampled": {
@@ -140,6 +145,7 @@
             "mean_speed": 29.883593346737182,
             "mean_brake": 0.03152673440883219,
             "return_mean": 28.972411614962333,
+            "discounted_return_mean": 15.133494023465365,
             "mean_throttle": 0.8028503638024029
           },
           "clipped_mean": {
@@ -155,12 +161,13 @@
             "mean_speed": 29.714578290376487,
             "mean_brake": 0.02171543145498926,
             "return_mean": 29.02486845278318,
+            "discounted_return_mean": 15.148682405136537,
             "mean_throttle": 0.8320460072718653
           }
         },
         {
           "seed": 2,
-          "train_seconds": 211.9,
+          "train_seconds": 81.2,
           "policy_std": 0.5983917117118835,
           "mean": {
             "episodes": 20,
@@ -175,6 +182,7 @@
             "mean_speed": 29.827261747930255,
             "mean_brake": 0.03254103282963418,
             "return_mean": 28.95758429494706,
+            "discounted_return_mean": 15.079045225716815,
             "mean_throttle": 0.8395145343334421
           },
           "sampled": {
@@ -190,6 +198,7 @@
             "mean_speed": 28.522979206424672,
             "mean_brake": 0.04181413626236029,
             "return_mean": 29.144992222487456,
+            "discounted_return_mean": 14.859390060413864,
             "mean_throttle": 0.8179624090406609
           },
           "clipped_mean": {
@@ -205,12 +214,13 @@
             "mean_speed": 28.50939714704965,
             "mean_brake": 0.014630188631205267,
             "return_mean": 29.160816570225034,
+            "discounted_return_mean": 14.930098861756226,
             "mean_throttle": 0.8410601023103483
           }
         },
         {
           "seed": 3,
-          "train_seconds": 175.0,
+          "train_seconds": 82.4,
           "policy_std": 0.5415595173835754,
           "mean": {
             "episodes": 20,
@@ -225,6 +235,7 @@
             "mean_speed": 30.52291106278501,
             "mean_brake": 0.009636185040112695,
             "return_mean": 28.7927927279713,
+            "discounted_return_mean": 15.11245108872636,
             "mean_throttle": 0.7875301763838432
           },
           "sampled": {
@@ -240,6 +251,7 @@
             "mean_speed": 29.806292738321865,
             "mean_brake": 0.023202596978695464,
             "return_mean": 28.894038515375957,
+            "discounted_return_mean": 15.015827148619696,
             "mean_throttle": 0.8155281443575731
           },
           "clipped_mean": {
@@ -255,12 +267,13 @@
             "mean_speed": 29.56044425592434,
             "mean_brake": 0.014036318077227647,
             "return_mean": 28.961946102099528,
+            "discounted_return_mean": 15.07018966261612,
             "mean_throttle": 0.898117386863896
           }
         },
         {
           "seed": 4,
-          "train_seconds": 182.7,
+          "train_seconds": 89.1,
           "policy_std": 0.5386037230491638,
           "mean": {
             "episodes": 20,
@@ -275,6 +288,7 @@
             "mean_speed": 30.73746050626057,
             "mean_brake": 0.03615483142114561,
             "return_mean": 28.664798533636525,
+            "discounted_return_mean": 15.06676939867487,
             "mean_throttle": 0.7925332013367824
           },
           "sampled": {
@@ -290,6 +304,7 @@
             "mean_speed": 29.698493287940302,
             "mean_brake": 0.034564927691473936,
             "return_mean": 28.959262423002667,
+            "discounted_return_mean": 15.011934614139511,
             "mean_throttle": 0.7983490693796509
           },
           "clipped_mean": {
@@ -305,6 +320,7 @@
             "mean_speed": 29.912190832234835,
             "mean_brake": 0.017902189314620887,
             "return_mean": 28.980572516375638,
+            "discounted_return_mean": 15.127146493577943,
             "mean_throttle": 0.8339117312238014
           }
         }
@@ -314,7 +330,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 148.4,
+          "train_seconds": 87.2,
           "policy_std": 0.681494414806366,
           "mean": {
             "episodes": 20,
@@ -329,6 +345,7 @@
             "mean_speed": 28.154136908128255,
             "mean_brake": 0.06050042191910695,
             "return_mean": 5.785030483348025,
+            "discounted_return_mean": 4.469624959777577,
             "mean_throttle": 0.7887784370998581
           },
           "sampled": {
@@ -344,6 +361,7 @@
             "mean_speed": 25.176078825578987,
             "mean_brake": 0.041226571135328106,
             "return_mean": 29.498979336387173,
+            "discounted_return_mean": 13.894599875256048,
             "mean_throttle": 0.6837393982441012
           },
           "clipped_mean": {
@@ -359,12 +377,13 @@
             "mean_speed": 22.951521519596184,
             "mean_brake": 0.021128680745906514,
             "return_mean": 29.70405760877411,
+            "discounted_return_mean": 13.171355998397065,
             "mean_throttle": 0.7482847129660174
           }
         },
         {
           "seed": 1,
-          "train_seconds": 144.7,
+          "train_seconds": 79.6,
           "policy_std": 0.6323418617248535,
           "mean": {
             "episodes": 20,
@@ -379,6 +398,7 @@
             "mean_speed": 28.126595067194813,
             "mean_brake": 0.05905921023397802,
             "return_mean": 5.694373188128123,
+            "discounted_return_mean": 4.378969958922811,
             "mean_throttle": 0.8258679195835084
           },
           "sampled": {
@@ -395,6 +415,7 @@
             "mean_speed": 24.046346856345703,
             "mean_brake": 0.07335518037142894,
             "return_mean": 28.308833361938355,
+            "discounted_return_mean": 12.776342477908857,
             "mean_throttle": 0.7626061652621439
           },
           "clipped_mean": {
@@ -411,12 +432,13 @@
             "mean_speed": 8.457416326772387,
             "mean_brake": 0.09006006696293425,
             "return_mean": 11.181514548452062,
+            "discounted_return_mean": 3.5280957993802664,
             "mean_throttle": 0.6957079394341682
           }
         },
         {
           "seed": 2,
-          "train_seconds": 143.3,
+          "train_seconds": 84.2,
           "policy_std": 0.6891999244689941,
           "mean": {
             "episodes": 20,
@@ -433,6 +455,7 @@
             "mean_speed": 25.39983274137197,
             "mean_brake": 0.08683478282650717,
             "return_mean": 9.688283147919757,
+            "discounted_return_mean": 6.041154014345577,
             "mean_throttle": 0.6891850176881885
           },
           "sampled": {
@@ -449,6 +472,7 @@
             "mean_speed": 21.476214928843508,
             "mean_brake": 0.10145701541559679,
             "return_mean": 26.327843898209757,
+            "discounted_return_mean": 11.918320472155914,
             "mean_throttle": 0.6283185529462252
           },
           "clipped_mean": {
@@ -466,12 +490,13 @@
             "mean_speed": 15.986362922330326,
             "mean_brake": 0.062248933571910046,
             "return_mean": 19.981403848128487,
+            "discounted_return_mean": 8.4839958018291,
             "mean_throttle": 0.6876525098434798
           }
         },
         {
           "seed": 3,
-          "train_seconds": 147.1,
+          "train_seconds": 84.1,
           "policy_std": 0.6294729113578796,
           "mean": {
             "episodes": 20,
@@ -487,6 +512,7 @@
             "mean_speed": 27.756801078416846,
             "mean_brake": 0.044339543962008864,
             "return_mean": 8.13089538130253,
+            "discounted_return_mean": 5.6578423748643605,
             "mean_throttle": 0.7046521868441642
           },
           "sampled": {
@@ -503,6 +529,7 @@
             "mean_speed": 25.238867519474873,
             "mean_brake": 0.03178329304121365,
             "return_mean": 28.2729696355901,
+            "discounted_return_mean": 13.385640187298012,
             "mean_throttle": 0.6839856164857709
           },
           "clipped_mean": {
@@ -518,12 +545,13 @@
             "mean_speed": 16.57285613344105,
             "mean_brake": 0.018725868922526024,
             "return_mean": 29.61051276646675,
+            "discounted_return_mean": 10.472751210527846,
             "mean_throttle": 0.7299905619512048
           }
         },
         {
           "seed": 4,
-          "train_seconds": 144.1,
+          "train_seconds": 80.4,
           "policy_std": 0.6822059154510498,
           "mean": {
             "episodes": 20,
@@ -539,6 +567,7 @@
             "mean_speed": 28.09395379371592,
             "mean_brake": 0.08242122177465279,
             "return_mean": 7.429747269909191,
+            "discounted_return_mean": 5.223228962958808,
             "mean_throttle": 0.762921889894797
           },
           "sampled": {
@@ -555,6 +584,7 @@
             "mean_speed": 25.90219998526252,
             "mean_brake": 0.06162589797574976,
             "return_mean": 26.76936244966161,
+            "discounted_return_mean": 12.920724230083172,
             "mean_throttle": 0.718494020498946
           },
           "clipped_mean": {
@@ -570,6 +600,7 @@
             "mean_speed": 26.42483809064574,
             "mean_brake": 0.048680443214963474,
             "return_mean": 29.184571487107565,
+            "discounted_return_mean": 14.125444378637166,
             "mean_throttle": 0.795552170619551
           }
         }
@@ -579,7 +610,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 117.0,
+          "train_seconds": 76.6,
           "policy_std": 0.6334248185157776,
           "mean": {
             "episodes": 20,
@@ -595,6 +626,7 @@
             "mean_speed": 25.610277008607284,
             "mean_brake": 0.06313376103935456,
             "return_mean": 24.61282235490999,
+            "discounted_return_mean": 12.190847756849726,
             "mean_throttle": 0.7768066001635238
           },
           "sampled": {
@@ -610,6 +642,7 @@
             "mean_speed": 25.199589119111494,
             "mean_brake": 0.03618624645525915,
             "return_mean": 25.833075432956015,
+            "discounted_return_mean": 12.581378328409599,
             "mean_throttle": 0.8162730956597095
           },
           "clipped_mean": {
@@ -626,12 +659,13 @@
             "mean_speed": 23.758909707820706,
             "mean_brake": 0.022875734883031705,
             "return_mean": 24.356258990457903,
+            "discounted_return_mean": 11.730759516298273,
             "mean_throttle": 0.857071558324364
           }
         },
         {
           "seed": 1,
-          "train_seconds": 70.2,
+          "train_seconds": 76.3,
           "policy_std": 0.5836613178253174,
           "mean": {
             "episodes": 20,
@@ -646,6 +680,7 @@
             "mean_speed": 28.063772798985802,
             "mean_brake": 0.05283065924042381,
             "return_mean": 6.913889121685784,
+            "discounted_return_mean": 5.12965402458073,
             "mean_throttle": 0.8521179153779437
           },
           "sampled": {
@@ -661,6 +696,7 @@
             "mean_speed": 25.719026635064345,
             "mean_brake": 0.03280983383364128,
             "return_mean": 25.651598461207584,
+            "discounted_return_mean": 12.572460880302541,
             "mean_throttle": 0.8487722464864446
           },
           "clipped_mean": {
@@ -676,12 +712,13 @@
             "mean_speed": 24.003011832270836,
             "mean_brake": 0.01430603822646292,
             "return_mean": 25.27804232902504,
+            "discounted_return_mean": 11.776460691154284,
             "mean_throttle": 0.8989641325578248
           }
         },
         {
           "seed": 2,
-          "train_seconds": 68.3,
+          "train_seconds": 77.3,
           "policy_std": 0.6321750283241272,
           "mean": {
             "episodes": 20,
@@ -697,6 +734,7 @@
             "mean_speed": 25.01501564479817,
             "mean_brake": 0.06804160227625057,
             "return_mean": 24.628399792244164,
+            "discounted_return_mean": 12.127168731108732,
             "mean_throttle": 0.788691168019052
           },
           "sampled": {
@@ -713,6 +751,7 @@
             "mean_speed": 24.00240485355112,
             "mean_brake": 0.05226037110920275,
             "return_mean": 25.020147972745466,
+            "discounted_return_mean": 12.074601617820498,
             "mean_throttle": 0.7704006017358265
           },
           "clipped_mean": {
@@ -730,12 +769,13 @@
             "mean_speed": 19.150497799137405,
             "mean_brake": 0.02693441473322611,
             "return_mean": 19.68597880187629,
+            "discounted_return_mean": 9.469360701388386,
             "mean_throttle": 0.7433524362563093
           }
         },
         {
           "seed": 3,
-          "train_seconds": 73.3,
+          "train_seconds": 80.2,
           "policy_std": 0.6260067820549011,
           "mean": {
             "episodes": 20,
@@ -751,6 +791,7 @@
             "mean_speed": 26.096121965713735,
             "mean_brake": 0.07421449763119845,
             "return_mean": 8.281153373638874,
+            "discounted_return_mean": 5.779378220739511,
             "mean_throttle": 0.7619571331673918
           },
           "sampled": {
@@ -768,6 +809,7 @@
             "mean_speed": 23.856827069883174,
             "mean_brake": 0.0557439946942504,
             "return_mean": 24.324833221978384,
+            "discounted_return_mean": 11.78336975395242,
             "mean_throttle": 0.7777796398889535
           },
           "clipped_mean": {
@@ -785,12 +827,13 @@
             "mean_speed": 20.295719999029554,
             "mean_brake": 0.035088754482296244,
             "return_mean": 20.841436813245622,
+            "discounted_return_mean": 9.841848590928338,
             "mean_throttle": 0.8199537878118358
           }
         },
         {
           "seed": 4,
-          "train_seconds": 66.3,
+          "train_seconds": 88.2,
           "policy_std": 0.6196137070655823,
           "mean": {
             "episodes": 20,
@@ -805,6 +848,7 @@
             "mean_speed": 27.8990844934589,
             "mean_brake": 0.05621321938482189,
             "return_mean": 6.934319120321359,
+            "discounted_return_mean": 5.148433018756036,
             "mean_throttle": 0.8478649626458348
           },
           "sampled": {
@@ -820,6 +864,7 @@
             "mean_speed": 25.56008900719603,
             "mean_brake": 0.039154255881638886,
             "return_mean": 25.65898120939542,
+            "discounted_return_mean": 12.484136797628082,
             "mean_throttle": 0.820642701689857
           },
           "clipped_mean": {
@@ -835,6 +880,7 @@
             "mean_speed": 25.841252103645548,
             "mean_brake": 0.015723888157749118,
             "return_mean": 25.692488947347222,
+            "discounted_return_mean": 12.513984500283367,
             "mean_throttle": 0.8684746579852257
           }
         }

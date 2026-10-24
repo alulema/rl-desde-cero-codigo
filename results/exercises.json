@@ -5,8 +5,9 @@
       "seeds": [
         0
       ],
-      "commit": "0af1d4a",
-      "date": "2026-10-21T19:15:27+00:00"
+      "book_run": true,
+      "commit": "8e77117",
+      "date": "2026-10-24T01:58:00+00:00"
     },
     "0.012": {
       "loss_after_10": 0.16816632694308342,
@@ -19,7 +20,7 @@
   },
   "ch01_no_brake": {
     "metadata": {
-      "command": "python experiments/exercises.py --exercise ch01_no_brake ch03_three_demos",
+      "command": "python experiments/exercises.py",
       "seeds": [
         0,
         1,
@@ -28,8 +29,8 @@
         4
       ],
       "book_run": true,
-      "commit": "854c380",
-      "date": "2026-10-21T22:51:36+00:00"
+      "commit": "8e77117",
+      "date": "2026-10-24T01:58:00+00:00"
     },
     "seeds": [
       0,
@@ -51,6 +52,7 @@
     "mean_speed": 4.98627214671143,
     "mean_brake": 0.0,
     "return_mean": -1.5961345564605938,
+    "discounted_return_mean": -1.0896311584282499,
     "durations": [
       4.040000000000002,
       10.039999999999875,
@@ -65,12 +67,13 @@
       "seeds": [
         0
       ],
-      "commit": "0af1d4a",
-      "date": "2026-10-21T19:15:27+00:00"
+      "book_run": true,
+      "commit": "8e77117",
+      "date": "2026-10-24T01:58:00+00:00"
     },
     "clip_epsilon": 0.05,
     "steps_to_all_laps": 151552,
-    "train_seconds": 92.7,
+    "train_seconds": 84.0,
     "eval": {
       "episodes": 10,
       "lap_fraction_mean": 0.9913783151028948,
@@ -83,12 +86,13 @@
       },
       "mean_speed": 30.414833720996786,
       "mean_brake": 6.074051123968563e-05,
-      "return_mean": 28.623002924513038
+      "return_mean": 28.623002924513038,
+      "discounted_return_mean": 14.95145149430822
     }
   },
   "ch03_three_demos": {
     "metadata": {
-      "command": "python experiments/exercises.py --exercise ch01_no_brake ch03_three_demos",
+      "command": "python experiments/exercises.py",
       "seeds": [
         0,
         1,
@@ -97,8 +101,8 @@
         4
       ],
       "book_run": true,
-      "commit": "854c380",
-      "date": "2026-10-21T22:51:36+00:00"
+      "commit": "8e77117",
+      "date": "2026-10-24T01:59:27+00:00"
     },
     "demo_episodes": 3,
     "runs": [
@@ -157,11 +161,12 @@
       "seeds": [
         0
       ],
-      "commit": "0af1d4a",
-      "date": "2026-10-21T19:17:31+00:00"
+      "book_run": true,
+      "commit": "8e77117",
+      "date": "2026-10-24T01:59:55+00:00"
     },
     "gradient_penalty": 0.0,
-    "train_seconds": 106.7,
+    "train_seconds": 90.2,
     "d_expert_last": 0.9791017770767212,
     "d_agent_last": 0.02766549587249756,
     "d_agent_min": 0.019932221621274948,
@@ -218,11 +223,12 @@
       "seeds": [
         0
       ],
-      "commit": "0af1d4a",
-      "date": "2026-10-21T19:19:24+00:00"
+      "book_run": true,
+      "commit": "8e77117",
+      "date": "2026-10-24T02:01:31+00:00"
     },
     "target_speed_per_sec": 0.5,
-    "train_seconds": 84.9,
+    "train_seconds": 86.1,
     "eval": {
       "random_directive": {
         "episodes": 20,
@@ -237,6 +243,7 @@
         "mean_speed": 26.799833832364026,
         "mean_brake": 0.02698582667542409,
         "return_mean": 31.918479062028325,
+        "discounted_return_mean": 16.439127039003274,
         "reward_terms": {
           "edge": -0.05283778571559854,
           "lap": 17.61066666666671,
@@ -258,7 +265,8 @@
         },
         "mean_speed": 27.030485976340724,
         "mean_brake": 0.030036510235995066,
-        "return_mean": 31.80100477134272
+        "return_mean": 31.80100477134272,
+        "discounted_return_mean": 16.44017618253693
       },
       "attack": {
         "episodes": 20,
@@ -272,7 +280,8 @@
         },
         "mean_speed": 26.12882350655114,
         "mean_brake": 0.01992225361316836,
-        "return_mean": 32.257220016736
+        "return_mean": 32.257220016736,
+        "discounted_return_mean": 16.44259098140986
       },
       "conserve_minus_attack_s": -0.5309999999999917
     }
@@ -283,11 +292,12 @@
       "seeds": [
         0
       ],
-      "commit": "0af1d4a",
-      "date": "2026-10-21T19:20:55+00:00"
+      "book_run": true,
+      "commit": "8e77117",
+      "date": "2026-10-24T02:03:05+00:00"
     },
     "progress_encoding": "sincos",
-    "train_seconds": 90.5,
+    "train_seconds": 91.8,
     "seen": {
       "episodes": 20,
       "lap_fraction_mean": 0.9910487983324536,
@@ -300,7 +310,8 @@
       },
       "mean_speed": 30.73417404223847,
       "mean_brake": 0.004791143416051484,
-      "return_mean": 28.489578777711113
+      "return_mean": 28.489578777711113,
+      "discounted_return_mean": 14.96953803895548
     },
     "unseen": {
       "episodes": 20,
@@ -314,7 +325,8 @@
       },
       "mean_speed": 33.529373849399775,
       "mean_brake": 0.0,
-      "return_mean": 31.080554892393167
+      "return_mean": 31.080554892393167,
+      "discounted_return_mean": 15.128119322283487
     },
     "unseen_hard": {
       "episodes": 20,
@@ -329,7 +341,8 @@
       },
       "mean_speed": 30.78888583402096,
       "mean_brake": 0.023175496033961775,
-      "return_mean": 27.678926778869318
+      "return_mean": 27.678926778869318,
+      "discounted_return_mean": 12.306919435238587
     }
   }
 }

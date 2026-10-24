@@ -4,8 +4,9 @@
     "seeds": [
       0
     ],
-    "commit": "9acc46b",
-    "date": "2026-10-20T03:49:52+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-23T19:25:44+00:00"
   },
   "episode_seeds": [
     0,

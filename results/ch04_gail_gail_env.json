@@ -8,8 +8,9 @@
       3,
       4
     ],
-    "commit": "3f63ee1",
-    "date": "2026-10-19T01:43:38+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-23T20:36:28+00:00"
   },
   "variant": "gail_env",
   "env_config": {
@@ -64,6 +65,7 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": true,
+      "progress_encoding": "linear",
       "curvature_windows": [
         [
           0.0,
@@ -79,7 +81,9 @@
         ]
       ],
       "directive": true,
-      "previous_steer": false
+      "previous_steer": false,
+      "stack": 1,
+      "zero_fill_from": null
     },
     "reward": {
       "progress_per_metre": 0.02,
@@ -166,12 +170,12 @@
   "runs": [
     {
       "seed": 0,
-      "train_seconds": 89.9,
+      "train_seconds": 93.1,
       "demo_samples": 5684,
       "last_batch": {
         "update": 244,
         "steps": 499712,
-        "seconds": 89.9,
+        "seconds": 93.1,
         "episodes": 5,
         "std": 0.6009103655815125,
         "policy_loss": -0.00010773712710943073,
@@ -243,12 +247,12 @@
     },
     {
       "seed": 1,
-      "train_seconds": 88.5,
+      "train_seconds": 94.5,
       "demo_samples": 5671,
       "last_batch": {
         "update": 244,
         "steps": 499712,
-        "seconds": 88.5,
+        "seconds": 94.5,
         "episodes": 6,
         "std": 0.6221775412559509,
         "policy_loss": -0.0002293392491992563,
@@ -320,12 +324,12 @@
     },
     {
       "seed": 2,
-      "train_seconds": 88.8,
+      "train_seconds": 93.9,
       "demo_samples": 5610,
       "last_batch": {
         "update": 244,
         "steps": 499712,
-        "seconds": 88.8,
+        "seconds": 93.9,
         "episodes": 7,
         "std": 0.6378575563430786,
         "policy_loss": -0.00015313279000110923,
@@ -397,12 +401,12 @@
     },
     {
       "seed": 3,
-      "train_seconds": 87.9,
+      "train_seconds": 93.4,
       "demo_samples": 5495,
       "last_batch": {
         "update": 244,
         "steps": 499712,
-        "seconds": 87.9,
+        "seconds": 93.4,
         "episodes": 8,
         "std": 0.5989728569984436,
         "policy_loss": -0.00026387238758616147,
@@ -474,12 +478,12 @@
     },
     {
       "seed": 4,
-      "train_seconds": 89.9,
+      "train_seconds": 93.2,
       "demo_samples": 5449,
       "last_batch": {
         "update": 244,
         "steps": 499712,
-        "seconds": 89.9,
+        "seconds": 93.2,
         "episodes": 8,
         "std": 0.6864755749702454,
         "policy_loss": -0.00015679228818044066,

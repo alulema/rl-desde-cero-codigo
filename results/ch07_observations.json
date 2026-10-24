@@ -8,8 +8,9 @@
       3,
       4
     ],
-    "commit": "b640083",
-    "date": "2026-10-19T21:29:54+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-23T23:43:05+00:00"
   },
   "ppo_config": {
     "total_steps": 500000,
@@ -87,6 +88,7 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": true,
+      "progress_encoding": "linear",
       "curvature_windows": [
         [
           0.0,
@@ -103,7 +105,8 @@
       ],
       "directive": true,
       "previous_steer": false,
-      "stack": 1
+      "stack": 1,
+      "zero_fill_from": null
     },
     "no_progress": {
       "n_rays": 9,
@@ -114,6 +117,7 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": false,
+      "progress_encoding": "linear",
       "curvature_windows": [
         [
           0.0,
@@ -130,7 +134,8 @@
       ],
       "directive": true,
       "previous_steer": false,
-      "stack": 1
+      "stack": 1,
+      "zero_fill_from": null
     },
     "no_curvature": {
       "n_rays": 9,
@@ -141,10 +146,12 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": true,
+      "progress_encoding": "linear",
       "curvature_windows": [],
       "directive": true,
       "previous_steer": false,
-      "stack": 1
+      "stack": 1,
+      "zero_fill_from": null
     },
     "previous_steer": {
       "n_rays": 9,
@@ -155,6 +162,7 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": true,
+      "progress_encoding": "linear",
       "curvature_windows": [
         [
           0.0,
@@ -171,7 +179,8 @@
       ],
       "directive": true,
       "previous_steer": true,
-      "stack": 1
+      "stack": 1,
+      "zero_fill_from": null
     },
     "stacked": {
       "n_rays": 9,
@@ -182,6 +191,7 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": true,
+      "progress_encoding": "linear",
       "curvature_windows": [
         [
           0.0,
@@ -198,7 +208,8 @@
       ],
       "directive": true,
       "previous_steer": false,
-      "stack": 4
+      "stack": 4,
+      "zero_fill_from": null
     }
   },
   "experiments": {
@@ -262,6 +273,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -278,7 +290,8 @@
           ],
           "directive": true,
           "previous_steer": false,
-          "stack": 1
+          "stack": 1,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -329,7 +342,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 72.2,
+          "train_seconds": 78.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908723825575679,
@@ -342,7 +355,8 @@
             },
             "mean_speed": 37.950226962894256,
             "mean_brake": 0.0,
-            "return_mean": 31.42643295712303
+            "return_mean": 31.42643295712303,
+            "discounted_return_mean": 16.34400701039026
           },
           "unseen": {
             "episodes": 20,
@@ -356,7 +370,8 @@
             },
             "mean_speed": 37.985360352574496,
             "mean_brake": 0.0,
-            "return_mean": 31.40976411013458
+            "return_mean": 31.40976411013458,
+            "discounted_return_mean": 16.346570791686233
           },
           "unseen_hard": {
             "episodes": 20,
@@ -372,12 +387,13 @@
             },
             "mean_speed": 29.424989115825536,
             "mean_brake": 0.08146475043244934,
-            "return_mean": 8.529832289932404
+            "return_mean": 8.529832289932404,
+            "discounted_return_mean": 5.6560517204007
           }
         },
         {
           "seed": 1,
-          "train_seconds": 107.9,
+          "train_seconds": 82.5,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908604620918859,
@@ -390,7 +406,8 @@
             },
             "mean_speed": 38.00588774713401,
             "mean_brake": 0.0,
-            "return_mean": 31.416945192525866
+            "return_mean": 31.416945192525866,
+            "discounted_return_mean": 16.328114522862478
           },
           "unseen": {
             "episodes": 20,
@@ -404,7 +421,8 @@
             },
             "mean_speed": 37.97804308586804,
             "mean_brake": 0.0,
-            "return_mean": 31.405743487905074
+            "return_mean": 31.405743487905074,
+            "discounted_return_mean": 16.3160741021183
           },
           "unseen_hard": {
             "episodes": 20,
@@ -419,12 +437,13 @@
             },
             "mean_speed": 30.784193003172117,
             "mean_brake": 0.03213053994740191,
-            "return_mean": 7.494513845593708
+            "return_mean": 7.494513845593708,
+            "discounted_return_mean": 5.349585963069297
           }
         },
         {
           "seed": 2,
-          "train_seconds": 202.9,
+          "train_seconds": 77.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907602533486237,
@@ -437,7 +456,8 @@
             },
             "mean_speed": 37.87445912081945,
             "mean_brake": 0.0002587421308648024,
-            "return_mean": 31.553388868335468
+            "return_mean": 31.553388868335468,
+            "discounted_return_mean": 16.5246368625838
           },
           "unseen": {
             "episodes": 20,
@@ -451,7 +471,8 @@
             },
             "mean_speed": 37.91131529210102,
             "mean_brake": 0.0,
-            "return_mean": 31.53519653955861
+            "return_mean": 31.53519653955861,
+            "discounted_return_mean": 16.515922238995515
           },
           "unseen_hard": {
             "episodes": 20,
@@ -466,12 +487,13 @@
             },
             "mean_speed": 30.365129179588173,
             "mean_brake": 0.05694782921356738,
-            "return_mean": 8.75126325761446
+            "return_mean": 8.75126325761446,
+            "discounted_return_mean": 5.879322056248162
           }
         },
         {
           "seed": 3,
-          "train_seconds": 125.0,
+          "train_seconds": 80.4,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908184544310729,
@@ -484,7 +506,8 @@
             },
             "mean_speed": 37.96242794565303,
             "mean_brake": 0.0,
-            "return_mean": 31.3952497939124
+            "return_mean": 31.3952497939124,
+            "discounted_return_mean": 16.289248339888182
           },
           "unseen": {
             "episodes": 20,
@@ -498,7 +521,8 @@
             },
             "mean_speed": 37.97462400520668,
             "mean_brake": 0.0,
-            "return_mean": 31.387710936654997
+            "return_mean": 31.387710936654997,
+            "discounted_return_mean": 16.2997951660167
           },
           "unseen_hard": {
             "episodes": 20,
@@ -513,12 +537,13 @@
             },
             "mean_speed": 31.786952928679035,
             "mean_brake": 0.015348075784306497,
-            "return_mean": 9.3040174887587
+            "return_mean": 9.3040174887587,
+            "discounted_return_mean": 6.212527501384052
           }
         },
         {
           "seed": 4,
-          "train_seconds": 161.1,
+          "train_seconds": 76.0,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907332994629219,
@@ -531,7 +556,8 @@
             },
             "mean_speed": 37.90344626127056,
             "mean_brake": 0.0003974202933699586,
-            "return_mean": 31.51529164593803
+            "return_mean": 31.51529164593803,
+            "discounted_return_mean": 16.4466532084137
           },
           "unseen": {
             "episodes": 20,
@@ -545,7 +571,8 @@
             },
             "mean_speed": 37.94359861407089,
             "mean_brake": 0.0,
-            "return_mean": 31.4956716752764
+            "return_mean": 31.4956716752764,
+            "discounted_return_mean": 16.44406837018453
           },
           "unseen_hard": {
             "episodes": 20,
@@ -560,7 +587,8 @@
             },
             "mean_speed": 30.194761954653224,
             "mean_brake": 0.06856214387446445,
-            "return_mean": 11.731267408283362
+            "return_mean": 11.731267408283362,
+            "discounted_return_mean": 7.048424413558484
           }
         }
       ]
@@ -625,6 +653,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": false,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -641,7 +670,8 @@
           ],
           "directive": true,
           "previous_steer": false,
-          "stack": 1
+          "stack": 1,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -692,7 +722,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 158.6,
+          "train_seconds": 81.4,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908943162913587,
@@ -705,7 +735,8 @@
             },
             "mean_speed": 37.95430270271786,
             "mean_brake": 0.0,
-            "return_mean": 31.526817094333232
+            "return_mean": 31.526817094333232,
+            "discounted_return_mean": 16.470094572936393
           },
           "unseen": {
             "episodes": 20,
@@ -719,7 +750,8 @@
             },
             "mean_speed": 37.950933521248444,
             "mean_brake": 0.0,
-            "return_mean": 31.50772584932715
+            "return_mean": 31.50772584932715,
+            "discounted_return_mean": 16.460249004828643
           },
           "unseen_hard": {
             "episodes": 20,
@@ -734,12 +766,13 @@
             },
             "mean_speed": 31.084176093191182,
             "mean_brake": 0.015546399182721438,
-            "return_mean": 8.173432075868831
+            "return_mean": 8.173432075868831,
+            "discounted_return_mean": 5.56927623187841
           }
         },
         {
           "seed": 1,
-          "train_seconds": 160.6,
+          "train_seconds": 79.6,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907981561168768,
@@ -752,7 +785,8 @@
             },
             "mean_speed": 37.98634191545554,
             "mean_brake": 0.0,
-            "return_mean": 31.433142221718647
+            "return_mean": 31.433142221718647,
+            "discounted_return_mean": 16.346652136952162
           },
           "unseen": {
             "episodes": 20,
@@ -766,7 +800,8 @@
             },
             "mean_speed": 37.96796105076419,
             "mean_brake": 2.432871003483617e-05,
-            "return_mean": 31.425733765742468
+            "return_mean": 31.425733765742468,
+            "discounted_return_mean": 16.34824539905764
           },
           "unseen_hard": {
             "episodes": 20,
@@ -782,12 +817,13 @@
             },
             "mean_speed": 27.55120272336892,
             "mean_brake": 0.08445938171068643,
-            "return_mean": 11.472677690471173
+            "return_mean": 11.472677690471173,
+            "discounted_return_mean": 6.661799753458276
           }
         },
         {
           "seed": 2,
-          "train_seconds": 162.0,
+          "train_seconds": 82.7,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907904910007146,
@@ -800,7 +836,8 @@
             },
             "mean_speed": 37.91655749514872,
             "mean_brake": 0.0,
-            "return_mean": 31.54769779719394
+            "return_mean": 31.54769779719394,
+            "discounted_return_mean": 16.499868738373763
           },
           "unseen": {
             "episodes": 20,
@@ -814,7 +851,8 @@
             },
             "mean_speed": 37.909056049168775,
             "mean_brake": 0.0,
-            "return_mean": 31.527781591045674
+            "return_mean": 31.527781591045674,
+            "discounted_return_mean": 16.483379232054883
           },
           "unseen_hard": {
             "episodes": 20,
@@ -829,12 +867,13 @@
             },
             "mean_speed": 29.89384115808901,
             "mean_brake": 0.04296898167891612,
-            "return_mean": 7.774807102987966
+            "return_mean": 7.774807102987966,
+            "discounted_return_mean": 5.240027062583284
           }
         },
         {
           "seed": 3,
-          "train_seconds": 150.2,
+          "train_seconds": 80.4,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907880147606557,
@@ -847,7 +886,8 @@
             },
             "mean_speed": 37.96354504654464,
             "mean_brake": 0.0,
-            "return_mean": 31.49425914634773
+            "return_mean": 31.49425914634773,
+            "discounted_return_mean": 16.42903831075604
           },
           "unseen": {
             "episodes": 20,
@@ -861,7 +901,8 @@
             },
             "mean_speed": 37.97460997491632,
             "mean_brake": 0.0,
-            "return_mean": 31.48411665773142
+            "return_mean": 31.48411665773142,
+            "discounted_return_mean": 16.427731606628637
           },
           "unseen_hard": {
             "episodes": 20,
@@ -876,12 +917,13 @@
             },
             "mean_speed": 31.81777719312256,
             "mean_brake": 0.046680056190288546,
-            "return_mean": 9.449938783099837
+            "return_mean": 9.449938783099837,
+            "discounted_return_mean": 6.321015502034641
           }
         },
         {
           "seed": 4,
-          "train_seconds": 182.4,
+          "train_seconds": 76.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907488157733926,
@@ -894,7 +936,8 @@
             },
             "mean_speed": 37.82240270597323,
             "mean_brake": 0.00035751590059924707,
-            "return_mean": 31.523145198137136
+            "return_mean": 31.523145198137136,
+            "discounted_return_mean": 16.534956828048188
           },
           "unseen": {
             "episodes": 20,
@@ -908,7 +951,8 @@
             },
             "mean_speed": 37.852978264103236,
             "mean_brake": 0.0,
-            "return_mean": 31.505259692767254
+            "return_mean": 31.505259692767254,
+            "discounted_return_mean": 16.520579853479042
           },
           "unseen_hard": {
             "episodes": 20,
@@ -923,7 +967,8 @@
             },
             "mean_speed": 31.251360273612192,
             "mean_brake": 0.07338004224065234,
-            "return_mean": 19.345136429729212
+            "return_mean": 19.345136429729212,
+            "discounted_return_mean": 9.750450461110452
           }
         }
       ]
@@ -988,10 +1033,12 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [],
           "directive": true,
           "previous_steer": false,
-          "stack": 1
+          "stack": 1,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -1042,7 +1089,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 187.5,
+          "train_seconds": 79.7,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907948536394919,
@@ -1055,7 +1102,8 @@
             },
             "mean_speed": 38.08824420367327,
             "mean_brake": 0.0,
-            "return_mean": 31.352460459012434
+            "return_mean": 31.352460459012434,
+            "discounted_return_mean": 16.24834733375571
           },
           "unseen": {
             "episodes": 20,
@@ -1069,7 +1117,8 @@
             },
             "mean_speed": 38.08144568064472,
             "mean_brake": 0.0,
-            "return_mean": 31.335627279796075
+            "return_mean": 31.335627279796075,
+            "discounted_return_mean": 16.236178729584864
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1084,12 +1133,13 @@
             },
             "mean_speed": 29.8855737557633,
             "mean_brake": 0.028780643631560215,
-            "return_mean": 6.134423087023621
+            "return_mean": 6.134423087023621,
+            "discounted_return_mean": 4.488161783192579
           }
         },
         {
           "seed": 1,
-          "train_seconds": 159.6,
+          "train_seconds": 78.0,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907618065425368,
@@ -1102,7 +1152,8 @@
             },
             "mean_speed": 37.91718379327764,
             "mean_brake": 2.6133447362665543e-05,
-            "return_mean": 31.52731541759686
+            "return_mean": 31.52731541759686,
+            "discounted_return_mean": 16.476697673372012
           },
           "unseen": {
             "episodes": 20,
@@ -1116,7 +1167,8 @@
             },
             "mean_speed": 37.934565692976896,
             "mean_brake": 0.0,
-            "return_mean": 31.514336187262963
+            "return_mean": 31.514336187262963,
+            "discounted_return_mean": 16.470636941836702
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1132,12 +1184,13 @@
             },
             "mean_speed": 27.660199413362392,
             "mean_brake": 0.08866727222297235,
-            "return_mean": 5.340708576045555
+            "return_mean": 5.340708576045555,
+            "discounted_return_mean": 3.9070555545288257
           }
         },
         {
           "seed": 2,
-          "train_seconds": 158.6,
+          "train_seconds": 80.1,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909290727996615,
@@ -1150,7 +1203,8 @@
             },
             "mean_speed": 37.89746777962071,
             "mean_brake": 3.288423544482181e-05,
-            "return_mean": 31.536300510588426
+            "return_mean": 31.536300510588426,
+            "discounted_return_mean": 16.501788520244464
           },
           "unseen": {
             "episodes": 20,
@@ -1164,7 +1218,8 @@
             },
             "mean_speed": 37.920614532415186,
             "mean_brake": 0.0,
-            "return_mean": 31.515118781839654
+            "return_mean": 31.515118781839654,
+            "discounted_return_mean": 16.48990400914983
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1179,12 +1234,13 @@
             },
             "mean_speed": 28.950505311069172,
             "mean_brake": 0.06324654604006039,
-            "return_mean": 7.374938806784255
+            "return_mean": 7.374938806784255,
+            "discounted_return_mean": 4.943132348489788
           }
         },
         {
           "seed": 3,
-          "train_seconds": 184.1,
+          "train_seconds": 76.1,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908247695630715,
@@ -1197,7 +1253,8 @@
             },
             "mean_speed": 37.85368869998125,
             "mean_brake": 0.0,
-            "return_mean": 31.54581808818087
+            "return_mean": 31.54581808818087,
+            "discounted_return_mean": 16.50419615180632
           },
           "unseen": {
             "episodes": 20,
@@ -1211,7 +1268,8 @@
             },
             "mean_speed": 37.855331067069635,
             "mean_brake": 0.0,
-            "return_mean": 31.519135735045374
+            "return_mean": 31.519135735045374,
+            "discounted_return_mean": 16.510776216180027
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1226,12 +1284,13 @@
             },
             "mean_speed": 29.41247328392426,
             "mean_brake": 0.05538661871133736,
-            "return_mean": 6.806660998142552
+            "return_mean": 6.806660998142552,
+            "discounted_return_mean": 4.8603886764982756
           }
         },
         {
           "seed": 4,
-          "train_seconds": 171.0,
+          "train_seconds": 75.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9906743757256958,
@@ -1244,7 +1303,8 @@
             },
             "mean_speed": 37.85707709941221,
             "mean_brake": 0.0,
-            "return_mean": 31.545478434776175
+            "return_mean": 31.545478434776175,
+            "discounted_return_mean": 16.544968732329245
           },
           "unseen": {
             "episodes": 20,
@@ -1258,7 +1318,8 @@
             },
             "mean_speed": 37.8730132549249,
             "mean_brake": 0.0,
-            "return_mean": 31.52902941207943
+            "return_mean": 31.52902941207943,
+            "discounted_return_mean": 16.52872258721888
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1273,7 +1334,8 @@
             },
             "mean_speed": 29.06162551622446,
             "mean_brake": 0.06951118808860883,
-            "return_mean": 7.358272249497295
+            "return_mean": 7.358272249497295,
+            "discounted_return_mean": 4.942127043609911
           }
         }
       ]
@@ -1338,6 +1400,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -1354,7 +1417,8 @@
           ],
           "directive": true,
           "previous_steer": true,
-          "stack": 1
+          "stack": 1,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -1405,7 +1469,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 173.0,
+          "train_seconds": 77.7,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908529706350235,
@@ -1418,7 +1482,8 @@
             },
             "mean_speed": 37.914229171963406,
             "mean_brake": 0.00038387758885440786,
-            "return_mean": 31.504586885004898
+            "return_mean": 31.504586885004898,
+            "discounted_return_mean": 16.425954400174962
           },
           "unseen": {
             "episodes": 20,
@@ -1432,7 +1497,8 @@
             },
             "mean_speed": 37.94564028250284,
             "mean_brake": 0.0,
-            "return_mean": 31.48556026773641
+            "return_mean": 31.48556026773641,
+            "discounted_return_mean": 16.422858183925467
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1447,12 +1513,13 @@
             },
             "mean_speed": 31.192517324200885,
             "mean_brake": 0.07672503988253296,
-            "return_mean": 12.174960494416663
+            "return_mean": 12.174960494416663,
+            "discounted_return_mean": 7.288971714132184
           }
         },
         {
           "seed": 1,
-          "train_seconds": 181.5,
+          "train_seconds": 78.7,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.990813824810561,
@@ -1465,7 +1532,8 @@
             },
             "mean_speed": 38.10266404223405,
             "mean_brake": 0.0,
-            "return_mean": 31.356997159919636
+            "return_mean": 31.356997159919636,
+            "discounted_return_mean": 16.251789571638632
           },
           "unseen": {
             "episodes": 20,
@@ -1479,7 +1547,8 @@
             },
             "mean_speed": 38.10103136694169,
             "mean_brake": 0.0,
-            "return_mean": 31.340204024870115
+            "return_mean": 31.340204024870115,
+            "discounted_return_mean": 16.24295251992738
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1494,12 +1563,13 @@
             },
             "mean_speed": 30.724399541601912,
             "mean_brake": 0.04130215664011925,
-            "return_mean": 7.899306962375126
+            "return_mean": 7.899306962375126,
+            "discounted_return_mean": 5.322771295305997
           }
         },
         {
           "seed": 2,
-          "train_seconds": 169.4,
+          "train_seconds": 77.4,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908441140882852,
@@ -1512,7 +1582,8 @@
             },
             "mean_speed": 38.015014223804144,
             "mean_brake": 0.0,
-            "return_mean": 31.39831805091914
+            "return_mean": 31.39831805091914,
+            "discounted_return_mean": 16.30779186919832
           },
           "unseen": {
             "episodes": 20,
@@ -1526,7 +1597,8 @@
             },
             "mean_speed": 38.023372940351884,
             "mean_brake": 0.0,
-            "return_mean": 31.381465089734625
+            "return_mean": 31.381465089734625,
+            "discounted_return_mean": 16.287603528019808
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1541,12 +1613,13 @@
             },
             "mean_speed": 30.487663633242505,
             "mean_brake": 0.027063852815390615,
-            "return_mean": 8.81183947213773
+            "return_mean": 8.81183947213773,
+            "discounted_return_mean": 5.870185047315294
           }
         },
         {
           "seed": 3,
-          "train_seconds": 156.7,
+          "train_seconds": 79.8,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.990737845454883,
@@ -1559,7 +1632,8 @@
             },
             "mean_speed": 37.85237850319112,
             "mean_brake": 0.00010898623898712514,
-            "return_mean": 31.5383208659689
+            "return_mean": 31.5383208659689,
+            "discounted_return_mean": 16.54573025241206
           },
           "unseen": {
             "episodes": 20,
@@ -1573,7 +1647,8 @@
             },
             "mean_speed": 37.88991792917138,
             "mean_brake": 0.0,
-            "return_mean": 31.518700240403092
+            "return_mean": 31.518700240403092,
+            "discounted_return_mean": 16.533569330651297
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1588,12 +1663,13 @@
             },
             "mean_speed": 32.06079561682336,
             "mean_brake": 0.05472593834104428,
-            "return_mean": 9.576255114181441
+            "return_mean": 9.576255114181441,
+            "discounted_return_mean": 6.397331931790278
           }
         },
         {
           "seed": 4,
-          "train_seconds": 169.1,
+          "train_seconds": 78.6,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907261858007687,
@@ -1606,7 +1682,8 @@
             },
             "mean_speed": 38.07612689212338,
             "mean_brake": 0.0,
-            "return_mean": 31.334869306709503
+            "return_mean": 31.334869306709503,
+            "discounted_return_mean": 16.232319910925387
           },
           "unseen": {
             "episodes": 20,
@@ -1620,7 +1697,8 @@
             },
             "mean_speed": 38.05013662027659,
             "mean_brake": 0.0,
-            "return_mean": 31.31628255426397
+            "return_mean": 31.31628255426397,
+            "discounted_return_mean": 16.202702821621948
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1635,7 +1713,8 @@
             },
             "mean_speed": 31.352483504647807,
             "mean_brake": 0.03256371790221298,
-            "return_mean": 9.042080536448742
+            "return_mean": 9.042080536448742,
+            "discounted_return_mean": 6.015153820087444
           }
         }
       ]
@@ -1700,6 +1779,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -1716,7 +1796,8 @@
           ],
           "directive": true,
           "previous_steer": false,
-          "stack": 4
+          "stack": 4,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -1767,7 +1848,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 155.9,
+          "train_seconds": 85.3,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907326844090496,
@@ -1780,7 +1861,8 @@
             },
             "mean_speed": 37.868703636348194,
             "mean_brake": 0.0,
-            "return_mean": 31.53529230184055
+            "return_mean": 31.53529230184055,
+            "discounted_return_mean": 16.49472123877651
           },
           "unseen": {
             "episodes": 20,
@@ -1794,7 +1876,8 @@
             },
             "mean_speed": 37.83984127788381,
             "mean_brake": 0.0,
-            "return_mean": 31.5155632610061
+            "return_mean": 31.5155632610061,
+            "discounted_return_mean": 16.471490984770703
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1810,12 +1893,13 @@
             },
             "mean_speed": 26.898001905826124,
             "mean_brake": 0.06238687659460988,
-            "return_mean": 9.452136649204606
+            "return_mean": 9.452136649204606,
+            "discounted_return_mean": 5.740104626157634
           }
         },
         {
           "seed": 1,
-          "train_seconds": 165.1,
+          "train_seconds": 80.8,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908541968819081,
@@ -1828,7 +1912,8 @@
             },
             "mean_speed": 38.02699541391032,
             "mean_brake": 0.0,
-            "return_mean": 31.428372088381934
+            "return_mean": 31.428372088381934,
+            "discounted_return_mean": 16.346759529070443
           },
           "unseen": {
             "episodes": 20,
@@ -1842,7 +1927,8 @@
             },
             "mean_speed": 37.92862892858126,
             "mean_brake": 0.00030418090481628,
-            "return_mean": 31.39309939400375
+            "return_mean": 31.39309939400375,
+            "discounted_return_mean": 16.289165590316202
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1858,12 +1944,13 @@
             },
             "mean_speed": 21.989386654520032,
             "mean_brake": 0.12637458055102407,
-            "return_mean": 13.110106155573153
+            "return_mean": 13.110106155573153,
+            "discounted_return_mean": 6.294505742657934
           }
         },
         {
           "seed": 2,
-          "train_seconds": 149.3,
+          "train_seconds": 82.0,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908587756289426,
@@ -1876,7 +1963,8 @@
             },
             "mean_speed": 37.886445415646776,
             "mean_brake": 0.00044275511641503633,
-            "return_mean": 31.4957535888584
+            "return_mean": 31.4957535888584,
+            "discounted_return_mean": 16.41998972078625
           },
           "unseen": {
             "episodes": 20,
@@ -1890,7 +1978,8 @@
             },
             "mean_speed": 37.761312822253515,
             "mean_brake": 0.0009025695663111901,
-            "return_mean": 31.46846371124746
+            "return_mean": 31.46846371124746,
+            "discounted_return_mean": 16.379274200498543
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1906,12 +1995,13 @@
             },
             "mean_speed": 19.456718792115872,
             "mean_brake": 0.2326370866394377,
-            "return_mean": 11.17899663743586
+            "return_mean": 11.17899663743586,
+            "discounted_return_mean": 5.348221332038215
           }
         },
         {
           "seed": 3,
-          "train_seconds": 154.7,
+          "train_seconds": 82.3,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908570546116724,
@@ -1924,7 +2014,8 @@
             },
             "mean_speed": 37.87873131637363,
             "mean_brake": 0.0,
-            "return_mean": 31.543401538891413
+            "return_mean": 31.543401538891413,
+            "discounted_return_mean": 16.476358628591374
           },
           "unseen": {
             "episodes": 20,
@@ -1938,7 +2029,8 @@
             },
             "mean_speed": 37.877783752647495,
             "mean_brake": 0.0,
-            "return_mean": 31.525252919620243
+            "return_mean": 31.525252919620243,
+            "discounted_return_mean": 16.464831284445054
           },
           "unseen_hard": {
             "episodes": 20,
@@ -1953,12 +2045,13 @@
             },
             "mean_speed": 27.073056870115767,
             "mean_brake": 0.0375529302643182,
-            "return_mean": 13.398610930476073
+            "return_mean": 13.398610930476073,
+            "discounted_return_mean": 7.408940761525389
           }
         },
         {
           "seed": 4,
-          "train_seconds": 156.5,
+          "train_seconds": 81.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907744271936257,
@@ -1971,7 +2064,8 @@
             },
             "mean_speed": 37.912126158625284,
             "mean_brake": 1.3007309739989351e-05,
-            "return_mean": 31.49065042817788
+            "return_mean": 31.49065042817788,
+            "discounted_return_mean": 16.417638932125968
           },
           "unseen": {
             "episodes": 20,
@@ -1985,7 +2079,8 @@
             },
             "mean_speed": 37.66079395800233,
             "mean_brake": 0.0022245240600114484,
-            "return_mean": 31.442535389241613
+            "return_mean": 31.442535389241613,
+            "discounted_return_mean": 16.308747159106506
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2002,7 +2097,8 @@
             },
             "mean_speed": 15.7901704566538,
             "mean_brake": 0.2973225511353016,
-            "return_mean": 8.410813047894374
+            "return_mean": 8.410813047894374,
+            "discounted_return_mean": 3.8555350093216276
           }
         }
       ]
@@ -2060,6 +2156,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -2076,7 +2173,8 @@
           ],
           "directive": true,
           "previous_steer": false,
-          "stack": 1
+          "stack": 1,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -2127,7 +2225,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 155.7,
+          "train_seconds": 77.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910808794763998,
@@ -2140,7 +2238,8 @@
             },
             "mean_speed": 30.3533901276213,
             "mean_brake": 0.0003908452283622337,
-            "return_mean": 28.85852244219665
+            "return_mean": 28.85852244219665,
+            "discounted_return_mean": 15.127526559843579
           },
           "unseen": {
             "episodes": 20,
@@ -2154,7 +2253,8 @@
             },
             "mean_speed": 36.122837963076975,
             "mean_brake": 0.0,
-            "return_mean": 31.261284447112473
+            "return_mean": 31.261284447112473,
+            "discounted_return_mean": 15.85928686788217
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2169,12 +2269,13 @@
             },
             "mean_speed": 30.518654968277627,
             "mean_brake": 0.04876486792475688,
-            "return_mean": 16.733590614439734
+            "return_mean": 16.733590614439734,
+            "discounted_return_mean": 8.801656261880199
           }
         },
         {
           "seed": 1,
-          "train_seconds": 142.3,
+          "train_seconds": 78.4,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909676468643113,
@@ -2187,7 +2288,8 @@
             },
             "mean_speed": 29.966522220391305,
             "mean_brake": 0.04756417418537312,
-            "return_mean": 28.897650301494913
+            "return_mean": 28.897650301494913,
+            "discounted_return_mean": 15.076281642715491
           },
           "unseen": {
             "episodes": 20,
@@ -2201,7 +2303,8 @@
             },
             "mean_speed": 35.74482428832591,
             "mean_brake": 0.0016596385362453031,
-            "return_mean": 31.32237609340703
+            "return_mean": 31.32237609340703,
+            "discounted_return_mean": 15.83449624482444
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2216,12 +2319,13 @@
             },
             "mean_speed": 31.52506434197025,
             "mean_brake": 0.035152622864772526,
-            "return_mean": 18.05158190423615
+            "return_mean": 18.05158190423615,
+            "discounted_return_mean": 9.394761085233776
           }
         },
         {
           "seed": 2,
-          "train_seconds": 144.0,
+          "train_seconds": 79.4,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908380097808582,
@@ -2234,7 +2338,8 @@
             },
             "mean_speed": 29.827261747930255,
             "mean_brake": 0.03254103282963418,
-            "return_mean": 28.95758429494706
+            "return_mean": 28.95758429494706,
+            "discounted_return_mean": 15.079045225716815
           },
           "unseen": {
             "episodes": 20,
@@ -2248,7 +2353,8 @@
             },
             "mean_speed": 32.308043266266225,
             "mean_brake": 0.00047179628963623873,
-            "return_mean": 31.156427499814203
+            "return_mean": 31.156427499814203,
+            "discounted_return_mean": 14.971225714018658
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2263,12 +2369,13 @@
             },
             "mean_speed": 29.607186064255934,
             "mean_brake": 0.04554466455128249,
-            "return_mean": 27.72403643674709
+            "return_mean": 27.72403643674709,
+            "discounted_return_mean": 12.208698485284994
           }
         },
         {
           "seed": 3,
-          "train_seconds": 144.1,
+          "train_seconds": 78.1,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.990993088895401,
@@ -2281,7 +2388,8 @@
             },
             "mean_speed": 30.52291106278501,
             "mean_brake": 0.009636185040112695,
-            "return_mean": 28.7927927279713
+            "return_mean": 28.7927927279713,
+            "discounted_return_mean": 15.11245108872636
           },
           "unseen": {
             "episodes": 20,
@@ -2295,7 +2403,8 @@
             },
             "mean_speed": 34.95525745397636,
             "mean_brake": 0.0025065321477029763,
-            "return_mean": 31.283355794525097
+            "return_mean": 31.283355794525097,
+            "discounted_return_mean": 15.684574693731335
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2310,12 +2419,13 @@
             },
             "mean_speed": 29.40348300621107,
             "mean_brake": 0.0486260445459661,
-            "return_mean": 10.814729790693097
+            "return_mean": 10.814729790693097,
+            "discounted_return_mean": 6.34635739707794
           }
         },
         {
           "seed": 4,
-          "train_seconds": 152.1,
+          "train_seconds": 79.6,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911658939398779,
@@ -2328,7 +2438,8 @@
             },
             "mean_speed": 30.73746050626057,
             "mean_brake": 0.03615483142114561,
-            "return_mean": 28.664798533636525
+            "return_mean": 28.664798533636525,
+            "discounted_return_mean": 15.06676939867487
           },
           "unseen": {
             "episodes": 20,
@@ -2342,7 +2453,8 @@
             },
             "mean_speed": 33.99141871565511,
             "mean_brake": 0.003710295583650168,
-            "return_mean": 31.130023971965823
+            "return_mean": 31.130023971965823,
+            "discounted_return_mean": 15.238606356281034
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2357,7 +2469,8 @@
             },
             "mean_speed": 30.34036459417901,
             "mean_brake": 0.027527958840619416,
-            "return_mean": 30.266524254499398
+            "return_mean": 30.266524254499398,
+            "discounted_return_mean": 13.000413436353721
           }
         }
       ]
@@ -2415,6 +2528,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": false,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -2431,7 +2545,8 @@
           ],
           "directive": true,
           "previous_steer": false,
-          "stack": 1
+          "stack": 1,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -2482,7 +2597,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 153.4,
+          "train_seconds": 79.8,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9327000127065863,
@@ -2496,7 +2611,8 @@
             },
             "mean_speed": 30.908777642458414,
             "mean_brake": 0.04738444562781267,
-            "return_mean": 25.816062465017428
+            "return_mean": 25.816062465017428,
+            "discounted_return_mean": 13.807092584993436
           },
           "unseen": {
             "episodes": 20,
@@ -2510,7 +2626,8 @@
             },
             "mean_speed": 34.27327090045892,
             "mean_brake": 0.008287566468615983,
-            "return_mean": 31.156930360154938
+            "return_mean": 31.156930360154938,
+            "discounted_return_mean": 15.345410857325906
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2525,12 +2642,13 @@
             },
             "mean_speed": 30.363535506053143,
             "mean_brake": 0.02978475597188075,
-            "return_mean": 27.22083777252527
+            "return_mean": 27.22083777252527,
+            "discounted_return_mean": 12.114508576314403
           }
         },
         {
           "seed": 1,
-          "train_seconds": 153.5,
+          "train_seconds": 82.8,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908551435002794,
@@ -2543,7 +2661,8 @@
             },
             "mean_speed": 30.365567245004776,
             "mean_brake": 0.017341968302215228,
-            "return_mean": 28.769959112856885
+            "return_mean": 28.769959112856885,
+            "discounted_return_mean": 15.061212806145187
           },
           "unseen": {
             "episodes": 20,
@@ -2557,7 +2676,8 @@
             },
             "mean_speed": 35.61487797654092,
             "mean_brake": 0.0002825447619122052,
-            "return_mean": 31.161789541630164
+            "return_mean": 31.161789541630164,
+            "discounted_return_mean": 15.57753483187243
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2572,12 +2692,13 @@
             },
             "mean_speed": 31.0476041305283,
             "mean_brake": 0.02131130929772551,
-            "return_mean": 17.603375346230635
+            "return_mean": 17.603375346230635,
+            "discounted_return_mean": 9.182876894636204
           }
         },
         {
           "seed": 2,
-          "train_seconds": 143.8,
+          "train_seconds": 78.5,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911021304339839,
@@ -2590,7 +2711,8 @@
             },
             "mean_speed": 30.429086561366848,
             "mean_brake": 0.03182392025695575,
-            "return_mean": 28.70452057663703
+            "return_mean": 28.70452057663703,
+            "discounted_return_mean": 15.021231533677556
           },
           "unseen": {
             "episodes": 20,
@@ -2604,7 +2726,8 @@
             },
             "mean_speed": 35.351234258539066,
             "mean_brake": 0.009839405951324518,
-            "return_mean": 31.15803467229847
+            "return_mean": 31.15803467229847,
+            "discounted_return_mean": 15.544717289515063
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2619,12 +2742,13 @@
             },
             "mean_speed": 30.928033599999786,
             "mean_brake": 0.04666868174297596,
-            "return_mean": 24.90039419556144
+            "return_mean": 24.90039419556144,
+            "discounted_return_mean": 11.55507750172745
           }
         },
         {
           "seed": 3,
-          "train_seconds": 144.1,
+          "train_seconds": 87.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911971406693058,
@@ -2637,7 +2761,8 @@
             },
             "mean_speed": 30.497379187538968,
             "mean_brake": 2.182778053132359e-05,
-            "return_mean": 28.806901335690874
+            "return_mean": 28.806901335690874,
+            "discounted_return_mean": 15.170040046927369
           },
           "unseen": {
             "episodes": 20,
@@ -2651,7 +2776,8 @@
             },
             "mean_speed": 34.10858403891443,
             "mean_brake": 0.0,
-            "return_mean": 31.220921020711604
+            "return_mean": 31.220921020711604,
+            "discounted_return_mean": 15.422178382849296
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2666,12 +2792,13 @@
             },
             "mean_speed": 30.572437174149094,
             "mean_brake": 0.01625082140320684,
-            "return_mean": 31.357775914041788
+            "return_mean": 31.357775914041788,
+            "discounted_return_mean": 13.407036290955219
           }
         },
         {
           "seed": 4,
-          "train_seconds": 128.8,
+          "train_seconds": 97.7,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911702382561003,
@@ -2684,7 +2811,8 @@
             },
             "mean_speed": 30.361560273375318,
             "mean_brake": 0.03652209685589852,
-            "return_mean": 28.61976298682081
+            "return_mean": 28.61976298682081,
+            "discounted_return_mean": 14.990695810046152
           },
           "unseen": {
             "episodes": 20,
@@ -2698,7 +2826,8 @@
             },
             "mean_speed": 33.89152443984481,
             "mean_brake": 0.0004199770111086184,
-            "return_mean": 31.23572806795371
+            "return_mean": 31.23572806795371,
+            "discounted_return_mean": 15.405126523450411
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2713,7 +2842,8 @@
             },
             "mean_speed": 30.66362865244335,
             "mean_brake": 0.042633470617315955,
-            "return_mean": 15.513424737408618
+            "return_mean": 15.513424737408618,
+            "discounted_return_mean": 8.390747964688968
           }
         }
       ]
@@ -2771,10 +2901,12 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [],
           "directive": true,
           "previous_steer": false,
-          "stack": 1
+          "stack": 1,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -2825,7 +2957,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 134.3,
+          "train_seconds": 161.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9913578056430874,
@@ -2838,7 +2970,8 @@
             },
             "mean_speed": 29.471064198145136,
             "mean_brake": 0.06959632887839654,
-            "return_mean": 29.013950572989337
+            "return_mean": 29.013950572989337,
+            "discounted_return_mean": 15.067657842744211
           },
           "unseen": {
             "episodes": 20,
@@ -2852,7 +2985,8 @@
             },
             "mean_speed": 32.36303891299163,
             "mean_brake": 0.018202516949586196,
-            "return_mean": 31.199233241888834
+            "return_mean": 31.199233241888834,
+            "discounted_return_mean": 15.049366515999907
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2866,12 +3000,13 @@
             },
             "mean_speed": 30.455538707155483,
             "mean_brake": 0.05401019167936301,
-            "return_mean": 32.905377104107494
+            "return_mean": 32.905377104107494,
+            "discounted_return_mean": 13.88071691020727
           }
         },
         {
           "seed": 1,
-          "train_seconds": 146.7,
+          "train_seconds": 85.5,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909890166241159,
@@ -2884,7 +3019,8 @@
             },
             "mean_speed": 30.73006810690298,
             "mean_brake": 0.043388023960904944,
-            "return_mean": 28.547152701174873
+            "return_mean": 28.547152701174873,
+            "discounted_return_mean": 14.963699637628576
           },
           "unseen": {
             "episodes": 20,
@@ -2898,7 +3034,8 @@
             },
             "mean_speed": 35.841176129563294,
             "mean_brake": 0.00957869290433733,
-            "return_mean": 31.073513202046637
+            "return_mean": 31.073513202046637,
+            "discounted_return_mean": 15.536104323089864
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2913,12 +3050,13 @@
             },
             "mean_speed": 30.61358751003714,
             "mean_brake": 0.05237463250386136,
-            "return_mean": 27.34603223546113
+            "return_mean": 27.34603223546113,
+            "discounted_return_mean": 12.143223962308756
           }
         },
         {
           "seed": 2,
-          "train_seconds": 151.0,
+          "train_seconds": 83.4,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911109449442103,
@@ -2931,7 +3069,8 @@
             },
             "mean_speed": 30.946017522536245,
             "mean_brake": 0.04143781490572952,
-            "return_mean": 28.558595689510504
+            "return_mean": 28.558595689510504,
+            "discounted_return_mean": 15.009492074785559
           },
           "unseen": {
             "episodes": 20,
@@ -2945,7 +3084,8 @@
             },
             "mean_speed": 35.548516417611765,
             "mean_brake": 0.0046963779045547166,
-            "return_mean": 30.76113812358946
+            "return_mean": 30.76113812358946,
+            "discounted_return_mean": 15.2587454876587
           },
           "unseen_hard": {
             "episodes": 20,
@@ -2960,12 +3100,13 @@
             },
             "mean_speed": 30.34232162755661,
             "mean_brake": 0.04430703366862707,
-            "return_mean": 25.629573819860887
+            "return_mean": 25.629573819860887,
+            "discounted_return_mean": 11.44743559656564
           }
         },
         {
           "seed": 3,
-          "train_seconds": 156.3,
+          "train_seconds": 83.7,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908191627763221,
@@ -2978,7 +3119,8 @@
             },
             "mean_speed": 28.81711293582424,
             "mean_brake": 0.05922027198910057,
-            "return_mean": 28.93047413532141
+            "return_mean": 28.93047413532141,
+            "discounted_return_mean": 14.828372525613773
           },
           "unseen": {
             "episodes": 20,
@@ -2992,7 +3134,8 @@
             },
             "mean_speed": 33.37969112612847,
             "mean_brake": 0.023313407429769673,
-            "return_mean": 31.254592270053656
+            "return_mean": 31.254592270053656,
+            "discounted_return_mean": 15.32648421450924
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3007,12 +3150,13 @@
             },
             "mean_speed": 28.85748902918711,
             "mean_brake": 0.07705236917850233,
-            "return_mean": 23.781254271409505
+            "return_mean": 23.781254271409505,
+            "discounted_return_mean": 10.808586666495605
           }
         },
         {
           "seed": 4,
-          "train_seconds": 136.5,
+          "train_seconds": 80.0,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9914448843638599,
@@ -3025,7 +3169,8 @@
             },
             "mean_speed": 29.62705758317203,
             "mean_brake": 0.05282302005992251,
-            "return_mean": 28.77377705955019
+            "return_mean": 28.77377705955019,
+            "discounted_return_mean": 14.860898038869227
           },
           "unseen": {
             "episodes": 20,
@@ -3039,7 +3184,8 @@
             },
             "mean_speed": 33.05703163380435,
             "mean_brake": 0.0026227798056643386,
-            "return_mean": 31.132477550967355
+            "return_mean": 31.132477550967355,
+            "discounted_return_mean": 15.0657590232209
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3054,7 +3200,8 @@
             },
             "mean_speed": 30.09918520951468,
             "mean_brake": 0.04242925400082066,
-            "return_mean": 25.070995543461116
+            "return_mean": 25.070995543461116,
+            "discounted_return_mean": 11.42865646902184
           }
         }
       ]
@@ -3112,6 +3259,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -3128,7 +3276,8 @@
           ],
           "directive": true,
           "previous_steer": true,
-          "stack": 1
+          "stack": 1,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -3179,7 +3328,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 134.2,
+          "train_seconds": 85.0,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9913900656465403,
@@ -3192,7 +3341,8 @@
             },
             "mean_speed": 30.719775851740813,
             "mean_brake": 0.00029710016280232144,
-            "return_mean": 28.72677250976714
+            "return_mean": 28.72677250976714,
+            "discounted_return_mean": 15.121989797330414
           },
           "unseen": {
             "episodes": 20,
@@ -3206,7 +3356,8 @@
             },
             "mean_speed": 33.74683435997493,
             "mean_brake": 0.0,
-            "return_mean": 31.07816012209861
+            "return_mean": 31.07816012209861,
+            "discounted_return_mean": 15.153754321823545
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3221,12 +3372,13 @@
             },
             "mean_speed": 29.66887989246314,
             "mean_brake": 0.0181801250942428,
-            "return_mean": 30.157478287248324
+            "return_mean": 30.157478287248324,
+            "discounted_return_mean": 12.736261532741896
           }
         },
         {
           "seed": 1,
-          "train_seconds": 137.9,
+          "train_seconds": 83.9,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909489993228388,
@@ -3239,7 +3391,8 @@
             },
             "mean_speed": 29.101232397445862,
             "mean_brake": 0.028867643966793928,
-            "return_mean": 29.24136731777558
+            "return_mean": 29.24136731777558,
+            "discounted_return_mean": 15.279572184756844
           },
           "unseen": {
             "episodes": 20,
@@ -3253,7 +3406,8 @@
             },
             "mean_speed": 31.24826026128727,
             "mean_brake": 4.369387701346479e-05,
-            "return_mean": 31.144141733907333
+            "return_mean": 31.144141733907333,
+            "discounted_return_mean": 14.75134724724084
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3268,12 +3422,13 @@
             },
             "mean_speed": 30.697619279519,
             "mean_brake": 0.02463740625447826,
-            "return_mean": 31.550772881014403
+            "return_mean": 31.550772881014403,
+            "discounted_return_mean": 13.78059493657091
           }
         },
         {
           "seed": 2,
-          "train_seconds": 143.0,
+          "train_seconds": 87.5,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908368026053587,
@@ -3286,7 +3441,8 @@
             },
             "mean_speed": 30.212506769808318,
             "mean_brake": 0.05290718174961193,
-            "return_mean": 28.93005273571481
+            "return_mean": 28.93005273571481,
+            "discounted_return_mean": 15.16059235567947
           },
           "unseen": {
             "episodes": 20,
@@ -3300,7 +3456,8 @@
             },
             "mean_speed": 33.60270267542379,
             "mean_brake": 0.01397447334847971,
-            "return_mean": 31.197244532623778
+            "return_mean": 31.197244532623778,
+            "discounted_return_mean": 15.290527158678296
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3315,12 +3472,13 @@
             },
             "mean_speed": 30.67470757675785,
             "mean_brake": 0.04174501966063823,
-            "return_mean": 28.746342097171595
+            "return_mean": 28.746342097171595,
+            "discounted_return_mean": 12.659135832102207
           }
         },
         {
           "seed": 3,
-          "train_seconds": 126.0,
+          "train_seconds": 86.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909380006389933,
@@ -3333,7 +3491,8 @@
             },
             "mean_speed": 30.67098200244738,
             "mean_brake": 0.0,
-            "return_mean": 28.79190260683516
+            "return_mean": 28.79190260683516,
+            "discounted_return_mean": 15.194537653061932
           },
           "unseen": {
             "episodes": 20,
@@ -3347,7 +3506,8 @@
             },
             "mean_speed": 34.186913257883724,
             "mean_brake": 0.0,
-            "return_mean": 31.172543614639928
+            "return_mean": 31.172543614639928,
+            "discounted_return_mean": 15.358879796311225
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3362,12 +3522,13 @@
             },
             "mean_speed": 31.188851763540413,
             "mean_brake": 0.007635809973639313,
-            "return_mean": 29.253498687826198
+            "return_mean": 29.253498687826198,
+            "discounted_return_mean": 12.996022552036564
           }
         },
         {
           "seed": 4,
-          "train_seconds": 134.9,
+          "train_seconds": 86.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9912068230588389,
@@ -3380,7 +3541,8 @@
             },
             "mean_speed": 30.778609655850932,
             "mean_brake": 0.042266916726713656,
-            "return_mean": 28.802546765598102
+            "return_mean": 28.802546765598102,
+            "discounted_return_mean": 15.18022738346852
           },
           "unseen": {
             "episodes": 20,
@@ -3394,7 +3556,8 @@
             },
             "mean_speed": 35.34491637416418,
             "mean_brake": 0.00010517440255611173,
-            "return_mean": 31.198158055027204
+            "return_mean": 31.198158055027204,
+            "discounted_return_mean": 15.590224150892343
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3409,7 +3572,8 @@
             },
             "mean_speed": 31.458517546363055,
             "mean_brake": 0.03721635661433319,
-            "return_mean": 28.68224796520362
+            "return_mean": 28.68224796520362,
+            "discounted_return_mean": 12.828612705392791
           }
         }
       ]
@@ -3467,6 +3631,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -3483,7 +3648,8 @@
           ],
           "directive": true,
           "previous_steer": false,
-          "stack": 4
+          "stack": 4,
+          "zero_fill_from": null
         },
         "reward": {
           "progress_per_metre": 0.02,
@@ -3534,7 +3700,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 125.9,
+          "train_seconds": 93.6,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9589983936336566,
@@ -3548,7 +3714,8 @@
             },
             "mean_speed": 28.509168332305972,
             "mean_brake": 0.017727882726400315,
-            "return_mean": 25.734342233343177
+            "return_mean": 25.734342233343177,
+            "discounted_return_mean": 13.429669827012864
           },
           "unseen": {
             "episodes": 20,
@@ -3562,7 +3729,8 @@
             },
             "mean_speed": 30.38933548873563,
             "mean_brake": 0.007934253048706368,
-            "return_mean": 31.127299557926836
+            "return_mean": 31.127299557926836,
+            "discounted_return_mean": 14.537604419281749
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3577,12 +3745,13 @@
             },
             "mean_speed": 28.19396702921433,
             "mean_brake": 0.03768110447237586,
-            "return_mean": 24.548458097127295
+            "return_mean": 24.548458097127295,
+            "discounted_return_mean": 10.968130011574564
           }
         },
         {
           "seed": 1,
-          "train_seconds": 151.6,
+          "train_seconds": 86.6,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909138331359133,
@@ -3595,7 +3764,8 @@
             },
             "mean_speed": 30.293121372702007,
             "mean_brake": 0.06325049366320283,
-            "return_mean": 28.589652959981162
+            "return_mean": 28.589652959981162,
+            "discounted_return_mean": 14.918181275141771
           },
           "unseen": {
             "episodes": 20,
@@ -3609,7 +3779,8 @@
             },
             "mean_speed": 34.426100291585996,
             "mean_brake": 0.010293819512012442,
-            "return_mean": 31.176498563117377
+            "return_mean": 31.176498563117377,
+            "discounted_return_mean": 15.416715173335401
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3625,12 +3796,13 @@
             },
             "mean_speed": 28.347253117112707,
             "mean_brake": 0.07161251783093953,
-            "return_mean": 29.67263326914891
+            "return_mean": 29.67263326914891,
+            "discounted_return_mean": 12.315584172345368
           }
         },
         {
           "seed": 2,
-          "train_seconds": 125.8,
+          "train_seconds": 84.4,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9913382588253521,
@@ -3643,7 +3815,8 @@
             },
             "mean_speed": 30.415810475320036,
             "mean_brake": 0.06802490321521162,
-            "return_mean": 28.87914527379794
+            "return_mean": 28.87914527379794,
+            "discounted_return_mean": 15.17533928545483
           },
           "unseen": {
             "episodes": 20,
@@ -3657,7 +3830,8 @@
             },
             "mean_speed": 34.78106273002187,
             "mean_brake": 0.009515344042257724,
-            "return_mean": 31.3180301386598
+            "return_mean": 31.3180301386598,
+            "discounted_return_mean": 15.670326940303635
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3672,12 +3846,13 @@
             },
             "mean_speed": 28.655367614631963,
             "mean_brake": 0.042609181945962304,
-            "return_mean": 30.374098289315167
+            "return_mean": 30.374098289315167,
+            "discounted_return_mean": 12.610001578429355
           }
         },
         {
           "seed": 3,
-          "train_seconds": 136.5,
+          "train_seconds": 94.9,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910360766127063,
@@ -3690,7 +3865,8 @@
             },
             "mean_speed": 30.358801826284445,
             "mean_brake": 0.011965816203814915,
-            "return_mean": 28.80970795349257
+            "return_mean": 28.80970795349257,
+            "discounted_return_mean": 15.054054198749071
           },
           "unseen": {
             "episodes": 20,
@@ -3704,7 +3880,8 @@
             },
             "mean_speed": 35.064546498085136,
             "mean_brake": 0.0015890708319810539,
-            "return_mean": 31.198163683005664
+            "return_mean": 31.198163683005664,
+            "discounted_return_mean": 15.539271891319776
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3720,12 +3897,13 @@
             },
             "mean_speed": 27.900340906966232,
             "mean_brake": 0.05523603538427124,
-            "return_mean": 28.284043970906755
+            "return_mean": 28.284043970906755,
+            "discounted_return_mean": 11.909264080223695
           }
         },
         {
           "seed": 4,
-          "train_seconds": 145.7,
+          "train_seconds": 92.2,
           "seen": {
             "episodes": 20,
             "lap_fraction_mean": 0.9912416241142644,
@@ -3738,7 +3916,8 @@
             },
             "mean_speed": 30.24276311614967,
             "mean_brake": 0.005548832797556693,
-            "return_mean": 28.90446248186609
+            "return_mean": 28.90446248186609,
+            "discounted_return_mean": 15.136421941966395
           },
           "unseen": {
             "episodes": 20,
@@ -3752,7 +3931,8 @@
             },
             "mean_speed": 34.48802649030178,
             "mean_brake": 0.0005816150884754173,
-            "return_mean": 31.134839197266018
+            "return_mean": 31.134839197266018,
+            "discounted_return_mean": 15.340961704693001
           },
           "unseen_hard": {
             "episodes": 20,
@@ -3767,7 +3947,8 @@
             },
             "mean_speed": 30.043066494578632,
             "mean_brake": 0.040432879714926,
-            "return_mean": 26.70790005377439
+            "return_mean": 26.70790005377439,
+            "discounted_return_mean": 11.857868377200695
           }
         }
       ]
@@ -3786,7 +3967,8 @@
       },
       "mean_speed": 15.572745097167076,
       "mean_brake": 0.10968152002557888,
-      "return_mean": 27.930538574733163
+      "return_mean": 27.930538574733163,
+      "discounted_return_mean": 9.819367959080296
     },
     "random8": {
       "episodes": 20,
@@ -3800,7 +3982,8 @@
       },
       "mean_speed": 19.383696642519364,
       "mean_brake": 0.08482597738667455,
-      "return_mean": 34.34162082678639
+      "return_mean": 34.34162082678639,
+      "discounted_return_mean": 12.219690868248657
     },
     "unseen": {
       "episodes": 20,
@@ -3814,7 +3997,8 @@
       },
       "mean_speed": 18.464106110672635,
       "mean_brake": 0.0713261169982799,
-      "return_mean": 34.86076623716452
+      "return_mean": 34.86076623716452,
+      "discounted_return_mean": 12.027965404513008
     },
     "unseen_hard": {
       "episodes": 20,
@@ -3829,7 +4013,8 @@
       },
       "mean_speed": 12.919350059293134,
       "mean_brake": 0.1340613376597409,
-      "return_mean": 28.024909924655475
+      "return_mean": 28.024909924655475,
+      "discounted_return_mean": 8.099782905264194
     }
   }
 }

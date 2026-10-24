@@ -1,13 +1,14 @@
 {
   "metadata": {
-    "command": "python experiments/ch02_sb3_baseline.py --circuit easy --seeds 0 1 2 --steps 500000",
+    "command": "python experiments/ch02_sb3_baseline.py --circuit easy",
     "seeds": [
       0,
       1,
       2
     ],
-    "commit": "9c46d75",
-    "date": "2026-10-18T22:12:29+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-23T19:41:28+00:00"
   },
   "circuit": "easy",
   "stable_baselines3": "2.9.0",
@@ -15,7 +16,7 @@
   "runs": [
     {
       "seed": 0,
-      "train_seconds": 79.2,
+      "train_seconds": 89.2,
       "eval": {
         "episodes": 10,
         "lap_fraction_mean": 0.9909552455500809,
@@ -28,12 +29,13 @@
         },
         "mean_speed": 37.84143116572991,
         "mean_brake": 0.0,
-        "return_mean": 31.575345572394923
+        "return_mean": 31.575345572394923,
+        "discounted_return_mean": 16.509841339036335
       }
     },
     {
       "seed": 1,
-      "train_seconds": 78.1,
+      "train_seconds": 83.9,
       "eval": {
         "episodes": 10,
         "lap_fraction_mean": 0.9908295582631432,
@@ -46,12 +48,13 @@
         },
         "mean_speed": 37.88533670681047,
         "mean_brake": 0.0,
-        "return_mean": 31.52779087082564
+        "return_mean": 31.52779087082564,
+        "discounted_return_mean": 16.452794115222645
       }
     },
     {
       "seed": 2,
-      "train_seconds": 83.9,
+      "train_seconds": 88.0,
       "eval": {
         "episodes": 10,
         "lap_fraction_mean": 0.9908396402219044,
@@ -64,7 +67,8 @@
         },
         "mean_speed": 37.86831178851161,
         "mean_brake": 0.0,
-        "return_mean": 31.573456001707363
+        "return_mean": 31.573456001707363,
+        "discounted_return_mean": 16.497958342849568
       }
     }
   ]

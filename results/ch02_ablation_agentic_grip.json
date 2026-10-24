@@ -1,13 +1,14 @@
 {
   "metadata": {
-    "command": "python experiments/ch02_ablations.py --seeds 0 1 2",
+    "command": "python experiments/ch02_ablations.py",
     "seeds": [
       0,
       1,
       2
     ],
-    "commit": "9c46d75",
-    "date": "2026-10-18T22:28:50+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-23T19:51:45+00:00"
   },
   "variant": "agentic_grip",
   "env_config": {
@@ -62,6 +63,7 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": true,
+      "progress_encoding": "linear",
       "curvature_windows": [
         [
           0.0,
@@ -77,7 +79,9 @@
         ]
       ],
       "directive": true,
-      "previous_steer": false
+      "previous_steer": false,
+      "stack": 1,
+      "zero_fill_from": null
     },
     "reward": {
       "progress_per_metre": 0.02,
@@ -162,11 +166,11 @@
   "runs": [
     {
       "seed": 0,
-      "train_seconds": 72.1,
+      "train_seconds": 93.8,
       "last_batch": {
         "update": 244,
         "steps": 499712,
-        "seconds": 72.1,
+        "seconds": 93.8,
         "episodes": 12,
         "std": 0.6182827353477478,
         "policy_loss": -0.0002576441562268883,
@@ -196,16 +200,17 @@
         },
         "mean_speed": 31.053997369059935,
         "mean_brake": 0.35620791082350783,
-        "return_mean": 28.51515733351679
+        "return_mean": 28.51515733351679,
+        "discounted_return_mean": 15.428370236477218
       }
     },
     {
       "seed": 1,
-      "train_seconds": 75.8,
+      "train_seconds": 86.0,
       "last_batch": {
         "update": 244,
         "steps": 499712,
-        "seconds": 75.8,
+        "seconds": 86.0,
         "episodes": 13,
         "std": 0.5721933245658875,
         "policy_loss": -0.000292711696238257,
@@ -235,16 +240,17 @@
         },
         "mean_speed": 31.812798488950648,
         "mean_brake": 0.28830406989804847,
-        "return_mean": 28.24669538438398
+        "return_mean": 28.24669538438398,
+        "discounted_return_mean": 15.378767930864399
       }
     },
     {
       "seed": 2,
-      "train_seconds": 75.5,
+      "train_seconds": 94.2,
       "last_batch": {
         "update": 244,
         "steps": 499712,
-        "seconds": 75.5,
+        "seconds": 94.2,
         "episodes": 11,
         "std": 0.623725414276123,
         "policy_loss": -0.0004906606685835868,
@@ -274,7 +280,8 @@
         },
         "mean_speed": 29.615160470925098,
         "mean_brake": 0.2826784690569453,
-        "return_mean": 28.480430648512872
+        "return_mean": 28.480430648512872,
+        "discounted_return_mean": 14.938788737984822
       }
     }
   ],
@@ -290,6 +297,7 @@
     },
     "mean_speed": 15.652043914386473,
     "mean_brake": 0.16492606312232172,
-    "return_mean": 28.115727023437227
+    "return_mean": 28.115727023437227,
+    "discounted_return_mean": 9.957878203477659
   }
 }

@@ -9,8 +9,8 @@
       4
     ],
     "book_run": true,
-    "commit": "f94d7a6",
-    "date": "2026-10-22T14:01:49+00:00"
+    "commit": "8e77117",
+    "date": "2026-10-23T22:07:13+00:00"
   },
   "ppo_config": {
     "total_steps": 500000,
@@ -395,7 +395,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 152.6,
+          "train_seconds": 88.8,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910808794763998,
@@ -453,7 +453,7 @@
         },
         {
           "seed": 1,
-          "train_seconds": 159.3,
+          "train_seconds": 91.4,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909676468643113,
@@ -511,7 +511,7 @@
         },
         {
           "seed": 2,
-          "train_seconds": 149.6,
+          "train_seconds": 82.2,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908380097808582,
@@ -569,7 +569,7 @@
         },
         {
           "seed": 3,
-          "train_seconds": 147.1,
+          "train_seconds": 79.6,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.990993088895401,
@@ -627,7 +627,7 @@
         },
         {
           "seed": 4,
-          "train_seconds": 140.3,
+          "train_seconds": 82.2,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911658939398779,
@@ -807,7 +807,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 75.0,
+          "train_seconds": 82.6,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.03786931181953482,
@@ -861,7 +861,7 @@
         },
         {
           "seed": 1,
-          "train_seconds": 74.7,
+          "train_seconds": 78.0,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.013161465676868832,
@@ -915,7 +915,7 @@
         },
         {
           "seed": 2,
-          "train_seconds": 72.8,
+          "train_seconds": 76.1,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.03183319095795968,
@@ -967,7 +967,7 @@
         },
         {
           "seed": 3,
-          "train_seconds": 73.5,
+          "train_seconds": 78.6,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.03747288639905867,
@@ -1024,7 +1024,7 @@
         },
         {
           "seed": 4,
-          "train_seconds": 70.8,
+          "train_seconds": 80.4,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.08305630737864804,
@@ -1200,7 +1200,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 73.0,
+          "train_seconds": 81.7,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909753928820125,
@@ -1256,7 +1256,7 @@
         },
         {
           "seed": 1,
-          "train_seconds": 79.7,
+          "train_seconds": 94.8,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909181672245762,
@@ -1312,7 +1312,7 @@
         },
         {
           "seed": 2,
-          "train_seconds": 73.1,
+          "train_seconds": 119.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9912132737494554,
@@ -1368,7 +1368,7 @@
         },
         {
           "seed": 3,
-          "train_seconds": 81.4,
+          "train_seconds": 76.0,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909014464887566,
@@ -1424,7 +1424,7 @@
         },
         {
           "seed": 4,
-          "train_seconds": 76.6,
+          "train_seconds": 73.7,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911562211550171,
@@ -1602,7 +1602,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 74.6,
+          "train_seconds": 81.6,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910693810471345,
@@ -1660,7 +1660,7 @@
         },
         {
           "seed": 1,
-          "train_seconds": 74.9,
+          "train_seconds": 220.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909740826060005,
@@ -1718,7 +1718,7 @@
         },
         {
           "seed": 2,
-          "train_seconds": 75.1,
+          "train_seconds": 158.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908562180463543,
@@ -1776,7 +1776,7 @@
         },
         {
           "seed": 3,
-          "train_seconds": 80.0,
+          "train_seconds": 177.0,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908570002916728,
@@ -1834,7 +1834,7 @@
         },
         {
           "seed": 4,
-          "train_seconds": 73.9,
+          "train_seconds": 193.7,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908810930450811,
@@ -2014,7 +2014,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 73.4,
+          "train_seconds": 174.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9907958644869147,
@@ -2071,7 +2071,7 @@
         },
         {
           "seed": 1,
-          "train_seconds": 77.9,
+          "train_seconds": 190.2,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9680447825741801,
@@ -2133,7 +2133,7 @@
         },
         {
           "seed": 2,
-          "train_seconds": 82.8,
+          "train_seconds": 100.6,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.990887769782748,
@@ -2191,7 +2191,7 @@
         },
         {
           "seed": 3,
-          "train_seconds": 96.8,
+          "train_seconds": 71.1,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9913119422515722,
@@ -2248,7 +2248,7 @@
         },
         {
           "seed": 4,
-          "train_seconds": 94.6,
+          "train_seconds": 72.0,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9825286033530123,
@@ -2432,7 +2432,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 71.4,
+          "train_seconds": 80.3,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.8138641433642914,
@@ -2485,7 +2485,7 @@
         },
         {
           "seed": 1,
-          "train_seconds": 72.0,
+          "train_seconds": 76.8,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.7499355466475139,
@@ -2538,7 +2538,7 @@
         },
         {
           "seed": 2,
-          "train_seconds": 72.1,
+          "train_seconds": 75.4,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9761626257750107,
@@ -2592,7 +2592,7 @@
         },
         {
           "seed": 3,
-          "train_seconds": 74.5,
+          "train_seconds": 75.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.6811244709563837,
@@ -2645,7 +2645,7 @@
         },
         {
           "seed": 4,
-          "train_seconds": 72.4,
+          "train_seconds": 75.9,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.7682560200497842,
@@ -2827,7 +2827,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 75.5,
+          "train_seconds": 75.6,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9032671976624806,
@@ -2889,7 +2889,7 @@
         },
         {
           "seed": 1,
-          "train_seconds": 74.1,
+          "train_seconds": 74.7,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.9282621649325249,
@@ -2951,7 +2951,7 @@
         },
         {
           "seed": 2,
-          "train_seconds": 72.3,
+          "train_seconds": 77.5,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.7319118923929259,
@@ -3013,7 +3013,7 @@
         },
         {
           "seed": 3,
-          "train_seconds": 74.0,
+          "train_seconds": 79.2,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.8603294416979057,
@@ -3075,7 +3075,7 @@
         },
         {
           "seed": 4,
-          "train_seconds": 75.6,
+          "train_seconds": 75.0,
           "random_directive": {
             "episodes": 20,
             "lap_fraction_mean": 0.8718611801814916,

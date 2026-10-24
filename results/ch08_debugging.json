@@ -8,8 +8,9 @@
       3,
       4
     ],
-    "commit": "289c0a3",
-    "date": "2026-10-20T01:04:14+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-24T00:58:18+00:00"
   },
   "ppo_config": {
     "total_steps": 500000,
@@ -109,6 +110,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -246,7 +248,8 @@
             },
             "mean_speed": 15.572745097167076,
             "mean_brake": 0.10968152002557888,
-            "return_mean": 27.930538574733163
+            "return_mean": 27.930538574733163,
+            "discounted_return_mean": 9.819367959080296
           },
           "offset": 4.0,
           "speed": 15.0,
@@ -259,7 +262,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 72.5,
+          "train_seconds": 93.9,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910808794763998,
@@ -272,12 +275,13 @@
             },
             "mean_speed": 30.3533901276213,
             "mean_brake": 0.0003908452283622337,
-            "return_mean": 28.85852244219665
+            "return_mean": 28.85852244219665,
+            "discounted_return_mean": 15.127526559843579
           }
         },
         {
           "seed": 1,
-          "train_seconds": 72.3,
+          "train_seconds": 83.9,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909676468643113,
@@ -290,12 +294,13 @@
             },
             "mean_speed": 29.966522220391305,
             "mean_brake": 0.04756417418537312,
-            "return_mean": 28.897650301494913
+            "return_mean": 28.897650301494913,
+            "discounted_return_mean": 15.076281642715491
           }
         },
         {
           "seed": 2,
-          "train_seconds": 72.3,
+          "train_seconds": 82.0,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908380097808582,
@@ -308,12 +313,13 @@
             },
             "mean_speed": 29.827261747930255,
             "mean_brake": 0.03254103282963418,
-            "return_mean": 28.95758429494706
+            "return_mean": 28.95758429494706,
+            "discounted_return_mean": 15.079045225716815
           }
         },
         {
           "seed": 3,
-          "train_seconds": 113.8,
+          "train_seconds": 82.5,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.990993088895401,
@@ -326,12 +332,13 @@
             },
             "mean_speed": 30.52291106278501,
             "mean_brake": 0.009636185040112695,
-            "return_mean": 28.7927927279713
+            "return_mean": 28.7927927279713,
+            "discounted_return_mean": 15.11245108872636
           }
         },
         {
           "seed": 4,
-          "train_seconds": 98.4,
+          "train_seconds": 79.9,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911658939398779,
@@ -344,7 +351,8 @@
             },
             "mean_speed": 30.73746050626057,
             "mean_brake": 0.03615483142114561,
-            "return_mean": 28.664798533636525
+            "return_mean": 28.664798533636525,
+            "discounted_return_mean": 15.06676939867487
           }
         }
       ]
@@ -402,6 +410,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -539,7 +548,8 @@
             },
             "mean_speed": 15.535411385146848,
             "mean_brake": 0.10405270112019113,
-            "return_mean": 27.71840187462816
+            "return_mean": 27.71840187462816,
+            "discounted_return_mean": 9.719837443897077
           },
           "offset": 4.0,
           "speed": 15.0,
@@ -552,7 +562,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 72.7,
+          "train_seconds": 77.8,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910711021252586,
@@ -565,12 +575,13 @@
             },
             "mean_speed": 28.071406975189564,
             "mean_brake": 0.0024832097554283424,
-            "return_mean": 29.38827201687689
+            "return_mean": 29.38827201687689,
+            "discounted_return_mean": 14.86669059190055
           }
         },
         {
           "seed": 1,
-          "train_seconds": 72.7,
+          "train_seconds": 79.7,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909846901317326,
@@ -583,12 +594,13 @@
             },
             "mean_speed": 28.41181859066894,
             "mean_brake": 0.03044643816788954,
-            "return_mean": 29.27277729891849
+            "return_mean": 29.27277729891849,
+            "discounted_return_mean": 14.823713537499831
           }
         },
         {
           "seed": 2,
-          "train_seconds": 71.5,
+          "train_seconds": 79.9,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908781573711316,
@@ -601,12 +613,13 @@
             },
             "mean_speed": 27.910099018150778,
             "mean_brake": 0.025943463458642447,
-            "return_mean": 29.33597004034967
+            "return_mean": 29.33597004034967,
+            "discounted_return_mean": 14.757806736909675
           }
         },
         {
           "seed": 3,
-          "train_seconds": 71.9,
+          "train_seconds": 79.8,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911895405557083,
@@ -619,12 +632,13 @@
             },
             "mean_speed": 28.540357356801287,
             "mean_brake": 0.011221978177185102,
-            "return_mean": 29.303420472996144
+            "return_mean": 29.303420472996144,
+            "discounted_return_mean": 14.91173495085332
           }
         },
         {
           "seed": 4,
-          "train_seconds": 71.5,
+          "train_seconds": 80.9,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9908793286137234,
@@ -637,7 +651,8 @@
             },
             "mean_speed": 28.462773050763797,
             "mean_brake": 0.0007624498009494036,
-            "return_mean": 29.343785318366496
+            "return_mean": 29.343785318366496,
+            "discounted_return_mean": 14.956631532861575
           }
         }
       ]
@@ -695,6 +710,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -852,7 +868,8 @@
             },
             "mean_speed": 15.572745097167076,
             "mean_brake": 0.10968152002557888,
-            "return_mean": 27.930538574733163
+            "return_mean": 27.930538574733163,
+            "discounted_return_mean": 9.819367959080296
           },
           "offset": 4.0,
           "speed": 15.0,
@@ -865,7 +882,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 143.4,
+          "train_seconds": 81.7,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.6140817786311263,
@@ -878,12 +895,13 @@
             },
             "mean_speed": 28.154136908128255,
             "mean_brake": 0.06050042191910695,
-            "return_mean": 5.785030483348025
+            "return_mean": 5.785030483348025,
+            "discounted_return_mean": 4.469624959777577
           }
         },
         {
           "seed": 1,
-          "train_seconds": 106.2,
+          "train_seconds": 81.5,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.610837010323061,
@@ -896,12 +914,13 @@
             },
             "mean_speed": 28.126595067194813,
             "mean_brake": 0.05905921023397802,
-            "return_mean": 5.694373188128123
+            "return_mean": 5.694373188128123,
+            "discounted_return_mean": 4.378969958922811
           }
         },
         {
           "seed": 2,
-          "train_seconds": 88.9,
+          "train_seconds": 79.4,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.7061840165207146,
@@ -916,12 +935,13 @@
             },
             "mean_speed": 25.39983274137197,
             "mean_brake": 0.08683478282650717,
-            "return_mean": 9.688283147919757
+            "return_mean": 9.688283147919757,
+            "discounted_return_mean": 6.041154014345577
           }
         },
         {
           "seed": 3,
-          "train_seconds": 102.4,
+          "train_seconds": 83.2,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.7424172372023572,
@@ -935,12 +955,13 @@
             },
             "mean_speed": 27.756801078416846,
             "mean_brake": 0.044339543962008864,
-            "return_mean": 8.13089538130253
+            "return_mean": 8.13089538130253,
+            "discounted_return_mean": 5.6578423748643605
           }
         },
         {
           "seed": 4,
-          "train_seconds": 112.4,
+          "train_seconds": 84.4,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.6971998156331942,
@@ -954,7 +975,8 @@
             },
             "mean_speed": 28.09395379371592,
             "mean_brake": 0.08242122177465279,
-            "return_mean": 7.429747269909191
+            "return_mean": 7.429747269909191,
+            "discounted_return_mean": 5.223228962958808
           }
         }
       ]
@@ -1012,6 +1034,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -1151,7 +1174,8 @@
             },
             "mean_speed": 15.297557137894966,
             "mean_brake": 0.11400699258682698,
-            "return_mean": 10.465042492296169
+            "return_mean": 10.465042492296169,
+            "discounted_return_mean": 5.847558038385327
           },
           "offset": 4.0,
           "speed": 15.0,
@@ -1164,7 +1188,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 116.3,
+          "train_seconds": 82.8,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9909795300760973,
@@ -1177,7 +1201,8 @@
             },
             "mean_speed": 30.589591803261065,
             "mean_brake": 0.04153777552964925,
-            "return_mean": 25.863868898660677
+            "return_mean": 25.863868898660677,
+            "discounted_return_mean": 14.034801143948574
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1191,12 +1216,13 @@
             },
             "mean_speed": 30.589591803261065,
             "mean_brake": 0.04153777552964925,
-            "return_mean": 28.85930889866063
+            "return_mean": 28.85930889866063,
+            "discounted_return_mean": 15.378457856762429
           }
         },
         {
           "seed": 1,
-          "train_seconds": 116.6,
+          "train_seconds": 80.2,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9911276071785702,
@@ -1209,7 +1235,8 @@
             },
             "mean_speed": 30.827587597637915,
             "mean_brake": 0.06191233862991502,
-            "return_mean": 25.870906459208392
+            "return_mean": 25.870906459208392,
+            "discounted_return_mean": 14.079913982254201
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1223,12 +1250,13 @@
             },
             "mean_speed": 30.827587597637915,
             "mean_brake": 0.06191233862991502,
-            "return_mean": 28.847866459208348
+            "return_mean": 28.847866459208348,
+            "discounted_return_mean": 15.422332553955737
           }
         },
         {
           "seed": 2,
-          "train_seconds": 120.7,
+          "train_seconds": 83.8,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910166799638762,
@@ -1241,7 +1269,8 @@
             },
             "mean_speed": 30.02324915214512,
             "mean_brake": 0.048456774545595035,
-            "return_mean": 25.98225332809568
+            "return_mean": 25.98225332809568,
+            "discounted_return_mean": 14.000786127348164
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1255,12 +1284,13 @@
             },
             "mean_speed": 30.02324915214512,
             "mean_brake": 0.048456774545595035,
-            "return_mean": 29.032386661428955
+            "return_mean": 29.032386661428955,
+            "discounted_return_mean": 15.349279371322273
           }
         },
         {
           "seed": 3,
-          "train_seconds": 119.1,
+          "train_seconds": 82.6,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910757488806958,
@@ -1273,7 +1303,8 @@
             },
             "mean_speed": 30.74473458795386,
             "mean_brake": 0.06407849723433952,
-            "return_mean": 25.8889205360405
+            "return_mean": 25.8889205360405,
+            "discounted_return_mean": 14.048896369221016
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1287,12 +1318,13 @@
             },
             "mean_speed": 30.74473458795386,
             "mean_brake": 0.06407849723433952,
-            "return_mean": 28.883987202707118
+            "return_mean": 28.883987202707118,
+            "discounted_return_mean": 15.392406972968482
           }
         },
         {
           "seed": 4,
-          "train_seconds": 117.2,
+          "train_seconds": 87.8,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9910446032992313,
@@ -1305,7 +1337,8 @@
             },
             "mean_speed": 30.66385295720093,
             "mean_brake": 0.06307024060345832,
-            "return_mean": 25.794553613658586
+            "return_mean": 25.794553613658586,
+            "discounted_return_mean": 13.9893862351942
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1319,7 +1352,8 @@
             },
             "mean_speed": 30.66385295720093,
             "mean_brake": 0.06307024060345832,
-            "return_mean": 28.790180280325217
+            "return_mean": 28.790180280325217,
+            "discounted_return_mean": 15.332776233144546
           }
         }
       ]
@@ -1377,6 +1411,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -1514,7 +1549,8 @@
             },
             "mean_speed": 13.138776535910996,
             "mean_brake": 0.12043150229137964,
-            "return_mean": 1.963765307287641
+            "return_mean": 1.963765307287641,
+            "discounted_return_mean": 1.7776592414061696
           },
           "offset": 4.0,
           "speed": 15.0,
@@ -1579,6 +1615,7 @@
           "heading_error": true,
           "lateral_offset": true,
           "progress": true,
+          "progress_encoding": "linear",
           "curvature_windows": [
             [
               0.0,
@@ -1736,7 +1773,8 @@
             },
             "mean_speed": 13.139344501523794,
             "mean_brake": 0.11233880495327606,
-            "return_mean": 1.9571405444997072
+            "return_mean": 1.9571405444997072,
+            "discounted_return_mean": 1.766138274758524
           },
           "offset": 4.0,
           "speed": 15.0,
@@ -1749,7 +1787,7 @@
       "runs": [
         {
           "seed": 0,
-          "train_seconds": 126.3,
+          "train_seconds": 87.8,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9777939036606649,
@@ -1763,7 +1801,8 @@
             },
             "mean_speed": 25.610277008607284,
             "mean_brake": 0.06313376103935456,
-            "return_mean": 24.61282235490999
+            "return_mean": 24.61282235490999,
+            "discounted_return_mean": 12.190847756849726
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1778,12 +1817,13 @@
             },
             "mean_speed": 25.610277008607284,
             "mean_brake": 0.06313376103935456,
-            "return_mean": 28.095462354909934
+            "return_mean": 28.095462354909934,
+            "discounted_return_mean": 13.495737509133487
           }
         },
         {
           "seed": 1,
-          "train_seconds": 114.6,
+          "train_seconds": 86.6,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.7166013610799842,
@@ -1796,7 +1836,8 @@
             },
             "mean_speed": 28.063772798985802,
             "mean_brake": 0.05283065924042381,
-            "return_mean": 6.913889121685784
+            "return_mean": 6.913889121685784,
+            "discounted_return_mean": 5.12965402458073
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1810,12 +1851,13 @@
             },
             "mean_speed": 28.063772798985802,
             "mean_brake": 0.05283065924042381,
-            "return_mean": 6.913889121685784
+            "return_mean": 6.913889121685784,
+            "discounted_return_mean": 5.12965402458073
           }
         },
         {
           "seed": 2,
-          "train_seconds": 126.1,
+          "train_seconds": 85.8,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.9748840324273171,
@@ -1829,7 +1871,8 @@
             },
             "mean_speed": 25.01501564479817,
             "mean_brake": 0.06804160227625057,
-            "return_mean": 24.628399792244164
+            "return_mean": 24.628399792244164,
+            "discounted_return_mean": 12.127168731108732
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1844,12 +1887,13 @@
             },
             "mean_speed": 25.01501564479817,
             "mean_brake": 0.06804160227625057,
-            "return_mean": 28.14575979224411
+            "return_mean": 28.14575979224411,
+            "discounted_return_mean": 13.432126665359158
           }
         },
         {
           "seed": 3,
-          "train_seconds": 124.5,
+          "train_seconds": 81.1,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.7493840972916886,
@@ -1863,7 +1907,8 @@
             },
             "mean_speed": 26.096121965713735,
             "mean_brake": 0.07421449763119845,
-            "return_mean": 8.281153373638874
+            "return_mean": 8.281153373638874,
+            "discounted_return_mean": 5.779378220739511
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1878,12 +1923,13 @@
             },
             "mean_speed": 26.096121965713735,
             "mean_brake": 0.07421449763119845,
-            "return_mean": 8.45755337363887
+            "return_mean": 8.45755337363887,
+            "discounted_return_mean": 5.848122689625746
           }
         },
         {
           "seed": 4,
-          "train_seconds": 126.2,
+          "train_seconds": 88.3,
           "evaluation": {
             "episodes": 20,
             "lap_fraction_mean": 0.7162828106453226,
@@ -1896,7 +1942,8 @@
             },
             "mean_speed": 27.8990844934589,
             "mean_brake": 0.05621321938482189,
-            "return_mean": 6.934319120321359
+            "return_mean": 6.934319120321359,
+            "discounted_return_mean": 5.148433018756036
           },
           "evaluation_60s": {
             "episodes": 20,
@@ -1910,7 +1957,8 @@
             },
             "mean_speed": 27.8990844934589,
             "mean_brake": 0.05621321938482189,
-            "return_mean": 6.934319120321359
+            "return_mean": 6.934319120321359,
+            "discounted_return_mean": 5.148433018756036
           }
         }
       ]

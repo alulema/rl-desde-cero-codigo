@@ -8,8 +8,9 @@
       3,
       4
     ],
-    "commit": "b535e12",
-    "date": "2026-10-19T00:47:20+00:00"
+    "book_run": true,
+    "commit": "8e77117",
+    "date": "2026-10-23T20:12:00+00:00"
   },
   "expert": "memoryless",
   "env_config": {
@@ -64,6 +65,7 @@
       "heading_error": true,
       "lateral_offset": true,
       "progress": true,
+      "progress_encoding": "linear",
       "curvature_windows": [
         [
           0.0,
@@ -79,7 +81,9 @@
         ]
       ],
       "directive": true,
-      "previous_steer": false
+      "previous_steer": false,
+      "stack": 1,
+      "zero_fill_from": null
     },
     "reward": {
       "progress_per_metre": 0.02,
