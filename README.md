@@ -97,5 +97,5 @@ corre el mismo comando y compara todo menos los tiempos, la fecha y el commit.
 
 ## Licencia
 
-El código está bajo licencia MIT (ver `LICENSE`). El texto del libro, las figuras y la portada no son
-libres: © Alexis Alulema, todos los derechos reservados.
+Todo lo que hay en este repositorio está bajo licencia MIT (ver `LICENSE`). El libro no: su texto, sus
+figuras y su portada son © Alexis Alulema, todos los derechos reservados.
