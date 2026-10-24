@@ -2,6 +2,11 @@
 
 Estado: **aprobado por el autor** (2026-10-18), incluida la decisión D1 (§2).
 
+> Este es el documento de diseño que se escribió **antes** de programar `rlcar`, y se conserva como se
+> aprobó. Las "fases" son las del plan del libro (la Fase 1 es el entorno; la 2, PPO; la 4, las ablaciones
+> y la depuración), y "la bitácora" es la del manuscrito, que no está en este repositorio. Los valores
+> finales están en el código (`src/rlcar/`) y en el libro.
+
 Fuente: `alulema/agentic-racing` en `33e1f8d` (2026-10-10), en particular:
 
 - `RaceAgent.cs`, `CarController.cs`, `VehicleConfig.cs`, `TrackProgress.cs`, `TrainingArena.cs`,
@@ -50,7 +55,7 @@ descuento la castiga menos.
   debería quedar en 25–40 s, unas 250–400 decisiones.
 - **Ancho de pista:** 12 m, igual que el original.
 - **Valores finales:** se calibran en la Fase 1 con el experto, buscando que haga vueltas limpias con
-  margen, y se anotan en el Devlog. Luego se congelan antes de la Fase 2.
+  margen, y se anotan en la bitácora. Luego se congelan antes de la Fase 2.
 
 **Qué cambia para el libro:** cuando hable del caso real, el libro usa los números de Agentic Racing (2 km,
 95 s, γ = 0.995 → 0.37 a 20 s), y cuando hable de `rlcar`, los suyos. Las cuentas de descuento siguen
@@ -315,7 +320,7 @@ lo corre en la sombra, nunca como una consulta suelta sobre estados sueltos.
   con 8 en paralelo. La meta orientativa es que PPO pueda ver unos 1–2 M de decisiones en menos de 15
   minutos, lo que exige unas 2 000 decisiones por segundo en total. Si no llega, primero se perfila (los
   rayos son el sospechoso), luego se vectoriza el sensor y, como último recurso, se escribe un entorno por
-  lotes. La cifra medida va al Devlog.
+  lotes. La cifra medida va a la bitácora.
 
 ---
 
@@ -365,10 +370,10 @@ Lo que el libro tiene que decir cuando compare `rlcar` con Agentic Racing:
 
 ## 12. Criterio de cierre de la Fase 1
 
-Lo que pide CLAUDE.md §8, más lo que este diseño agrega:
+Lo que pide el plan del libro, más lo que este diseño agrega:
 
 1. El experto completa vueltas en el circuito fijo. Se miden el porcentaje de vueltas y el tiempo por vuelta
-   con 5 semillas y las tres agresiones, y se anotan en el Devlog.
+   con 5 semillas y las tres agresiones, y se anotan en la bitácora.
 2. Los tests pasan, local y en CI.
 3. Un episodio del experto exportado a GIF.
 4. El rendimiento medido y anotado (§9).
